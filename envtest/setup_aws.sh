@@ -3,7 +3,7 @@
 # setup_aws.sh
 # Provisions the AWS resources the contract-analyzer PoC needs in us-east-1:
 #   - one private S3 bucket for uploads
-#   - detects the Bedrock Claude model/inference-profile id to use
+#   - detects a WORKING, current-generation Bedrock Claude model (skips Legacy)
 #   - verifies Bedrock model access (cannot enable it for you; will instruct)
 #   - writes resolved values into config.env
 #
@@ -58,7 +58,6 @@ if aws_cmd s3api head-bucket --bucket "$S3_BUCKET" >/dev/null 2>/tmp/awserr; the
   ok "Bucket already exists and is accessible: ${S3_BUCKET}"
 else
   info "Creating bucket ${S3_BUCKET} ..."
-  # us-east-1 must NOT receive a LocationConstraint; other regions must.
   if [ "$AWS_REGION" = "us-east-1" ]; then
     CREATE_OUT="$(aws_cmd s3api create-bucket --bucket "$S3_BUCKET" 2>&1)"
   else
@@ -78,7 +77,6 @@ else
   fi
 fi
 
-# Lock down public access (security baseline; makes the bucket more private).
 if aws_cmd s3api put-public-access-block --bucket "$S3_BUCKET" \
     --public-access-block-configuration \
     BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true \
@@ -88,61 +86,86 @@ else
   warn "Could not set public access block: $(cat /tmp/awserr)"
 fi
 
-# ---- 2. Bedrock model detection ---------------------------------------------
+# ---- 2. Bedrock model detection (ACTIVE only, current-gen first) ------------
 hdr "2. Bedrock models"
 aws_cmd bedrock list-inference-profiles \
-  --query 'inferenceProfileSummaries[].inferenceProfileId' --output text >/tmp/ip 2>/dev/null
+  --query 'inferenceProfileSummaries[].inferenceProfileId' --output text 2>/dev/null \
+  | tr '\t' '\n' | grep -i claude > /tmp/ip_claude || true
 aws_cmd bedrock list-foundation-models --by-provider Anthropic \
-  --query 'modelSummaries[].modelId' --output text >/tmp/fm 2>/dev/null
+  --query "modelSummaries[?modelLifecycle.status=='ACTIVE'].modelId" --output text 2>/dev/null \
+  | tr '\t' '\n' | grep -i claude > /tmp/fm_active || true
 
-if [ -z "${CHAT_MODEL_ID:-}" ]; then
-  # Prefer a US Claude inference profile, prefer Haiku (cheapest) for the app's
-  # high-volume steps; fall back to any Claude profile, then base model ids.
-  CHAT_MODEL_ID="$(tr '\t' '\n' < /tmp/ip 2>/dev/null | grep -i 'claude' | grep -i 'haiku' | head -n1)"
-  [ -z "$CHAT_MODEL_ID" ] && CHAT_MODEL_ID="$(tr '\t' '\n' < /tmp/ip 2>/dev/null | grep -i 'claude' | head -n1)"
-  [ -z "$CHAT_MODEL_ID" ] && CHAT_MODEL_ID="$(tr '\t' '\n' < /tmp/fm 2>/dev/null | grep -i 'haiku' | head -n1)"
-  [ -z "$CHAT_MODEL_ID" ] && CHAT_MODEL_ID="$(tr '\t' '\n' < /tmp/fm 2>/dev/null | grep -i 'claude' | head -n1)"
-fi
-
-if [ -n "${CHAT_MODEL_ID:-}" ]; then
-  ok "Selected chat model id: ${CHAT_MODEL_ID}"
+info "Current-gen Claude inference profiles found:"
+if [ -s /tmp/ip_claude ]; then
+  grep -iv 'claude-3' /tmp/ip_claude | sed 's/^/          /'
 else
-  warn "No Claude model id found. You likely need to enable model access (below)."
+  info "          (none listed — model access may be off)"
 fi
-info "Claude inference profiles found:"
-tr '\t' '\n' < /tmp/ip 2>/dev/null | grep -i 'claude' | sed 's/^/          /' || info "          (none)"
 
-# ---- 3. Verify Bedrock access (cannot enable it for you) ---------------------
+# Build an ordered, de-duplicated candidate list:
+#   user-set id (if any) -> current-gen profiles (haiku, sonnet, other)
+#   -> active base model ids -> legacy claude-3 profiles (last resort).
+{
+  [ -n "${CHAT_MODEL_ID:-}" ] && echo "$CHAT_MODEL_ID"
+  grep -iv 'claude-3' /tmp/ip_claude 2>/dev/null | grep -i haiku
+  grep -iv 'claude-3' /tmp/ip_claude 2>/dev/null | grep -i sonnet
+  grep -iv 'claude-3' /tmp/ip_claude 2>/dev/null
+  grep -i haiku /tmp/fm_active 2>/dev/null
+  grep -i sonnet /tmp/fm_active 2>/dev/null
+  cat /tmp/fm_active 2>/dev/null
+  grep -i 'claude-3' /tmp/ip_claude 2>/dev/null
+} | grep -v '^$' | awk '!seen[$0]++' > /tmp/cand
+
+# ---- 3. Probe access: invoke candidates until one works ---------------------
 hdr "3. Bedrock access check"
-if [ -n "${CHAT_MODEL_ID:-}" ]; then
-  REPLY="$(aws_cmd bedrock-runtime converse --model-id "$CHAT_MODEL_ID" \
+CHOSEN=""; LASTERR=""; TRIED=0
+while IFS= read -r cand; do
+  [ -z "$cand" ] && continue
+  TRIED=$((TRIED+1))
+  [ "$TRIED" -gt 8 ] && break
+  REPLY="$(aws_cmd bedrock-runtime converse --model-id "$cand" \
       --messages '[{"role":"user","content":[{"text":"Reply with: OK"}]}]' \
       --inference-config '{"maxTokens":10,"temperature":0}' \
       --query 'output.message.content[0].text' --output text 2>/tmp/awserr)"
-  if [ $? -eq 0 ] && [ -n "$REPLY" ]; then
-    ok "Bedrock chat access confirmed (model replied)."
+  if [ -n "$REPLY" ] && [ "$REPLY" != "None" ]; then
+    CHOSEN="$cand"
+    ok "Invoked OK: ${cand}  (reply: $(echo "$REPLY" | tr -d '\n'))"
+    break
   else
-    warn "Chat model access NOT yet granted."
-    info "$(cat /tmp/awserr)"
-    info "Enable it once (manual, ~1 min):"
-    info "  Console > Amazon Bedrock > Model access > Modify model access"
-    info "  Enable the Anthropic Claude models in ${AWS_REGION}, accept terms, save."
-    info "  Then re-run this script (or just ./test_aws.sh)."
+    LASTERR="$(cat /tmp/awserr)"
+    info "tried ${cand} -> $(echo "$LASTERR" | tr '\n' ' ' | cut -c1-110)"
   fi
+done < /tmp/cand
+
+if [ -n "$CHOSEN" ]; then
+  CHAT_MODEL_ID="$CHOSEN"
+  ok "Chat model selected: ${CHAT_MODEL_ID}"
 else
-  warn "Skipping access check (no model id)."
+  warn "No Claude model could be invoked yet."
+  [ -n "$LASTERR" ] && info "Last error: $(echo "$LASTERR" | tr '\n' ' ')"
+  info "The 3.x models are Legacy; you likely need to enable CURRENT models:"
+  info "  Console > Amazon Bedrock > Model access > Modify model access"
+  info "  Enable Claude Haiku 4.5 and Claude Sonnet 4.6 in ${AWS_REGION}, accept terms, save."
+  info "  Then re-run ./setup_aws.sh."
+  info "Known-good current IDs you can also set by hand in config.env:"
+  info "  us.anthropic.claude-haiku-4-5-20251001-v1:0   (cheap, high volume)"
+  info "  us.anthropic.claude-sonnet-4-6                (reasoning)"
 fi
 
 # ---- 4. Write config.env -----------------------------------------------------
 hdr "4. Writing config.env"
-cat > "$CONFIG_FILE" <<EOF
+cat > "$CONFIG_FILE" <<CFG
 # config.env  —  generated by setup_aws.sh on $(date)
 AWS_REGION=${AWS_REGION}
 AWS_PROFILE=${AWS_PROFILE:-}
 S3_BUCKET=${S3_BUCKET}
 CHAT_MODEL_ID=${CHAT_MODEL_ID:-}
 EMBED_MODEL_ID=${EMBED_MODEL_ID}
-EOF
+CFG
 ok "Wrote ${CONFIG_FILE}"
 echo
-echo "${GREEN}Setup complete.${NC} Next: run ./test_aws.sh to verify end-to-end connectivity."
+if [ -n "$CHOSEN" ]; then
+  echo "${GREEN}Setup complete.${NC} Next: run ./test_aws.sh to verify end-to-end connectivity."
+else
+  echo "${YEL}Setup partly complete.${NC} Enable current Claude models (above), then re-run ./setup_aws.sh."
+fi
