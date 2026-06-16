@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClauseLens — admin / observability mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;--ink-2:#243042;--canvas:#F7F4EF;--slate:#475569;--slate-soft:#6B7686;
+    --marigold:#D97706;--garnet:#9B2C2C;--sage:#4D7C6F;
+    --haiku:#6FA8B8;--sonnet:#8E84C8;
+    --hair:rgba(71,85,105,.18);
+    --shadow:0 1px 2px rgba(27,36,48,.07), 0 10px 28px -10px rgba(27,36,48,.18);
+    --hl:inset 0 1px 0 rgba(255,255,255,.65);--radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);min-height:100vh;display:flex;
+    background:radial-gradient(130% 90% at 50% -12%, #FCFAF6 0%, #F7F4EF 46%, #F0EAE0 100%) fixed;-webkit-font-smoothing:antialiased}
+  .rail{width:60px;flex:none;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:6px;
+    background:radial-gradient(120% 60% at 50% 0%, var(--ink-2), var(--ink) 70%);box-shadow:2px 0 18px -8px rgba(27,36,48,.45)}
+  .mark{width:34px;height:34px;border-radius:9px;background:var(--marigold);color:#fff;display:grid;place-items:center;
+    font-family:'Spectral',serif;font-weight:600;font-size:19px;box-shadow:0 5px 14px -5px rgba(217,119,6,.7);margin-bottom:14px}
+  .rail a{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;color:#7E8896;font-size:18px;text-decoration:none;transition:.18s}
+  .rail a:hover{color:#CBD2DC;background:rgba(255,255,255,.05)}
+  .rail a.on{color:var(--canvas);background:rgba(217,119,6,.16);box-shadow:inset 2px 0 0 var(--marigold)}
+  .shell{flex:1;display:flex;flex-direction:column;min-width:0}
+  header{display:flex;align-items:center;gap:18px;padding:18px 30px;border-bottom:1px solid var(--hair)}
+  .word{font-family:'Spectral',serif;font-weight:600;font-size:23px;letter-spacing:.2px}
+  .word span{color:var(--marigold)}
+  .crumb{font-size:13px;color:var(--slate);border-left:1px solid var(--hair);padding-left:18px}
+  .crumb b{color:var(--ink);font-weight:600}
+  main{flex:1;padding:24px 30px 32px;display:flex;flex-direction:column;gap:22px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .card{background:#FBF9F5;border:1px solid var(--hair);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow),var(--hl)}
+  .card .lbl{font-size:11.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--slate-soft)}
+  .card .val{font-size:25px;font-weight:600;margin-top:6px;letter-spacing:-.3px}
+  .card .sub{font-size:12px;color:var(--slate);margin-top:2px}
+  .panel-title{font-size:12px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;color:var(--slate-soft);margin-bottom:11px}
+  .stage{position:relative;border-radius:16px;padding:18px 8px;overflow:hidden;
+    background:radial-gradient(95% 80% at 28% 4%, var(--ink-2) 0%, var(--ink) 58%, #141C26 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 18px 44px -22px rgba(20,28,38,.7);border:1px solid #2A3647}
+  .stage svg{width:100%;height:auto;display:block}
+  .leg{position:absolute;right:18px;top:16px;display:flex;gap:16px;font-size:12px;color:#AEB6C2}
+  .leg i{display:inline-flex;align-items:center;gap:6px}
+  .leg .sw{width:14px;height:10px;border-radius:3px}
+  .sk-label{font-family:'Inter';font-size:12.5px;fill:#C6CDD8}
+  .sk-sub{font-family:'Inter';font-size:11px;fill:#8A93A1}
+  .sk-node{font-family:'Inter';font-size:13px;font-weight:600;fill:#E7EAF0}
+  table{width:100%;border-collapse:collapse;background:#FBF9F5;border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow),var(--hl)}
+  th,td{text-align:left;padding:11px 16px;font-size:13px}
+  th{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--slate-soft);background:rgba(71,85,105,.05)}
+  td{border-top:1px solid var(--hair)}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .tier{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:3px 9px;border-radius:7px}
+  .tier.h{background:rgba(111,168,184,.16);color:#3C6f7d}
+  .tier.s{background:rgba(142,132,200,.16);color:#5b50a0}
+  .tier .d{width:7px;height:7px;border-radius:2px}
+  .tier.h .d{background:var(--haiku)}.tier.s .d{background:var(--sonnet)}
+</style>
+</head>
+<body>
+  <nav class="rail">
+    <div class="mark">C</div>
+    <a title="Analyses" aria-label="Analyses">&#9703;</a>
+    <a title="New analysis" aria-label="New analysis">&#65291;</a>
+    <a class="on" title="Admin" aria-label="Admin">&#9636;</a>
+    <a style="margin-top:auto" title="Settings" aria-label="Settings">&#9881;</a>
+  </nav>
+
+  <div class="shell">
+    <header>
+      <div class="word">Clause<span>Lens</span></div>
+      <div class="crumb">Admin &middot; Observability&nbsp;&middot;&nbsp;<b>Acme &#8644; BuildrCo — MSA + SOW</b></div>
+    </header>
+
+    <main>
+      <div class="cards">
+        <div class="card"><div class="lbl">Total cost</div><div class="val">$0.51</div><div class="sub">this analysis run</div></div>
+        <div class="card"><div class="lbl">Tokens processed</div><div class="val">600K</div><div class="sub">480K Haiku &middot; 120K Sonnet</div></div>
+        <div class="card"><div class="lbl">Wall-clock time</div><div class="val">3m 48s</div><div class="sub">across both stages</div></div>
+        <div class="card"><div class="lbl">Prompt runs</div><div class="val">142</div><div class="sub">5 distinct prompts</div></div>
+      </div>
+
+      <div>
+        <div class="panel-title">Cost attribution by stage and model</div>
+        <div class="stage">
+          <div class="leg">
+            <i><span class="sw" style="background:var(--haiku)"></span>Haiku 4.5</i>
+            <i><span class="sw" style="background:var(--sonnet)"></span>Sonnet 4.6</i>
+          </div>
+          <svg viewBox="0 0 600 470" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Sankey diagram of cost flow from pipeline stages to model tiers">
+            <path d="M222 44 C 346 44,346 350,470 350 L470 378 C346 378,346 72,222 72 Z" fill="rgba(111,168,184,.40)"/>
+            <path d="M222 84 C 346 84,346 378,470 378 L470 420 C346 420,346 126,222 126 Z" fill="rgba(111,168,184,.40)"/>
+            <path d="M222 138 C 346 138,346 44,470 44 L470 122 C346 122,346 216,222 216 Z" fill="rgba(142,132,200,.40)"/>
+            <path d="M222 228 C 346 228,346 122,470 122 L470 270 C346 270,346 376,222 376 Z" fill="rgba(142,132,200,.42)"/>
+            <path d="M222 388 C 346 388,346 270,470 270 L470 334 C346 334,346 452,222 452 Z" fill="rgba(142,132,200,.40)"/>
+
+            <rect x="210" y="44"  width="12" height="28"  rx="2" fill="#6FA8B8"/>
+            <rect x="210" y="84"  width="12" height="42"  rx="2" fill="#6FA8B8"/>
+            <rect x="210" y="138" width="12" height="78"  rx="2" fill="#8E84C8"/>
+            <rect x="210" y="228" width="12" height="148" rx="2" fill="#8E84C8"/>
+            <rect x="210" y="388" width="12" height="64"  rx="2" fill="#8E84C8"/>
+
+            <rect x="470" y="44"  width="14" height="290" rx="2" fill="#8E84C8"/>
+            <rect x="470" y="350" width="14" height="70"  rx="2" fill="#6FA8B8"/>
+
+            <text class="sk-label" x="200" y="62"  text-anchor="end">Entity extraction</text>
+            <text class="sk-label" x="200" y="109" text-anchor="end">Chunk summaries</text>
+            <text class="sk-label" x="200" y="181" text-anchor="end">Master summary</text>
+            <text class="sk-label" x="200" y="306" text-anchor="end">Risk &amp; conflict</text>
+            <text class="sk-label" x="200" y="424" text-anchor="end">LLM-as-judge</text>
+
+            <text class="sk-node" x="494" y="183">Sonnet 4.6</text>
+            <text class="sk-sub"  x="494" y="200">$0.41 &middot; 120K tokens</text>
+            <text class="sk-node" x="494" y="382">Haiku 4.5</text>
+            <text class="sk-sub"  x="494" y="399">$0.10 &middot; 480K tokens</text>
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel-title">Per-step detail</div>
+        <table>
+          <thead>
+            <tr><th>Pipeline step</th><th>Model</th><th style="text-align:right">Tokens in / out</th><th style="text-align:right">Avg latency</th><th style="text-align:right">Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Entity extraction</td><td><span class="tier h"><span class="d"></span>Haiku 4.5</span></td><td class="num">210K / 38K</td><td class="num">0.6 s</td><td class="num">$0.04</td></tr>
+            <tr><td>Chunk summaries</td><td><span class="tier h"><span class="d"></span>Haiku 4.5</span></td><td class="num">232K / 41K</td><td class="num">0.7 s</td><td class="num">$0.06</td></tr>
+            <tr><td>Master summary</td><td><span class="tier s"><span class="d"></span>Sonnet 4.6</span></td><td class="num">44K / 6K</td><td class="num">4.1 s</td><td class="num">$0.11</td></tr>
+            <tr><td>Risk &amp; conflict analysis</td><td><span class="tier s"><span class="d"></span>Sonnet 4.6</span></td><td class="num">58K / 11K</td><td class="num">7.8 s</td><td class="num">$0.21</td></tr>
+            <tr><td>LLM-as-judge</td><td><span class="tier s"><span class="d"></span>Sonnet 4.6</span></td><td class="num">22K / 4K</td><td class="num">3.2 s</td><td class="num">$0.09</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
