@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClauseLens — graph view mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Spectral:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2430;            /* Midnight Brief  */
+    --ink-2:#243042;          /* lifted navy     */
+    --canvas:#F7F4EF;         /* Soft Oatmeal    */
+    --slate:#475569;          /* Slate Cadence   */
+    --slate-soft:#6B7686;
+    --marigold:#D97706;       /* AI / interactive accent */
+    --garnet:#9B2C2C;         /* severity: high  */
+    --ochre:#B5731A;          /* severity: medium*/
+    --sage:#4D7C6F;           /* severity: low   */
+    --hair:rgba(71,85,105,.18);
+    --shadow:0 1px 2px rgba(27,36,48,.07), 0 10px 28px -10px rgba(27,36,48,.18);
+    --shadow-sm:0 1px 2px rgba(27,36,48,.08), 0 4px 12px -6px rgba(27,36,48,.16);
+    --hl:inset 0 1px 0 rgba(255,255,255,.65);
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(130% 90% at 50% -12%, #FCFAF6 0%, #F7F4EF 46%, #F0EAE0 100%) fixed;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+  }
+  /* ---- nav rail ---- */
+  .rail{
+    width:60px;flex:none;background:
+      radial-gradient(120% 60% at 50% 0%, var(--ink-2), var(--ink) 70%);
+    display:flex;flex-direction:column;align-items:center;
+    padding:16px 0;gap:6px;box-shadow:2px 0 18px -8px rgba(27,36,48,.45);
+  }
+  .mark{width:34px;height:34px;border-radius:9px;background:var(--marigold);
+    color:#fff;display:grid;place-items:center;font-family:'Spectral',serif;
+    font-weight:600;font-size:19px;box-shadow:0 5px 14px -5px rgba(217,119,6,.7);margin-bottom:14px}
+  .rail a{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;
+    color:#7E8896;font-size:18px;text-decoration:none;transition:.18s}
+  .rail a:hover{color:#CBD2DC;background:rgba(255,255,255,.05)}
+  .rail a.on{color:var(--canvas);background:rgba(217,119,6,.16);box-shadow:inset 2px 0 0 var(--marigold)}
+  /* ---- shell ---- */
+  .shell{flex:1;display:flex;flex-direction:column;min-width:0}
+  header{display:flex;align-items:center;gap:18px;padding:18px 30px;border-bottom:1px solid var(--hair)}
+  .word{font-family:'Spectral',serif;font-weight:600;font-size:23px;letter-spacing:.2px}
+  .word span{color:var(--marigold)}
+  .crumb{font-size:13px;color:var(--slate);border-left:1px solid var(--hair);padding-left:18px}
+  .crumb b{color:var(--ink);font-weight:600}
+  .spacer{flex:1}
+  .pill{font-size:12px;color:var(--sage);background:rgba(77,124,111,.12);
+    padding:5px 11px;border-radius:999px;font-weight:500;display:flex;align-items:center;gap:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--sage)}
+  .cta{font-family:inherit;font-size:13.5px;font-weight:600;color:#fff;background:var(--marigold);
+    border:none;border-radius:9px;padding:9px 17px;cursor:pointer;
+    box-shadow:0 6px 16px -6px rgba(217,119,6,.6),var(--hl);transition:.18s}
+  .cta:hover{transform:translateY(-1px);box-shadow:0 9px 20px -6px rgba(217,119,6,.7),var(--hl)}
+  main{flex:1;display:grid;grid-template-columns:1fr 312px;gap:22px;padding:24px 30px 30px}
+  .panel-title{font-size:12px;font-weight:600;letter-spacing:.7px;text-transform:uppercase;
+    color:var(--slate-soft);margin-bottom:11px}
+  /* ---- graph stage (the navy signature surface) ---- */
+  .stage-wrap{display:flex;flex-direction:column;min-width:0}
+  .stage{position:relative;flex:1;border-radius:16px;min-height:430px;overflow:hidden;
+    background:radial-gradient(95% 80% at 28% 4%, var(--ink-2) 0%, var(--ink) 58%, #141C26 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 18px 44px -22px rgba(20,28,38,.7);
+    border:1px solid #2A3647}
+  .stage svg{position:absolute;inset:0;width:100%;height:100%}
+  .node{position:absolute;width:154px;background:#FBF9F5;border-radius:11px;padding:11px 13px;
+    box-shadow:var(--shadow-sm),var(--hl);border:1px solid rgba(255,255,255,.5);transition:.16s;cursor:default}
+  .node:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(0,0,0,.18),0 16px 30px -12px rgba(0,0,0,.5),var(--hl)}
+  .node .ntype{font-size:10.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px;color:var(--slate-soft)}
+  .node .nname{font-size:14px;font-weight:600;margin-top:3px;line-height:1.25}
+  .tick{width:8px;height:8px;border-radius:2px}
+  .t-org{background:var(--slate)}.t-role{background:var(--marigold)}.t-deliv{background:var(--sage)}
+  .node.sel{background:#fff;border:1.5px solid var(--marigold);
+    box-shadow:0 0 0 4px rgba(217,119,6,.18),0 18px 34px -12px rgba(0,0,0,.55),var(--hl)}
+  .node.flag{border:1.5px dashed var(--garnet)}
+  .badge{position:absolute;top:-9px;right:-9px;background:var(--garnet);color:#fff;font-size:10px;
+    font-weight:600;padding:2px 8px;border-radius:999px;box-shadow:0 3px 8px -2px rgba(155,44,44,.6)}
+  .elabel{position:absolute;font-size:10.5px;font-weight:500;color:#9AA4B2;
+    background:rgba(20,28,38,.72);padding:2px 7px;border-radius:6px;backdrop-filter:blur(2px)}
+  .elabel.warn{color:#E9A6A6;background:rgba(50,18,18,.78)}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:13px;font-size:12px;color:var(--slate)}
+  .legend i{display:inline-flex;align-items:center;gap:6px}
+  .swatch{width:18px;height:3px;border-radius:2px}
+  .key-dot{width:9px;height:9px;border-radius:2px}
+  /* ---- detail panel ---- */
+  .detail{background:#FBF9F5;border-radius:var(--radius);border:1px solid var(--hair);
+    box-shadow:var(--shadow),var(--hl);padding:18px;align-self:start}
+  .d-kind{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--sage)}
+  .d-name{font-size:18px;font-weight:600;margin:5px 0 14px;line-height:1.2}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-top:1px solid var(--hair);font-size:13px}
+  .row .k{color:var(--slate)}
+  .row .v{font-weight:500;text-align:right}
+  .v.none{color:var(--garnet);font-weight:600}
+  .sev{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;
+    padding:4px 10px;border-radius:7px;border-left:3px solid var(--garnet);
+    background:rgba(155,44,44,.09);color:var(--garnet)}
+  .risk-note{font-size:12.5px;color:var(--slate);line-height:1.55;margin:12px 0 14px}
+  .cite{display:flex;align-items:center;gap:9px;text-decoration:none;
+    background:rgba(217,119,6,.09);border:1px solid rgba(217,119,6,.32);
+    border-radius:9px;padding:10px 12px;transition:.16s}
+  .cite:hover{background:rgba(217,119,6,.15);box-shadow:0 0 0 3px rgba(217,119,6,.12)}
+  .cite .ico{width:26px;height:26px;border-radius:7px;background:var(--marigold);color:#fff;
+    display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
+  .cite .ct{font-size:12.5px;color:var(--ink);line-height:1.35}
+  .cite .ct b{font-weight:600}.cite .ct span{color:var(--slate)}
+  .cite-h{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--slate-soft);margin:16px 0 8px}
+</style>
+</head>
+<body>
+  <nav class="rail">
+    <div class="mark">C</div>
+    <a class="on" title="Analyses" aria-label="Analyses">◧</a>
+    <a title="New analysis" aria-label="New analysis">＋</a>
+    <a title="Admin" aria-label="Admin">▤</a>
+    <a style="margin-top:auto" title="Settings" aria-label="Settings">⚙</a>
+  </nav>
+
+  <div class="shell">
+    <header>
+      <div class="word">Clause<span>Lens</span></div>
+      <div class="crumb">Analysis&nbsp;·&nbsp;<b>Acme ⇄ BuildrCo — MSA + SOW</b></div>
+      <div class="spacer"></div>
+      <div class="pill"><span class="dot"></span>Analysis complete</div>
+      <button class="cta">Open report</button>
+    </header>
+
+    <main>
+      <div class="stage-wrap">
+        <div class="panel-title">Entity &amp; deliverable graph</div>
+        <div class="stage">
+          <!-- edge layer -->
+          <svg viewBox="0 0 600 430" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#5E6B7C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+              <marker id="ahw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#B14A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <!-- Acme -> BuildrCo : engages -->
+            <path d="M192 60 C 250 44, 300 44, 352 60" fill="none" stroke="#48566A" stroke-width="1.4" marker-end="url(#ah)"/>
+            <!-- BuildrCo -> UAT : owns -->
+            <path d="M398 92 C 330 130, 270 150, 214 186" fill="none" stroke="#48566A" stroke-width="1.4" marker-end="url(#ah)"/>
+            <!-- BuildrCo -> DataMig : owns -->
+            <path d="M430 92 C 452 150, 456 210, 452 250" fill="none" stroke="#48566A" stroke-width="1.4" marker-end="url(#ah)"/>
+            <!-- PM -> UAT : responsible -->
+            <path d="M398 196 C 330 210, 270 206, 214 200" fill="none" stroke="#48566A" stroke-width="1.4" marker-end="url(#ah)"/>
+            <!-- UAT <-> DataMig : deadline conflict (garnet, dashed) -->
+            <path d="M196 214 C 290 262, 360 270, 430 268" fill="none" stroke="#B14A4A" stroke-width="1.7" stroke-dasharray="6 5" marker-end="url(#ahw)" marker-start="url(#ahw)"/>
+          </svg>
+
+          <!-- edge labels -->
+          <div class="elabel" style="left:262px;top:33px">engages</div>
+          <div class="elabel" style="left:300px;top:120px">owns</div>
+          <div class="elabel" style="left:452px;top:158px">owns</div>
+          <div class="elabel" style="left:290px;top:182px">responsible for</div>
+          <div class="elabel warn" style="left:296px;top:250px">deadline conflict</div>
+
+          <!-- nodes -->
+          <div class="node" style="left:38px;top:34px">
+            <div class="ntype"><span class="tick t-org"></span>Organization</div>
+            <div class="nname">Acme Corp</div>
+          </div>
+          <div class="node" style="left:352px;top:34px">
+            <div class="ntype"><span class="tick t-org"></span>Organization</div>
+            <div class="nname">BuildrCo (Vendor)</div>
+          </div>
+          <div class="node" style="left:352px;top:170px">
+            <div class="ntype"><span class="tick t-role"></span>Role</div>
+            <div class="nname">Project Manager</div>
+          </div>
+          <div class="node" style="left:60px;top:174px">
+            <div class="ntype"><span class="tick t-deliv"></span>Deliverable</div>
+            <div class="nname">UAT sign-off</div>
+          </div>
+          <div class="node" style="left:380px;top:248px">
+            <div class="ntype"><span class="tick t-deliv"></span>Deliverable</div>
+            <div class="nname">Data migration</div>
+          </div>
+          <div class="node sel flag" style="left:70px;top:300px">
+            <div class="badge">High risk</div>
+            <div class="ntype"><span class="tick t-deliv"></span>Deliverable</div>
+            <div class="nname">Payment milestone 2</div>
+          </div>
+        </div>
+
+        <div class="legend">
+          <i><span class="key-dot t-org"></span>Organization</i>
+          <i><span class="key-dot t-role"></span>Role / person</i>
+          <i><span class="key-dot t-deliv"></span>Deliverable</i>
+          <i><span class="swatch" style="background:#48566A"></span>Relationship</i>
+          <i><span class="swatch" style="background:var(--garnet)"></span>Conflict</i>
+        </div>
+      </div>
+
+      <!-- detail panel for selected node -->
+      <aside class="detail">
+        <div class="d-kind">Deliverable</div>
+        <div class="d-name">Payment milestone 2</div>
+
+        <div class="row"><span class="k">Owner</span><span class="v none">None identified</span></div>
+        <div class="row"><span class="k">Approval authority</span><span class="v none">Unassigned</span></div>
+        <div class="row"><span class="k">Linked timeline</span><span class="v">Phase 2 close</span></div>
+        <div class="row"><span class="k">Severity</span><span class="v"><span class="sev">High</span></span></div>
+
+        <div class="cite-h">Why this was flagged</div>
+        <div class="risk-note">A payment of significant value is defined with no named approver and no acceptance gate, leaving release of funds unaccountable.</div>
+
+        <a class="cite" href="#">
+          <span class="ico">§</span>
+          <span class="ct"><b>§6.1 — Payment schedule</b><br><span>MSA.pdf · page 12 · clause cited</span></span>
+        </a>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
