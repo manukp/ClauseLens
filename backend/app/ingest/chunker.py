@@ -15,6 +15,10 @@ from ..models.schemas import Chunk
 
 # Soft cap so a very long section still yields retrievable, embeddable chunks.
 MAX_CHARS = 1500
+# A lone heading shorter than this is a section header (e.g. "4. Payment") with
+# no body of its own; it rides into the following content rather than becoming a
+# weak, near-empty chunk that wastes a model call.
+HEADER_ONLY_MAX = 45
 
 # Clause/section markers commonly opening a contract provision.
 _CLAUSE_RE = re.compile(
@@ -104,14 +108,24 @@ def chunk_transcript(transcript: dict) -> list[Chunk]:
 
     for ln in flat:
         starts_section = _is_heading(ln, body_size)
+        # A buffer holding only a short section header shouldn't be flushed on
+        # the next heading — let the header ride into the content beneath it.
+        header_only = (
+            len(buf) == 1
+            and _is_heading(buf[0], body_size)
+            and len(buf[0]["text"]) <= HEADER_ONLY_MAX
+        )
         # Break before a new heading, or when the soft size cap is exceeded.
         if buf and (starts_section or buf_chars >= MAX_CHARS):
-            c = _flush(buf, doc_id, doc_name, heading)
-            if c:
-                chunks.append(c)
-            buf, buf_chars = [], 0
-            if starts_section:
-                heading = ln["text"].strip()
+            if starts_section and header_only and buf_chars < MAX_CHARS:
+                pass  # keep the lone header; merge it into the upcoming section
+            else:
+                c = _flush(buf, doc_id, doc_name, heading)
+                if c:
+                    chunks.append(c)
+                buf, buf_chars = [], 0
+                if starts_section:
+                    heading = ln["text"].strip()
         elif starts_section and not buf:
             heading = ln["text"].strip()
         buf.append(ln)

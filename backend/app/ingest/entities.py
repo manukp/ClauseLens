@@ -17,7 +17,9 @@ _SYSTEM = (
     "that are parties or actors: organisations and people. For each, capture the "
     "roles they hold, the responsibilities/obligations assigned to them, and the "
     "powers/rights granted to them — strictly as supported by THIS text. Do not "
-    "invent entities not present in the text."
+    "invent entities not present in the text. EXCLUDE non-actors: places, cities, "
+    "and jurisdictions (e.g. India, Bengaluru); dates; monetary amounts; and "
+    "process/artifact acronyms (e.g. UAT, SOW) — these are not parties."
 )
 
 _INSTRUCTION = (
