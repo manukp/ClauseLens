@@ -52,6 +52,77 @@ class ModelCallLog(BaseModel):
     ts: float = Field(default_factory=_now_ts)
 
 
+class Chunk(BaseModel):
+    """A clause-aware unit of a document (Phase 2, task 3).
+
+    Produced by the chunker from PyMuPDF spans. A chunk may span less than, one,
+    or more than a page. ``bboxes`` is one [x0,y0,x1,y1] box per page touched
+    (aligned to ``pages``), enabling clickable citation highlights. ``heading``
+    is the detected section heading (font/layout heuristic), if any.
+    """
+
+    chunk_id: str = Field(default_factory=lambda: _new_id("chunk"))
+    doc_id: str
+    doc_name: str
+    page_start: int = Field(ge=1)
+    page_end: int = Field(ge=1)
+    pages: list[int] = Field(default_factory=list)
+    bboxes: list[list[float]] = Field(default_factory=list)
+    heading: str | None = None
+    text: str = ""
+
+    def to_citation(self) -> "Citation":
+        """Deterministic Citation from this chunk's provenance (D18 / task 5).
+
+        We never ask the model to emit citation offsets; we stamp findings with
+        the source chunk's stored metadata. ``bbox`` is the first page's box.
+        """
+        span = self.text.strip().replace("\n", " ")
+        if len(span) > 240:
+            span = span[:237] + "..."
+        return Citation(
+            doc_id=self.doc_id,
+            doc_name=self.doc_name,
+            page=self.page_start,
+            bbox=self.bboxes[0] if self.bboxes else None,
+            text_span=span,
+            chunk_id=self.chunk_id,
+        )
+
+
+class Entity(BaseModel):
+    """An organisation or person extracted from the contract set (task 7).
+
+    Deduplicated/merged across chunks; every entity carries the citations of the
+    chunks it was found in (D9). ``roles`` / ``responsibilities`` / ``powers``
+    accumulate across the merged occurrences.
+    """
+
+    entity_id: str = Field(default_factory=lambda: _new_id("ent"))
+    name: str
+    type: str = "organisation"  # "organisation" | "person"
+    roles: list[str] = Field(default_factory=list)
+    responsibilities: list[str] = Field(default_factory=list)
+    powers: list[str] = Field(default_factory=list)
+    citations: list[Citation] = Field(default_factory=list)
+
+
+class DocSummary(BaseModel):
+    """Per-document summary (Haiku tier, task 8). Cites the doc's sections."""
+
+    doc_id: str
+    doc_name: str
+    summary: str
+    citations: list[Citation] = Field(default_factory=list)
+
+
+class MasterSummary(BaseModel):
+    """Contract master summary across all documents (Sonnet tier, task 8)."""
+
+    summary: str
+    citations: list[Citation] = Field(default_factory=list)
+
+
 class JobStatus(str, Enum):
     queued = "queued"
     running = "running"
