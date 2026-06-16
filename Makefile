@@ -36,8 +36,8 @@ backend: ## Create venv and install backend deps
 	$(PY) -m pip install --upgrade pip
 	$(PY) -m pip install -r backend/requirements.txt
 
-build-frontend: ## Install deps and build the React app into frontend/dist
-	cd frontend && npm install && npm run build
+build-frontend: ## Install deps (deterministic, from lockfile) and build into frontend/dist
+	cd frontend && npm ci && npm run build
 
 demo: build-frontend ## Build frontend, then launch the single FastAPI process
 	@$(PY) -c "import uvicorn" 2>/dev/null || { \
