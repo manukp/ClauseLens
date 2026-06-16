@@ -2,7 +2,7 @@
 
 A single long-lived process (D7): it exposes the ``/api`` surface and serves the
 pre-built React ``dist`` with an SPA fallback so client-side routes resolve.
-No analysis logic yet — Phase 1 is the scaffold + AWS spine.
+Phase 2 adds the analyses API + Stage-1 ingest pipeline (LangGraph spine).
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from .config import settings
-from .routes import health
+from .routes import analyses, health
 from .store import get_job_store
 
 
@@ -27,8 +27,9 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(title="ClauseLens", version="0.1.0", lifespan=lifespan)
 
-# API routes.
+# API routes (registered before the SPA catch-all so /api never gets shadowed).
 app.include_router(health.router)
+app.include_router(analyses.router)
 
 
 @app.get("/api")
