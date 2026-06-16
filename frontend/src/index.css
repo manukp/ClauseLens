@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+
+  /* Marigold focus ring on interactive elements (accent usage rule). */
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-marigold ring-offset-2 ring-offset-canvas;
+  }
+}
+
+@layer components {
+  /* Oatmeal card: forms, tables, reports sit here. */
+  .card {
+    @apply bg-white/60 border border-ink/10 rounded-lg shadow-card;
+  }
+
+  /* Recessed dark-navy stage: entity graph / Sankey live here. */
+  .stage {
+    @apply bg-stage text-canvas rounded-lg;
+  }
+}
