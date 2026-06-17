@@ -10,6 +10,10 @@ All Stage-1 outputs for a job live under ``data/jobs/{job_id}/``:
     entities.json            deduplicated, cited entities
     doc_summaries.json       per-document summaries
     master_summary.json      contract master summary
+    structured_items.json    Stage-2 deliverables/owners/budgets/timelines/...
+    entity_graph.json        node/edge JSON for react-flow (D12)
+    findings.json            risks/conflicts/gaps/deps + judge verdicts (D11)
+    rag_meta.json            self-reflective RAG loop counts per stage (D10)
     model_logs.json          every Bedrock ModelCallLog for the job (D13)
 
 JSON only; no DB rows for these (the job *status* lives in SQLite). Reads return
@@ -30,6 +34,10 @@ CHUNKS = "chunks.json"
 ENTITIES = "entities.json"
 DOC_SUMMARIES = "doc_summaries.json"
 MASTER_SUMMARY = "master_summary.json"
+STRUCTURED = "structured_items.json"
+ENTITY_GRAPH = "entity_graph.json"
+FINDINGS = "findings.json"
+RAG_META = "rag_meta.json"
 MODEL_LOGS = "model_logs.json"
 
 

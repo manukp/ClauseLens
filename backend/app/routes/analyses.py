@@ -101,9 +101,24 @@ def run_analysis(job_id: str, background: BackgroundTasks) -> Job:
     return _require_job(job_id)
 
 
-@router.get("/{job_id}")
-def get_analysis(job_id: str) -> dict:
+@router.get("/{job_id}/status")
+def get_status(job_id: str) -> dict:
+    """Lightweight polling endpoint (Phase 3 task 8)."""
     job = _require_job(job_id)
+    return {
+        "job_id": job_id,
+        "status": job.status,
+        "current_stage": job.current_stage,
+        "current_substep": job.current_substep,
+        "started_ts": job.started_ts,
+        "finished_ts": job.finished_ts,
+        "error": job.error,
+    }
+
+
+def _full_result(job_id: str) -> dict:
+    """The complete cited result for a job (master + entities + graph + items +
+    findings with citations + judge verdicts)."""
     present = {
         "documents": bool(artifacts.list_documents(job_id)),
         "chunks": (artifacts.job_dir(job_id) / artifacts.CHUNKS).exists(),
@@ -111,21 +126,94 @@ def get_analysis(job_id: str) -> dict:
         "entities": (artifacts.job_dir(job_id) / artifacts.ENTITIES).exists(),
         "doc_summaries": (artifacts.job_dir(job_id) / artifacts.DOC_SUMMARIES).exists(),
         "master_summary": (artifacts.job_dir(job_id) / artifacts.MASTER_SUMMARY).exists(),
+        "structured_items": (artifacts.job_dir(job_id) / artifacts.STRUCTURED).exists(),
+        "entity_graph": (artifacts.job_dir(job_id) / artifacts.ENTITY_GRAPH).exists(),
+        "findings": (artifacts.job_dir(job_id) / artifacts.FINDINGS).exists(),
     }
-    return {"job": job.model_dump(), "artifacts": present}
+    return {
+        "job_id": job_id,
+        "job": _require_job(job_id).model_dump(),
+        "artifacts": present,
+        "documents": artifacts.list_documents(job_id),
+        "master_summary": artifacts.read_json(job_id, artifacts.MASTER_SUMMARY, default=None),
+        "doc_summaries": artifacts.read_json(job_id, artifacts.DOC_SUMMARIES, default=[]),
+        "entities": artifacts.read_json(job_id, artifacts.ENTITIES, default=[]),
+        "entity_graph": artifacts.read_json(job_id, artifacts.ENTITY_GRAPH, default={"nodes": [], "edges": []}),
+        "structured_items": artifacts.read_json(job_id, artifacts.STRUCTURED, default=[]),
+        "findings": artifacts.read_json(job_id, artifacts.FINDINGS, default=[]),
+        "chunk_count": len(artifacts.read_json(job_id, artifacts.CHUNKS, default=[]) or []),
+    }
+
+
+@router.get("/{job_id}")
+def get_analysis(job_id: str) -> dict:
+    """Full result (Phase 3 task 8): master summary, entities, graph, structured
+    items, findings (with citations + judge verdicts)."""
+    _require_job(job_id)
+    return _full_result(job_id)
 
 
 @router.get("/{job_id}/result")
 def get_result(job_id: str) -> dict:
+    """Back-compat alias for the full result (Phase 2 callers)."""
     _require_job(job_id)
+    return _full_result(job_id)
+
+
+@router.get("/{job_id}/source/{chunk_id}")
+def get_source(job_id: str, chunk_id: str) -> dict:
+    """Resolve a citation's chunk to {doc_name, page, bbox, text} for the viewer."""
+    _require_job(job_id)
+    chunks = artifacts.read_json(job_id, artifacts.CHUNKS, default=[]) or []
+    for c in chunks:
+        if c.get("chunk_id") == chunk_id:
+            bboxes = c.get("bboxes") or []
+            return {
+                "chunk_id": chunk_id,
+                "doc_id": c.get("doc_id"),
+                "doc_name": c.get("doc_name"),
+                "page": c.get("page_start"),
+                "bbox": bboxes[0] if bboxes else None,
+                "text": c.get("text", ""),
+            }
+    raise HTTPException(status_code=404, detail=f"Unknown chunk: {chunk_id}")
+
+
+@router.get("/{job_id}/observability")
+def get_observability(job_id: str) -> dict:
+    """Aggregated ModelCallLogs for the Admin page (D13): per-step + totals."""
+    _require_job(job_id)
+    logs = artifacts.read_model_logs(job_id)
+
+    def _acc() -> dict:
+        return {"calls": 0, "tokens_in": 0, "tokens_out": 0, "latency_ms": 0, "cost_usd": 0.0}
+
+    by_step: dict[str, dict] = {}
+    by_tier: dict[str, dict] = {}
+    by_model: dict[str, dict] = {}
+    totals = _acc()
+    for log in logs:
+        for bucket, key in ((by_step, log.get("step", "?")), (by_tier, log.get("tier", "?")),
+                            (by_model, log.get("model_id", "?"))):
+            agg = bucket.setdefault(key, _acc())
+            agg["calls"] += 1
+            agg["tokens_in"] += log.get("tokens_in", 0)
+            agg["tokens_out"] += log.get("tokens_out", 0)
+            agg["latency_ms"] += log.get("latency_ms", 0)
+            agg["cost_usd"] = round(agg["cost_usd"] + log.get("cost_usd", 0.0), 6)
+        totals["calls"] += 1
+        totals["tokens_in"] += log.get("tokens_in", 0)
+        totals["tokens_out"] += log.get("tokens_out", 0)
+        totals["latency_ms"] += log.get("latency_ms", 0)
+        totals["cost_usd"] = round(totals["cost_usd"] + log.get("cost_usd", 0.0), 6)
+
     return {
         "job_id": job_id,
-        "documents": artifacts.list_documents(job_id),
-        "entities": artifacts.read_json(job_id, artifacts.ENTITIES, default=[]),
-        "doc_summaries": artifacts.read_json(job_id, artifacts.DOC_SUMMARIES, default=[]),
-        "master_summary": artifacts.read_json(job_id, artifacts.MASTER_SUMMARY, default=None),
-        "model_logs": artifacts.read_model_logs(job_id),
-        "chunk_count": len(artifacts.read_json(job_id, artifacts.CHUNKS, default=[]) or []),
+        "totals": totals,
+        "by_step": by_step,
+        "by_tier": by_tier,
+        "by_model": by_model,
+        "logs": logs,
     }
 
 

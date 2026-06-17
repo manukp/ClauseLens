@@ -13,18 +13,22 @@ from __future__ import annotations
 
 from langgraph.graph import END, START, StateGraph
 
+from ..analyze import findings as findings_mod
+from ..analyze import graph_build, structured
 from ..ingest import chunker, entities, index, parser, summaries
 from ..models.schemas import Chunk
 from ..store import artifacts
 from ..store import get_job_store
 from .state import GraphState
 
-STAGE = "stage-1 ingest"
+STAGE_1 = "stage-1 ingest"
+STAGE_2 = "stage-2 analysis"
+STAGE = STAGE_1  # back-compat alias (Phase 2 callers / run_pipeline default)
 
 
-def _progress(job_id: str, substep: str) -> None:
+def _progress(job_id: str, substep: str, stage: str = STAGE_1) -> None:
     """Reflect node progress on the SQLite Job so the frontend can poll it."""
-    get_job_store().update(job_id, current_stage=STAGE, current_substep=substep)
+    get_job_store().update(job_id, current_stage=stage, current_substep=substep)
 
 
 # ---- Nodes ------------------------------------------------------------------
@@ -111,10 +115,77 @@ def master_summary_node(state: GraphState) -> dict:
     return {"master": master, "model_logs": logs, "citations": citations}
 
 
+# ---- Stage-2 nodes (Phase 3) ------------------------------------------------
+
+def _chunk_meta(state: GraphState) -> list[dict]:
+    """Chunk rows as plain dicts (row-aligned to FAISS), the RAG loop's corpus."""
+    return [c.model_dump() if isinstance(c, Chunk) else c for c in state.get("chunks", [])]
+
+
+def extract_structured_node(state: GraphState) -> dict:
+    """Stage-2 task 2: deliverables/owners/budgets/timelines/plans/compliance."""
+    job_id = state["job_id"]
+    _progress(job_id, "extracting structured items (reflective RAG)", STAGE_2)
+    items, logs, loop_meta = structured.extract_all(
+        job_id=job_id, job_dir=artifacts.job_dir(job_id), chunk_meta=_chunk_meta(state)
+    )
+    artifacts.write_json(job_id, artifacts.STRUCTURED, [i.model_dump() for i in items])
+    artifacts.write_json(job_id, artifacts.RAG_META, {"structured": loop_meta})
+    citations = [c.model_dump() for i in items for c in i.citations]
+    return {"structured_items": items, "model_logs": logs, "citations": citations}
+
+
+def build_graph_node(state: GraphState) -> dict:
+    """Stage-2 task 3: node/edge JSON for react-flow (D12, graph-lite)."""
+    job_id = state["job_id"]
+    _progress(job_id, "building entity-relationship graph", STAGE_2)
+    eg, logs = graph_build.build(
+        entities=state.get("entities", []),
+        items=state.get("structured_items", []),
+        master=state.get("master"),
+        job_id=job_id,
+    )
+    artifacts.write_json(job_id, artifacts.ENTITY_GRAPH, eg.model_dump())
+    citations = [c.model_dump() for e in eg.edges for c in e.citations]
+    return {"entity_graph": eg, "model_logs": logs, "citations": citations}
+
+
+def detect_findings_node(state: GraphState) -> dict:
+    """Stage-2 task 4: detect & classify findings via reflective RAG (D10)."""
+    job_id = state["job_id"]
+    _progress(job_id, "detecting risks/conflicts/gaps/dependencies", STAGE_2)
+    found, logs = findings_mod.detect(
+        job_id=job_id,
+        job_dir=artifacts.job_dir(job_id),
+        chunk_meta=_chunk_meta(state),
+        entities=state.get("entities", []),
+        items=state.get("structured_items", []),
+        master=state.get("master"),
+    )
+    artifacts.write_json(job_id, artifacts.FINDINGS, [f.model_dump() for f in found])
+    citations = [c.model_dump() for f in found for c in f.citations]
+    return {"findings": found, "model_logs": logs, "citations": citations}
+
+
+def judge_node(state: GraphState) -> dict:
+    """Stage-2 task 6: independent LLM-as-judge verdict per finding (D11)."""
+    job_id = state["job_id"]
+    found = state.get("findings", [])
+    _progress(job_id, f"judging {len(found)} findings", STAGE_2)
+    judged, logs = findings_mod.judge(found, job_id=job_id)
+    artifacts.write_json(job_id, artifacts.FINDINGS, [f.model_dump() for f in judged])
+    return {"findings": judged, "model_logs": logs}
+
+
 # ---- Graph ------------------------------------------------------------------
 
 def build_graph():
-    """Compile the Stage-1 spine. Phase 3 extends this graph with the RAG loop."""
+    """Compile the full pipeline: Stage-1 spine + Stage-2 analysis (Phase 3).
+
+    Stage-2 appends extract_structured -> build_graph -> detect_findings -> judge.
+    The self-reflective RAG cycle (D10) lives inside the analyze.rag subgraph,
+    invoked by the structured/findings nodes.
+    """
     g = StateGraph(GraphState)
     g.add_node("parse", parse_node)
     g.add_node("chunk", chunk_node)
@@ -122,6 +193,10 @@ def build_graph():
     g.add_node("extract_entities", extract_entities_node)
     g.add_node("summarize_docs", summarize_docs_node)
     g.add_node("master_summary", master_summary_node)
+    g.add_node("extract_structured", extract_structured_node)
+    g.add_node("build_graph", build_graph_node)
+    g.add_node("detect_findings", detect_findings_node)
+    g.add_node("judge", judge_node)
 
     g.add_edge(START, "parse")
     g.add_edge("parse", "chunk")
@@ -129,7 +204,11 @@ def build_graph():
     g.add_edge("embed", "extract_entities")
     g.add_edge("extract_entities", "summarize_docs")
     g.add_edge("summarize_docs", "master_summary")
-    g.add_edge("master_summary", END)
+    g.add_edge("master_summary", "extract_structured")
+    g.add_edge("extract_structured", "build_graph")
+    g.add_edge("build_graph", "detect_findings")
+    g.add_edge("detect_findings", "judge")
+    g.add_edge("judge", END)
     return g.compile()
 
 
@@ -165,7 +244,7 @@ def run_pipeline(job_id: str) -> GraphState:
         store.update(
             job_id,
             status="complete",
-            current_stage=STAGE,
+            current_stage=STAGE_2,
             current_substep="done",
             finished_ts=time.time(),
         )
