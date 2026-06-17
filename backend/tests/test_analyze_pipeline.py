@@ -69,15 +69,15 @@ def _make_converse():
             text = json.dumps({"grounded": counters["ground"] != 1, "reason": "x"})
         elif step == "rag.reformulate":
             text = "deliverables owners acceptance criteria responsibilities"
+        elif step == "detect_findings":  # whole-document detection (Sonnet)
+            text = json.dumps([
+                {"type": "gap", "title": "Deliverable lacks acceptance criteria",
+                 "description": "The consulting deliverable states no acceptance criteria.",
+                 "severity": "high", "mitigation": "Define measurable acceptance criteria.",
+                 "sources": [1]},
+            ])
         elif step == "rag.generate":
-            if "mitigation" in user:  # findings detection
-                text = json.dumps([
-                    {"type": "gap", "title": "Deliverable lacks acceptance criteria",
-                     "description": "The consulting deliverable states no acceptance criteria.",
-                     "severity": "high", "mitigation": "Define measurable acceptance criteria.",
-                     "sources": [1]},
-                ])
-            elif "DELIVERABLE" in user:
+            if "DELIVERABLE" in user:
                 text = json.dumps([
                     {"title": "Consulting services", "detail": "Acme provides consulting to Beta",
                      "attributes": {"acceptance_criteria": "per SOW"}, "sources": [1]},
@@ -100,7 +100,7 @@ def _make_converse():
         else:  # summarize_doc, master_summary
             text = f"Summary produced by {step}."
 
-        tier = "sonnet" if step in ("rag.generate", "build_graph", "judge", "master_summary") else "haiku"
+        tier = "sonnet" if step in ("rag.generate", "build_graph", "judge", "master_summary", "detect_findings") else "haiku"
         log = ModelCallLog(job_id=job_id, step=step, model_id=model_id, tier=tier,
                            tokens_in=20, tokens_out=10, latency_ms=5, cost_usd=0.001)
         return ConverseResult(text=text, log=log)

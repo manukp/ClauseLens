@@ -172,7 +172,7 @@ def judge_node(state: GraphState) -> dict:
     job_id = state["job_id"]
     found = state.get("findings", [])
     _progress(job_id, f"judging {len(found)} findings", STAGE_2)
-    judged, logs = findings_mod.judge(found, job_id=job_id)
+    judged, logs = findings_mod.judge(found, chunk_meta=_chunk_meta(state), job_id=job_id)
     artifacts.write_json(job_id, artifacts.FINDINGS, [f.model_dump() for f in judged])
     return {"findings": judged, "model_logs": logs}
 

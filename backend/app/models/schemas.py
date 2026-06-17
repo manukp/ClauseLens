@@ -70,6 +70,9 @@ class Chunk(BaseModel):
     bboxes: list[list[float]] = Field(default_factory=list)
     heading: str | None = None
     text: str = ""
+    # Per-line provenance within the chunk: [{page, bbox:[x0,y0,x1,y1], text}].
+    # Lets a citation highlight a specific sub-clause inside a full-clause chunk.
+    lines: list[dict] = Field(default_factory=list)
 
     def to_citation(self) -> "Citation":
         """Deterministic Citation from this chunk's provenance (D18 / task 5).
