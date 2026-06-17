@@ -11,7 +11,16 @@ from __future__ import annotations
 import operator
 from typing import Annotated, TypedDict
 
-from ..models.schemas import Chunk, DocSummary, Entity, MasterSummary, ModelCallLog
+from ..models.schemas import (
+    Chunk,
+    DocSummary,
+    Entity,
+    EntityGraph,
+    Finding,
+    MasterSummary,
+    ModelCallLog,
+    StructuredItem,
+)
 
 
 class GraphState(TypedDict, total=False):
@@ -28,6 +37,10 @@ class GraphState(TypedDict, total=False):
     entities: list[Entity]
     doc_summaries: list[DocSummary]
     master: MasterSummary | None
+    # Stage-2 outputs (Phase 3).
+    structured_items: list[StructuredItem]
+    entity_graph: EntityGraph | None
+    findings: list[Finding]
     # Accumulators (additive reducers).
     citations: Annotated[list[dict], operator.add]
     model_logs: Annotated[list[ModelCallLog], operator.add]

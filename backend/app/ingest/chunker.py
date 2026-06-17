@@ -20,10 +20,12 @@ MAX_CHARS = 1500
 # weak, near-empty chunk that wastes a model call.
 HEADER_ONLY_MAX = 45
 
-# Clause/section markers commonly opening a contract provision.
-_CLAUSE_RE = re.compile(
+# Top-level clause/section markers that OPEN a new chunk. A chunk is a full
+# top-level clause (heading + all its sub-clauses), so only these — never an
+# N.N sub-clause — bound a chunk.
+_TOPLEVEL_RE = re.compile(
     r"^\s*("
-    r"(\d+(\.\d+)*\.?)\s+\S"          # 1.  /  1.2  /  3.4.1
+    r"\d+\.\s+\S"                      # 1.  /  2.  (single top-level number + space)
     r"|ARTICLE\s+[IVXLC0-9]+"          # ARTICLE IV
     r"|SECTION\s+\d+"                  # SECTION 7
     r"|SCHEDULE\s+[A-Z0-9]+"           # SCHEDULE B
@@ -34,6 +36,9 @@ _CLAUSE_RE = re.compile(
     r")",
     re.IGNORECASE,
 )
+# Numbered sub-clauses (1.2, 3.4.1, …). These must stay with their parent clause
+# and NEVER start a new chunk, even if styled — this is the over-fragmentation fix.
+_SUBCLAUSE_RE = re.compile(r"^\s*\d+\.\d+")
 
 
 def _body_size(lines: list[dict]) -> float:
@@ -43,14 +48,17 @@ def _body_size(lines: list[dict]) -> float:
 
 
 def _is_heading(line: dict, body_size: float) -> bool:
-    """Heading heuristic: larger-than-body, or bold-and-short, or clause marker."""
+    """Top-level section boundary: a top-level clause marker, or a font/style
+    heading — but NEVER an N.N sub-clause (those ride with their parent clause)."""
     text = line["text"].strip()
     if not text:
         return False
+    if _SUBCLAUSE_RE.match(text):
+        return False  # sub-clause: keep it inside the current top-level chunk
+    if _TOPLEVEL_RE.match(text):
+        return True
     size = line.get("size", 0.0)
     if body_size and size >= body_size * 1.15:
-        return True
-    if _CLAUSE_RE.match(text):
         return True
     # Bold, short, and not sentence-like punctuation-heavy → a heading line.
     if line.get("bold") and len(text) <= 80 and not text.endswith((".", ";", ",")):
@@ -75,6 +83,12 @@ def _flush(buf_lines: list[dict], doc_id: str, doc_name: str, heading: str | Non
     text = "\n".join(ln["text"] for ln in buf_lines).strip()
     if not text:
         return None
+    # Per-line provenance so a citation can target a specific sub-clause line even
+    # though the chunk holds the whole top-level clause (D18 highlight precision).
+    line_meta = [
+        {"page": ln["page"], "bbox": [round(v, 2) for v in ln["bbox"]], "text": ln["text"]}
+        for ln in buf_lines
+    ]
     return Chunk(
         doc_id=doc_id,
         doc_name=doc_name,
@@ -84,6 +98,7 @@ def _flush(buf_lines: list[dict], doc_id: str, doc_name: str, heading: str | Non
         bboxes=[[round(v, 2) for v in boxes[p]] for p in pages_order],
         heading=heading,
         text=text,
+        lines=line_meta,
     )
 
 

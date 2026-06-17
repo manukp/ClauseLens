@@ -70,6 +70,9 @@ class Chunk(BaseModel):
     bboxes: list[list[float]] = Field(default_factory=list)
     heading: str | None = None
     text: str = ""
+    # Per-line provenance within the chunk: [{page, bbox:[x0,y0,x1,y1], text}].
+    # Lets a citation highlight a specific sub-clause inside a full-clause chunk.
+    lines: list[dict] = Field(default_factory=list)
 
     def to_citation(self) -> "Citation":
         """Deterministic Citation from this chunk's provenance (D18 / task 5).
@@ -121,6 +124,79 @@ class MasterSummary(BaseModel):
 
     summary: str
     citations: list[Citation] = Field(default_factory=list)
+
+
+class StructuredItem(BaseModel):
+    """A reasoned, cited Stage-2 extraction (Phase 3 task 2, Sonnet tier / D8).
+
+    One ``category`` per item: deliverable | owner | budget | timeline | plan |
+    compliance. ``attributes`` holds category-specific facts (e.g. a deliverable's
+    ``acceptance_criteria``, a budget's ``approval_authority``, a timeline's
+    ``deadline``). Every item is cited from its source chunk(s) (D9/D18).
+    """
+
+    item_id: str = Field(default_factory=lambda: _new_id("item"))
+    category: str  # deliverable | owner | budget | timeline | plan | compliance
+    title: str
+    detail: str = ""
+    attributes: dict[str, str] = Field(default_factory=dict)
+    citations: list[Citation] = Field(default_factory=list)
+
+
+class GraphNode(BaseModel):
+    """A react-flow node for the entity-relationship graph (D12, graph-lite)."""
+
+    id: str
+    label: str
+    type: str  # organisation | person | deliverable
+    data: dict = Field(default_factory=dict)
+
+
+class GraphEdge(BaseModel):
+    """A typed react-flow edge (D12). ``relation`` is one of the fixed set:
+    engages | owns | responsible_for | depends_on | conflicts_with."""
+
+    id: str = Field(default_factory=lambda: _new_id("edge"))
+    source: str
+    target: str
+    relation: str
+    label: str = ""
+    citations: list[Citation] = Field(default_factory=list)
+
+
+class EntityGraph(BaseModel):
+    """First-class graph artifact: node/edge JSON for react-flow (D12)."""
+
+    nodes: list[GraphNode] = Field(default_factory=list)
+    edges: list[GraphEdge] = Field(default_factory=list)
+
+
+class JudgeVerdict(BaseModel):
+    """LLM-as-judge result attached to a finding (D11). ``score`` is 0..1;
+    ``passed`` is False when groundedness/correctness is weak or biased."""
+
+    score: float = 0.0
+    passed: bool = False
+    note: str = ""
+
+
+class Finding(BaseModel):
+    """A detected Risk/Conflict/Gap/Dependency/Issue (Phase 3 task 4, Sonnet/D8).
+
+    Every finding carries one or more Citations (D9/D18) and, after the judge
+    pass, a ``judge`` verdict (D11). ``loop_count`` records the self-reflective
+    RAG passes (D10) taken to produce the finding batch.
+    """
+
+    finding_id: str = Field(default_factory=lambda: _new_id("find"))
+    type: str  # risk | conflict | gap | dependency | issue
+    title: str
+    description: str = ""
+    severity: str = "medium"  # high | medium | low
+    mitigation: str = ""
+    citations: list[Citation] = Field(default_factory=list)
+    judge: JudgeVerdict | None = None
+    loop_count: int = 0
 
 
 class JobStatus(str, Enum):
