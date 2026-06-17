@@ -16,6 +16,7 @@ verified from a single cited chunk). It never reuses the generating call.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from ..aws import bedrock
@@ -97,10 +98,87 @@ def _instruction(inventory: str) -> str:
         "Return ONLY a JSON array (no prose). Each element:\n"
         '{"type": "risk"|"conflict"|"gap"|"dependency"|"issue", "title": str, '
         '"description": str, "severity": "high"|"medium"|"low", '
-        '"mitigation": str, "sources": [int]}\n'
+        '"mitigation": str, "clause_refs": [str], "sources": [int]}\n'
         'where "sources" are the bracketed excerpt numbers evidencing the finding '
-        "(for an absence, cite the closest related clause). Return [] if none."
+        "(for an absence, cite the closest related clause), and \"clause_refs\" are the "
+        'SPECIFIC sub-clause numbers the finding is about (e.g. ["4.3"] or ["3.3","5.1"]) '
+        "— use [] for whole-document absences with no specific clause. Return [] if none."
     )
+
+
+_SUBCLAUSE_LABEL = re.compile(r"^\s*(\d+\.\d+(?:\.\d+)*)")
+
+
+def _group_subclauses(lines: list[dict]) -> list[dict]:
+    """Group a chunk's per-line metadata into sub-clauses.
+
+    A line starting with an ``N.N`` label opens a sub-clause; continuation lines
+    (e.g. a wrapped 5.1 that carries the date onto a second line) ride with it.
+    """
+    groups: list[dict] = []
+    cur: dict | None = None
+    for ln in lines:
+        m = _SUBCLAUSE_LABEL.match(ln.get("text", ""))
+        if m:
+            cur = {"label": m.group(1), "lines": [ln]}
+            groups.append(cur)
+        elif cur is None:
+            cur = {"label": None, "lines": [ln]}
+            groups.append(cur)
+        else:
+            cur["lines"].append(ln)
+    return groups
+
+
+def _matching_lines(lines: list[dict], refs: list[str]) -> list[dict]:
+    """Lines belonging to the sub-clauses named by ``refs`` (label or phrase)."""
+    out: list[dict] = []
+    for g in _group_subclauses(lines):
+        gtext = " ".join(l.get("text", "") for l in g["lines"])
+        for raw in refs:
+            r = str(raw).strip().rstrip(".")
+            if not r:
+                continue
+            is_label = bool(re.match(r"^\d+\.\d+", r))
+            if is_label and g["label"] and (g["label"] == r or g["label"].startswith(r + ".")):
+                out.extend(g["lines"])
+                break
+            if not is_label and r.lower() in gtext.lower():
+                out.extend(g["lines"])
+                break
+    return out
+
+
+def _union_box(boxes: list[list[float]]) -> list[float]:
+    return [
+        round(min(b[0] for b in boxes), 2), round(min(b[1] for b in boxes), 2),
+        round(max(b[2] for b in boxes), 2), round(max(b[3] for b in boxes), 2),
+    ]
+
+
+def _narrow_to_subclauses(
+    citations: list[Citation], clause_refs: list[str], chunk_by_id: dict[str, dict]
+) -> None:
+    """Narrow a HIGH-severity finding's citations to the specific sub-clause line(s).
+
+    Resolved deterministically from ``Chunk.lines`` (D18): the model only names the
+    sub-clause(s); we stamp the bbox + text_span from the matching lines. The page is
+    that of the matched lines (fixes section chunks whose heading is on an earlier
+    page). Citations whose chunk has no matching line keep their section-level bbox.
+    """
+    for cite in citations:
+        chunk = chunk_by_id.get(cite.chunk_id)
+        if not chunk:
+            continue
+        matched = _matching_lines(chunk.get("lines", []), clause_refs)
+        if not matched:
+            continue
+        page = matched[0]["page"]
+        same_page = [l for l in matched if l["page"] == page]
+        cite.page = page
+        cite.bbox = _union_box([l["bbox"] for l in same_page])
+        span = " ".join(l.get("text", "") for l in matched).strip().replace("\n", " ")
+        cite.text_span = (span[:237] + "...") if len(span) > 240 else span
 
 
 def _citations_for(sources: list, hits: list[dict]) -> list[Citation]:
@@ -170,6 +248,7 @@ def detect(
     logs = logs + [result.log]
 
     raw = parse_json(result.text, default=[])
+    chunk_by_id = {h["chunk_id"]: h for h in hits if h.get("chunk_id")}
     findings: list[Finding] = []
     if isinstance(raw, list):
         for el in raw:
@@ -182,6 +261,13 @@ def detect(
             severity = str(el.get("severity", "medium")).strip().lower()
             if severity not in _SEVERITIES:
                 severity = "medium"
+            citations = _citations_for(el.get("sources", []), hits)
+            # High-severity findings: narrow each citation to the specific sub-clause
+            # line(s) it concerns (D18, resolved from Chunk.lines). Med/low keep the
+            # section-level bbox.
+            refs = el.get("clause_refs", [])
+            if severity == "high" and isinstance(refs, list) and refs:
+                _narrow_to_subclauses(citations, refs, chunk_by_id)
             findings.append(
                 Finding(
                     type=ftype,
@@ -189,7 +275,7 @@ def detect(
                     description=str(el.get("description", "")).strip(),
                     severity=severity,
                     mitigation=str(el.get("mitigation", "")).strip(),
-                    citations=_citations_for(el.get("sources", []), hits),
+                    citations=citations,
                     loop_count=0,
                 )
             )

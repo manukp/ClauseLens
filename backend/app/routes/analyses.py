@@ -175,6 +175,9 @@ def get_source(job_id: str, chunk_id: str) -> dict:
                 "page": c.get("page_start"),
                 "bbox": bboxes[0] if bboxes else None,
                 "text": c.get("text", ""),
+                # Per-line provenance: lets the viewer highlight a specific sub-clause
+                # (a high-severity finding's citation bbox is one of these lines).
+                "lines": c.get("lines", []),
             }
     raise HTTPException(status_code=404, detail=f"Unknown chunk: {chunk_id}")
 

@@ -64,6 +64,29 @@ def main() -> None:
     for step, s in sorted(obs["by_step"].items()):
         print(f"  {step:24s} calls={s['calls']:3d} cost=${s['cost_usd']:.4f}")
 
+    # ---- High-severity citation narrowing, verified via GET /{id}/source/{chunk_id} ----
+    print("\n== HIGH-SEVERITY CITATION NARROWING (via source endpoint) ==")
+
+    def _show(label: str, finding: dict | None) -> None:
+        if not finding:
+            print(f"  {label}: NOT FOUND"); return
+        print(f"  {label}: [{finding['severity']}/{finding['type']}] {finding['title']}")
+        for cite in finding["citations"]:
+            src = analyses.get_source(jid, cite["chunk_id"])  # the result API endpoint
+            section = src["bbox"]
+            cb = cite["bbox"]
+            inside = (cb and section and cb[0] >= section[0] - 0.5 and cb[1] >= section[1] - 0.5
+                      and cb[2] <= section[2] + 0.5 and cb[3] <= section[3] + 0.5 and cb != section)
+            print(f"    chunk {cite['chunk_id']}  heading='{src['lines'][0]['text'] if src['lines'] else ''}'")
+            print(f"      section bbox : {section}")
+            print(f"      citation bbox: {cb}  page={cite['page']}  (strict subset of section: {inside})")
+            print(f"      citation text: {cite['text_span'][:90]!r}")
+
+    ms2 = next((f for f in findings if "milestone 2" in f["title"].lower()), None)
+    conflict = next((f for f in findings if f["type"] == "conflict"), None)
+    _show("Milestone-2 gap", ms2)
+    _show("UAT-vs-migration conflict", conflict)
+
 
 if __name__ == "__main__":
     main()
