@@ -44,3 +44,7 @@ class GraphState(TypedDict, total=False):
     # Accumulators (additive reducers).
     citations: Annotated[list[dict], operator.add]
     model_logs: Annotated[list[ModelCallLog], operator.add]
+    # Per-step failures that did not abort the run (Phase 4 follow-up): a step
+    # that errors after retries records {step, error, ts} here and the pipeline
+    # continues where it safely can, finishing as a "partial" analysis.
+    step_errors: Annotated[list[dict], operator.add]

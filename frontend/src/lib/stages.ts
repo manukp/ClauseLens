@@ -22,7 +22,7 @@ const DONE = STAGES.length; // all stages complete
 // Returns the index of the currently-active stage (0..STAGES.length-1), or DONE
 // when the run is complete, or -1 when queued / not yet started.
 export function stageIndex(status: StatusResponse): number {
-  if (status.status === "complete") return DONE;
+  if (status.status === "complete" || status.status === "partial") return DONE;
   if (status.status === "queued") return -1;
   const s = (status.current_substep || "").toLowerCase();
   if (!s || s === "queued") return -1;

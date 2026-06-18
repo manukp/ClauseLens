@@ -31,7 +31,7 @@ export default function ProgressTracker({
         const s = await api.getStatus(jobId);
         if (!active) return;
         setStatus(s);
-        if (s.status === "complete" && !completedRef.current) {
+        if ((s.status === "complete" || s.status === "partial") && !completedRef.current) {
           completedRef.current = true;
           onComplete();
           return;

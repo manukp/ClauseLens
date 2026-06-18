@@ -203,6 +203,9 @@ class JobStatus(str, Enum):
     queued = "queued"
     running = "running"
     complete = "complete"
+    # One or more non-critical steps failed after retries, but the run finished
+    # with usable partial results (Phase 4 follow-up). Distinct from a hard error.
+    partial = "partial"
     error = "error"
 
 

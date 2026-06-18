@@ -11,6 +11,10 @@ Phase 3 and will extend this same graph/state.
 """
 from __future__ import annotations
 
+import logging
+import time
+from typing import Callable
+
 from langgraph.graph import END, START, StateGraph
 
 from ..analyze import findings as findings_mod
@@ -21,6 +25,8 @@ from ..store import artifacts
 from ..store import get_job_store
 from .state import GraphState
 
+logger = logging.getLogger(__name__)
+
 STAGE_1 = "stage-1 ingest"
 STAGE_2 = "stage-2 analysis"
 STAGE = STAGE_1  # back-compat alias (Phase 2 callers / run_pipeline default)
@@ -29,6 +35,35 @@ STAGE = STAGE_1  # back-compat alias (Phase 2 callers / run_pipeline default)
 def _progress(job_id: str, substep: str, stage: str = STAGE_1) -> None:
     """Reflect node progress on the SQLite Job so the frontend can poll it."""
     get_job_store().update(job_id, current_stage=stage, current_substep=substep)
+
+
+def _resilient(step_name: str, fn: Callable[[GraphState], dict]) -> Callable[[GraphState], dict]:
+    """Wrap a node so a failure (after the client's own retries) is isolated.
+
+    On error the step is recorded in the ``step_errors`` accumulator and the node
+    returns ONLY that slice — it contributes no other state, so every artifact a
+    previous node already computed (summaries, structured items, findings, …) is
+    preserved and downstream nodes run on whatever is present (they all read state
+    with defaults). The run then finishes as a "partial" analysis rather than
+    hard-failing. Critical upstream failures simply cascade into more recorded
+    step errors; the overall status still reflects partial completion (Phase 4).
+    """
+
+    def wrapped(state: GraphState) -> dict:
+        try:
+            return fn(state)
+        except Exception as exc:  # noqa: BLE001 — deliberately isolate the step
+            err = {"step": step_name, "error": f"{type(exc).__name__}: {exc}", "ts": time.time()}
+            logger.exception("Pipeline step %s failed (isolated, run continues)", step_name)
+            try:
+                get_job_store().update(
+                    state["job_id"], current_substep=f"{step_name} failed: {type(exc).__name__}"
+                )
+            except Exception:  # noqa: BLE001 — never let bookkeeping mask the original
+                pass
+            return {"step_errors": [err]}
+
+    return wrapped
 
 
 # ---- Nodes ------------------------------------------------------------------
@@ -187,16 +222,18 @@ def build_graph():
     invoked by the structured/findings nodes.
     """
     g = StateGraph(GraphState)
-    g.add_node("parse", parse_node)
-    g.add_node("chunk", chunk_node)
-    g.add_node("embed", embed_node)
-    g.add_node("extract_entities", extract_entities_node)
-    g.add_node("summarize_docs", summarize_docs_node)
-    g.add_node("master_summary", master_summary_node)
-    g.add_node("extract_structured", extract_structured_node)
-    g.add_node("build_graph", build_graph_node)
-    g.add_node("detect_findings", detect_findings_node)
-    g.add_node("judge", judge_node)
+    # Every node is wrapped so a single step failing (after the bedrock client's
+    # own adaptive retries) is recorded and isolated rather than aborting the run.
+    g.add_node("parse", _resilient("parse", parse_node))
+    g.add_node("chunk", _resilient("chunk", chunk_node))
+    g.add_node("embed", _resilient("embed", embed_node))
+    g.add_node("extract_entities", _resilient("extract_entities", extract_entities_node))
+    g.add_node("summarize_docs", _resilient("summarize_docs", summarize_docs_node))
+    g.add_node("master_summary", _resilient("master_summary", master_summary_node))
+    g.add_node("extract_structured", _resilient("extract_structured", extract_structured_node))
+    g.add_node("build_graph", _resilient("build_graph", build_graph_node))
+    g.add_node("detect_findings", _resilient("detect_findings", detect_findings_node))
+    g.add_node("judge", _resilient("judge", judge_node))
 
     g.add_edge(START, "parse")
     g.add_edge("parse", "chunk")
@@ -226,10 +263,9 @@ def run_pipeline(job_id: str) -> GraphState:
     """Invoke the compiled Stage-1 graph for a job and persist its model logs.
 
     Plain-Python orchestration (NOT in the graph, per D1): set running, run the
-    spine, persist the accumulated ModelCallLogs, then mark complete/error.
+    spine, persist the accumulated ModelCallLogs + any step errors, then mark the
+    job complete / partial / error.
     """
-    import time
-
     store = get_job_store()
     store.update(job_id, status="running", started_ts=time.time(), error=None)
     documents = artifacts.list_documents(job_id)
@@ -241,14 +277,30 @@ def run_pipeline(job_id: str) -> GraphState:
             artifacts.MODEL_LOGS,
             [log.model_dump() for log in logs],
         )
-        store.update(
-            job_id,
-            status="complete",
-            current_stage=STAGE_2,
-            current_substep="done",
-            finished_ts=time.time(),
-        )
+        # Per-step failures that were isolated (not aborted). Persist them so the
+        # result API can surface "graph unavailable" etc., and reflect partial
+        # completion in the job status rather than reporting a clean "complete".
+        step_errors = final.get("step_errors", [])
+        artifacts.write_json(job_id, artifacts.STEP_ERRORS, step_errors)
+        if step_errors:
+            failed = ", ".join(e["step"] for e in step_errors)
+            store.update(
+                job_id,
+                status="partial",
+                current_stage=STAGE_2,
+                current_substep=f"done — {len(step_errors)} step(s) failed: {failed}",
+                error=f"Partial: failed step(s): {failed}",
+                finished_ts=time.time(),
+            )
+        else:
+            store.update(
+                job_id,
+                status="complete",
+                current_stage=STAGE_2,
+                current_substep="done",
+                finished_ts=time.time(),
+            )
         return final
-    except Exception as exc:  # noqa: BLE001 — capture failure on the Job (task 9).
+    except Exception as exc:  # noqa: BLE001 — catastrophic failure (graph infra, not a node).
         store.update(job_id, status="error", error=f"{type(exc).__name__}: {exc}", finished_ts=time.time())
         raise

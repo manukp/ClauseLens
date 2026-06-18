@@ -39,6 +39,7 @@ ENTITY_GRAPH = "entity_graph.json"
 FINDINGS = "findings.json"
 RAG_META = "rag_meta.json"
 MODEL_LOGS = "model_logs.json"
+STEP_ERRORS = "step_errors.json"  # per-step failures that did not abort the run
 
 
 def jobs_root() -> Path:
