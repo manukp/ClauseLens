@@ -15,6 +15,7 @@ from __future__ import annotations
 import os
 
 from fastapi import APIRouter, BackgroundTasks, HTTPException, UploadFile
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 from ..aws import s3
@@ -180,6 +181,28 @@ def get_source(job_id: str, chunk_id: str) -> dict:
                 "lines": c.get("lines", []),
             }
     raise HTTPException(status_code=404, detail=f"Unknown chunk: {chunk_id}")
+
+
+@router.get("/{job_id}/document/{doc_id}")
+def get_document(job_id: str, doc_id: str) -> FileResponse:
+    """Serve a job's raw PDF for the react-pdf citation viewer (Phase 4).
+
+    The local ``uploads/`` copy (already downloaded for the parser, D4) is the
+    source; no S3 round-trip and no new infra (D7). Inline so the viewer renders
+    it rather than triggering a download.
+    """
+    _require_job(job_id)
+    for doc in artifacts.list_documents(job_id):
+        if doc.get("doc_id") == doc_id:
+            path = artifacts.uploads_dir(job_id) / doc["filename"]
+            if not path.is_file():
+                raise HTTPException(status_code=404, detail="Source PDF missing on disk")
+            return FileResponse(
+                str(path),
+                media_type="application/pdf",
+                headers={"Content-Disposition": f'inline; filename="{doc["filename"]}"'},
+            )
+    raise HTTPException(status_code=404, detail=f"Unknown document: {doc_id}")
 
 
 @router.get("/{job_id}/observability")
