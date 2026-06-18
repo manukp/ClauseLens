@@ -241,7 +241,11 @@ def detect(
             f"{_instruction(inventory)}\n\nWHOLE CONTRACT (numbered excerpts):\n{context}"
         )}]}],
         system=_DETECT_SYSTEM,
-        max_tokens=4096,
+        # Headroom for a long findings list (the 3-document set overflowed 4096,
+        # truncating the JSON array — _salvage_array now recovers a truncation, but
+        # give the model room to finish the list in the first place). Sonnet 4.6
+        # supports far higher; 8192 covers a multi-document contract.
+        max_tokens=8192,
         job_id=job_id,
         step="detect_findings",
     )
@@ -330,7 +334,9 @@ def judge(
             "(validate absences/conflicts against the whole contract above)."
         )}]}],
         system=_JUDGE_SYSTEM,
-        max_tokens=2000,
+        # One small verdict per finding; scale the cap with the longer multi-document
+        # findings list so the verdict array isn't truncated (salvage covers any tail).
+        max_tokens=4096,
         job_id=job_id,
         step="judge",
     )
