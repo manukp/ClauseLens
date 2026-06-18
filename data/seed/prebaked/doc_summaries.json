@@ -1,0 +1,257 @@
+[
+  {
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "summary": "# Master Services Agreement Summary\n\n**Purpose:**\nTo engage BuildrCo Pvt Ltd to design, develop, and deploy a customer onboarding platform for Acme Corp.\n\n**Parties:**\n- **Client:** Acme Corp (Bengaluru)\n- **Vendor:** BuildrCo Pvt Ltd (Bengaluru)\n\n**Effective Date:** 1 August 2025\n\n**Principal Obligations:**\n\n*Vendor:*\n- Perform Services with reasonable skill and care per industry standards\n- Deliver items specified in Statements of Work (SOWs)\n- Provide impact assessments for requested changes\n- Warrant Deliverables conform to SOW specifications for 90 days post-acceptance\n\n*Client:*\n- Pay fees as specified in SOWs\n- Comply with applicable laws\n\n**Key Terms:**\n\n- **Fees (SOW-01):** INR 48,00,000 in three milestones:\n  - Milestone 1: INR 16,00,000 upon signing\n  - Milestone 2: INR 16,00,000 upon Platform Build completion\n  - Milestone 3: INR 16,00,000 upon UAT sign-off\n- **Payment Terms:** 30 days from invoice; 1% monthly interest on late payments\n- **Termination:** Either party may terminate for material breach (30-day cure period); Client may terminate any SOW for convenience (60 days' notice)\n- **Confidentiality:** 2 years post-termination\n- **Liability Cap:** Limited to fees paid in preceding 12 months (excludes fraud/wilful misconduct)\n- **Governing Law:** India; disputes resolved by arbitration in Bengaluru\n- **Vendor Contact:** Ms. R. Iyer (Project Manager)",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          45.23,
+          535.87,
+          143.56
+        ],
+        "text_span": "01_master_services_agreement MASTER SERVICES AGREEMENT This Master Services Agreement (\"Agreement\") is entered into on 1 August 2025 (the \"Effective Date\")",
+        "chunk_id": "chunk_5f6c4393eb82"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          160.06,
+          536.19,
+          216.31
+        ],
+        "text_span": "BETWEEN: Acme Corp, a company incorporated under the Companies Act, 2013, having its registered office at 14 Residency Road, Bengaluru 560025 (the \"Client\");",
+        "chunk_id": "chunk_897d98c1b084"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          233.56,
+          539.2,
+          317.56
+        ],
+        "text_span": "AND BuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered office at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\"). The Client and the Vendor are referred to individually as a \"Party\" and colle...",
+        "chunk_id": "chunk_a52ee36f28c4"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          331.03,
+          533.84,
+          427.81
+        ],
+        "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+        "chunk_id": "chunk_ec99b554700f"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          440.53,
+          539.76,
+          773.56
+        ],
+        "text_span": "1. DEFINITIONS AND INTERPRETATION 1.1 In this Agreement, unless the context otherwise requires: \"Statement of Work\" or \"SOW\" means a document executed by the Parties under this Agreement describing specific Services, Deliverables, timeli...",
+        "chunk_id": "chunk_75d893031c8d"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+        "chunk_id": "chunk_1a3e38228ffd"
+      }
+    ]
+  },
+  {
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "summary": "# Summary of Statement of Work (SOW-01)\n\n**Purpose:**\nTo define the scope, deliverables, timeline, and terms for building a customer onboarding platform to replace the Client's manual process.\n\n**Parties:**\n- **Client:** Acme Corp\n- **Vendor:** BuildrCo Pvt Ltd\n- **Governing Agreement:** Master Services Agreement dated 1 August 2025\n\n**Principal Obligations:**\n\n*Vendor:*\n- Design, build, and test the onboarding web application (registration workflow, document upload, administrative console)\n- Migrate existing customer records with data cleansing and validation\n- Optimize platform performance before go-live\n- Provide 30 days of post-launch support (defect triage and resolution)\n\n*Client:*\n- Provide timely access to legacy system and test data by 20 August 2025\n- Nominate UAT participants\n- Confirm final data schema by 25 August 2025\n- Review and accept deliverables within 10 business days\n\n**Key Dates:**\n- Project Start: 1 August 2025\n- Platform Build Complete: 15 September 2025\n- UAT Sign-Off: 30 September 2025\n- Target Go-Live: 5 October 2025\n- Data Migration Complete: 15 October 2025\n- Hypercare Support: 30 days post-launch\n\n**Fees:**\nINR 48,00,000 across three milestones (per Master Services Agreement); pre-approved expenses reimbursed at cost.\n\n**Acceptance:** Deliverables accepted upon Client sign-off or deemed accepted if no response within 10 business days. Non-conformities must be remedied within 10 business days.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          45.23,
+          344.21,
+          96.44
+        ],
+        "text_span": "02_statement_of_work STATEMENT OF WORK — SOW-01",
+        "chunk_id": "chunk_0ab9ab991141"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          538.89,
+          222.31
+        ],
+        "text_span": "Customer Onboarding Platform This Statement of Work (\"SOW-01\") is issued under and governed by the Master Services Agreement dated 1 August 2025 between Acme Corp (\"Client\") and BuildrCo Pvt Ltd (\"Vendor\"). Capitalised terms not defined ...",
+        "chunk_id": "chunk_00df5aa878db"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          235.03,
+          534.88,
+          360.31
+        ],
+        "text_span": "1. BACKGROUND AND OBJECTIVES 1.1 The Client requires a customer onboarding platform to replace its existing manual onboarding process. The platform will capture customer records, validate documentation, and integrate with the Client's do...",
+        "chunk_id": "chunk_16a6442f46dc"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      }
+    ]
+  },
+  {
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "summary": "# Change Order Summary\n\n**Document:** Change Order CO-01, dated 5 September 2025\n\n**Parties:**\n- **Client:** Acme Corp\n- **Vendor:** BuildrCo Pvt Ltd\n\n**Purpose:**\nAmendment to Statement of Work SOW-01 (Customer Onboarding Platform) under the Master Services Agreement dated 1 August 2025, issued to accelerate project go-live and add CRM integration functionality.\n\n**Principal Changes:**\n\n1. **Scope:** Adds a new deliverable—Salesforce CRM Integration, including real-time integration, field mapping, and error handling. Acceptance criteria: successful integration test demonstrating record sync across all mapped fields.\n\n2. **Timeline:** Go-live date accelerated from 5 October 2025 to 25 September 2025. All other dates in SOW-01 remain unchanged.\n\n3. **Fees:** Additional fee of INR 8,00,000 for CRM Integration, payable upon acceptance. Total contract value increases to INR 56,00,000.\n\n**Effect:** This Change Order becomes part of SOW-01 and the Master Services Agreement upon execution by both parties.\n\n**Status:** Signature blocks are present but unsigned.",
+    "citations": [
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          45.23,
+          278.16,
+          96.44
+        ],
+        "text_span": "03_change_order CHANGE ORDER — CO-01",
+        "chunk_id": "chunk_b137a5c24bb2"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          542.05,
+          205.06
+        ],
+        "text_span": "Amendment to SOW-01 (Customer Onboarding Platform) This Change Order (\"CO-01\") is issued under clause 5 of the Master Services Agreement dated 1 August 2025 and amends Statement of Work SOW-01 between Acme Corp (\"Client\") and BuildrCo Pv...",
+        "chunk_id": "chunk_3f33e6241967"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          222.31,
+          540.71,
+          309.31
+        ],
+        "text_span": "Date of this Change Order: 5 September 2025 1. REASON FOR CHANGE 1.1 Following a strategic review, the Client wishes to (a) accelerate go-live to capture an upcoming campaign window, and (b) add a third-party CRM integration to the scope.",
+        "chunk_id": "chunk_11211347b2e0"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          322.78,
+          540.97,
+          430.06
+        ],
+        "text_span": "2. CHANGES TO SCOPE 2.1 A new Deliverable is added to SOW-01: 2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Acceptance: passes...",
+        "chunk_id": "chunk_a54d1688f8f3"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          535.35,
+          551.56
+        ],
+        "text_span": "3. CHANGES TO TIMELINE 3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25 September 2025. 3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged unless ...",
+        "chunk_id": "chunk_0b2d01b6f765"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          564.28,
+          541.79,
+          655.06
+        ],
+        "text_span": "4. CHANGES TO FEES 4.1 The additional fee for the CRM Integration Deliverable is INR 8,00,000, payable on acceptance of that Deliverable. 4.2 This additional fee is added to the total contract value, bringing it to INR 56,00,000.",
+        "chunk_id": "chunk_3d7b101c3e56"
+      }
+    ]
+  }
+]

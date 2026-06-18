@@ -4,21 +4,25 @@ Prices are USD per 1,000 tokens, split into input/output. Keyed by the exact
 Bedrock model id used in config.env, with a couple of base-id aliases so the
 lookup survives inference-profile prefixes (``us.`` / ``global.``).
 
-!!! VERIFY BEFORE DEMO !!!
-These numbers were entered from memory and MUST be checked against the current
-published AWS Bedrock pricing page before the live demo. Wrong prices only skew
-the Admin cost Sankey; they do not affect analysis correctness. Flagged in
-IMPLEMENTATION_LOG.md Known issues.
+VERIFIED against AWS Bedrock on-demand pricing (Phase 5, 2026-06-19), clearing
+the Phase 1 Known-issue. Bedrock on-demand rates match Anthropic's first-party
+per-1M prices: Claude Haiku 4.5 $1/$5 per 1M (= $0.001/$0.005 per 1K); Claude
+Sonnet 4.6 $3/$15 per 1M (= $0.003/$0.015 per 1K). Titan Text Embeddings **V2**
+is $0.02 per 1M input (= $0.00002 per 1K) — note this is the V2 rate, 5x cheaper
+than the legacy V1/G1 ($0.0001/1K), which is a common point of confusion.
+Re-check these against https://aws.amazon.com/bedrock/pricing/ if the demo
+machine's region or model tier changes. Wrong prices only skew the Admin cost
+Sankey; they do not affect analysis correctness.
 """
 from __future__ import annotations
 
 # USD per 1K tokens: (input, output). Embedding models have no output price.
 PRICES: dict[str, dict[str, float]] = {
-    # Claude Haiku 4.5 — high-volume / structural tier.
+    # Claude Haiku 4.5 — high-volume / structural tier. $1/$5 per 1M (verified).
     "global.anthropic.claude-haiku-4-5-20251001-v1:0": {"input": 0.001, "output": 0.005},
-    # Claude Sonnet 4.6 — reasoning / judgement tier.
+    # Claude Sonnet 4.6 — reasoning / judgement tier. $3/$15 per 1M (verified).
     "us.anthropic.claude-sonnet-4-6": {"input": 0.003, "output": 0.015},
-    # Titan Text Embeddings v2 — input only.
+    # Titan Text Embeddings V2 — input only. $0.02 per 1M (verified; V2, not V1).
     "amazon.titan-embed-text-v2:0": {"input": 0.00002, "output": 0.0},
 }
 

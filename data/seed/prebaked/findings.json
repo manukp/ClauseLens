@@ -1,0 +1,738 @@
+[
+  {
+    "finding_id": "find_6012e3602c68",
+    "type": "conflict",
+    "title": "Data Migration completion date falls after accelerated go-live date",
+    "description": "SOW-01 clause 5.1 schedules Data Migration completion by 15 October 2025 and states it is a prerequisite for UAT. CO-01 clause 3.1 brings the go-live date forward to 25 September 2025, but CO-01 clause 3.2 expressly leaves the Data Migration completion date unchanged at 15 October 2025. This creates a direct logical impossibility: go-live is required on 25 September 2025, yet the mandatory prerequisite (Data Migration) is not scheduled to complete until 20 days later on 15 October 2025.",
+    "severity": "high",
+    "mitigation": "Issue an immediate further Change Order amending the Data Migration completion date to a date prior to the revised UAT start date, or revert the go-live date to a date after 15 October 2025. Assign a named responsible party and a revised milestone date for Data Migration in the same instrument.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          535.35,
+          551.56
+        ],
+        "text_span": "3. CHANGES TO TIMELINE 3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25 September 2025. 3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged unless ...",
+        "chunk_id": "chunk_0b2d01b6f765"
+      }
+    ],
+    "judge": {
+      "score": 0.98,
+      "passed": true,
+      "note": "Confirmed conflict. SOW-01 clause 5.1 explicitly states Data Migration is a prerequisite for UAT and schedules completion by 15 October 2025. CO-01 clause 3.1 moves go-live to 25 September 2025 while CO-01 clause 3.2 expressly leaves Data Migration date unchanged. The logical impossibility is directly supported by the contract text."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_2879cd05e97e",
+    "type": "conflict",
+    "title": "UAT Sign-Off deadline precedes Data Migration completion, violating stated prerequisite",
+    "description": "SOW-01 clause 3.3 requires UAT Sign-Off by 30 September 2025. SOW-01 clause 5.1 states Data Migration must be completed before UAT can begin, yet schedules Data Migration completion at 15 October 2025. Even under the original timeline (before CO-01 acceleration), UAT Sign-Off was due 15 days before the prerequisite Data Migration was scheduled to finish. CO-01 further worsens this by moving go-live to 25 September 2025 while leaving Data Migration at 15 October 2025.",
+    "severity": "high",
+    "mitigation": "Reconcile all timeline dates in a single amending instrument. Data Migration must be scheduled to complete before UAT commences; UAT Sign-Off must follow Data Migration completion; go-live must follow UAT Sign-Off. Assign a named owner for Data Migration scheduling.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          535.35,
+          551.56
+        ],
+        "text_span": "3. CHANGES TO TIMELINE 3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25 September 2025. 3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged unless ...",
+        "chunk_id": "chunk_0b2d01b6f765"
+      }
+    ],
+    "judge": {
+      "score": 0.97,
+      "passed": true,
+      "note": "Confirmed conflict. Even in the original SOW-01 timeline, UAT Sign-Off was due 30 September 2025 (clause 3.3) while Data Migration — a stated prerequisite for UAT per clause 5.1 — was not due until 15 October 2025. This internal inconsistency exists independently of CO-01 and is accurately identified. CO-01 worsens it further."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_f7215d0ffded",
+    "type": "conflict",
+    "title": "Platform Build deadline and accelerated go-live leave no time for UAT",
+    "description": "SOW-01 clause 3.2 sets Platform Build completion at 15 September 2025. CO-01 clause 3.1 sets go-live at 25 September 2025. That leaves only 10 calendar days between Platform Build completion and go-live for UAT to be conducted and signed off. SOW-01 clause 6.1 alone allows the Client 10 business days to review a single Deliverable, making it structurally impossible to complete UAT within the available window, particularly given that Data Migration (a UAT prerequisite per clause 5.1) is not due until 15 October 2025.",
+    "severity": "high",
+    "mitigation": "Revise the project timeline to insert a realistic UAT window between Platform Build completion and go-live. Ensure Data Migration is completed before UAT begins. Document the revised schedule in a further Change Order.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          215.53,
+          537.59,
+          351.31
+        ],
+        "text_span": "6. ACCEPTANCE PROCEDURE 6.1 On submission of a Deliverable, the Client has 10 business days to review and either accept it or provide written notice of non-conformities. 6.2 If the Client does not respond within the review period, the De...",
+        "chunk_id": "chunk_6b0c9bc02538"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          535.35,
+          551.56
+        ],
+        "text_span": "3. CHANGES TO TIMELINE 3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25 September 2025. 3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged unless ...",
+        "chunk_id": "chunk_0b2d01b6f765"
+      }
+    ],
+    "judge": {
+      "score": 0.88,
+      "passed": true,
+      "note": "Largely confirmed. Platform Build completes 15 September 2025; accelerated go-live is 25 September 2025 — only 10 calendar days. The 10-business-day review period in clause 6.1 alone would consume that window. The finding correctly notes the Data Migration prerequisite issue compounds this. Minor caveat: the finding conflates the acceptance review period (which applies to individual deliverables) with UAT specifically, but the overall structural impossibility argument is sound and well-grounded."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_59ac0eeefba6",
+    "type": "gap",
+    "title": "Performance Tuning deliverable: no acceptance criteria and no named owner",
+    "description": "SOW-01 clause 2.3 defines the Performance Tuning deliverable as 'optimisation of platform response times prior to go-live' but states no acceptance criteria (e.g. target response-time thresholds, benchmarks, or test methodology). SOW-01 clause 4.1 assigns the Vendor responsibility for Performance Tuning, but no specific role or individual is named as owner for this deliverable in clause 2.3 itself. There is no measurable standard against which acceptance or rejection can be determined.",
+    "severity": "high",
+    "mitigation": "Amend SOW-01 clause 2.3 to include quantified acceptance criteria (e.g. page-load times under defined load conditions) and name a specific responsible role or individual. Reference the acceptance procedure in clause 6.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      }
+    ],
+    "judge": {
+      "score": 0.92,
+      "passed": true,
+      "note": "Confirmed gap. SOW-01 clause 2.3 defines Performance Tuning with no acceptance criteria (no response-time thresholds, benchmarks, or test methodology). Clause 4.1 assigns Vendor responsibility but no named individual is designated. The absence of measurable acceptance standards is genuine and unambiguous. The 'no named owner' point is slightly overstated since Vendor responsibility is assigned in 4.1, but the lack of acceptance criteria is a real and significant gap."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_30a59a7f5ca6",
+    "type": "gap",
+    "title": "UAT Sign-Off deliverable: no acceptance criteria and no named owner in its own clause",
+    "description": "SOW-01 clause 2.4 defines UAT Sign-Off as 'formal Client acceptance of the platform following user acceptance testing' but provides no acceptance criteria (e.g. pass/fail thresholds, defect severity limits, or sign-off form). No specific role or individual is named as owner within clause 2.4. While clause 4.2 references the Client's Head of Procurement for Milestone 1 and clause 4.4 references the CFO for Milestone 3 (triggered by UAT Sign-Off), neither clause designates who is authorised to grant UAT Sign-Off itself.",
+    "severity": "high",
+    "mitigation": "Amend SOW-01 clause 2.4 to specify measurable UAT exit criteria (e.g. zero critical defects open, defined percentage of test cases passed) and name the Client role authorised to issue UAT Sign-Off.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ],
+    "judge": {
+      "score": 0.9,
+      "passed": true,
+      "note": "Confirmed gap. SOW-01 clause 2.4 provides no acceptance criteria for UAT Sign-Off and names no authorised signatory. The finding correctly notes that MSA clauses 4.2 and 4.4 reference payment authorisers (Head of Procurement and CFO) but neither designates who grants UAT Sign-Off itself. The gap is genuine and the analysis is accurate."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_291b6d91b842",
+    "type": "gap",
+    "title": "Hypercare Support deliverable: no acceptance criteria and no named owner",
+    "description": "SOW-01 clause 2.5 defines Hypercare Support as '30 days of post go-live support, including defect triage and resolution, commencing on the go-live date' but provides no acceptance criteria (e.g. SLA response times, defect resolution targets, or formal close-out procedure) and names no responsible party or role within the clause itself.",
+    "severity": "medium",
+    "mitigation": "Amend SOW-01 clause 2.5 to include SLA metrics, escalation paths, a named Vendor contact, and a formal close-out/sign-off procedure at the end of the 30-day period.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ],
+    "judge": {
+      "score": 0.9,
+      "passed": true,
+      "note": "Confirmed gap. SOW-01 clause 2.5 defines Hypercare Support with no SLA metrics, response time targets, defect resolution standards, or formal close-out procedure. No responsible party is named within the clause. The finding is well-grounded and not overstated."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_b8973e8f63e7",
+    "type": "gap",
+    "title": "CRM Integration deliverable: no named owner in its own clause",
+    "description": "CO-01 clause 2.1.1 defines the CRM Integration deliverable and states acceptance criteria (passes an integration test demonstrating successful record sync across all mapped fields). However, no responsible party or role is named within clause 2.1.1 or elsewhere in CO-01 for delivery of this new deliverable. The general Vendor responsibility clause in SOW-01 clause 4.1 does not cover deliverables added by CO-01.",
+    "severity": "medium",
+    "mitigation": "Amend CO-01 clause 2.1.1 or add a responsibilities clause in CO-01 explicitly assigning the CRM Integration deliverable to the Vendor (or a named role/individual) and identifying the Client counterpart responsible for Salesforce-side access and field-mapping sign-off.",
+    "citations": [
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          322.78,
+          540.97,
+          430.06
+        ],
+        "text_span": "2. CHANGES TO SCOPE 2.1 A new Deliverable is added to SOW-01: 2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Acceptance: passes...",
+        "chunk_id": "chunk_a54d1688f8f3"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      }
+    ],
+    "judge": {
+      "score": 0.85,
+      "passed": true,
+      "note": "Mostly confirmed. CO-01 clause 2.1.1 does not name a responsible party for CRM Integration delivery. The finding correctly notes SOW-01 clause 4.1 does not cover CO-01 deliverables. However, the general engagement structure (Vendor provides Services per SOWs/Change Orders) and CO-01 clause 5.1 incorporating CO-01 into SOW-01 and the MSA provides some implicit Vendor responsibility. The gap regarding explicit assignment is real but the severity of 'no named owner' is slightly overstated given the overall contractual framework."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_6dcff2ea6c76",
+    "type": "gap",
+    "title": "Milestone 2 Payment has no named approval authority",
+    "description": "MSA clause 4.3 sets Milestone 2 at INR 16,00,000 payable on completion of the Platform Build Deliverable but names no approval authority. By contrast, Milestone 1 (clause 4.2) names the Client's Head of Procurement and Milestone 3 (clause 4.4) names the Client's Chief Financial Officer. The absence of a named approver for Milestone 2 creates ambiguity about who can authorise payment and may delay or dispute the release of funds.",
+    "severity": "medium",
+    "mitigation": "Amend MSA clause 4.3 to name a specific approval authority (e.g. Client's Head of Procurement or another designated officer) consistent with the pattern established in clauses 4.2 and 4.4.",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ],
+    "judge": {
+      "score": 0.95,
+      "passed": true,
+      "note": "Confirmed gap. MSA clause 4.3 (Milestone 2) names no approval authority, while clauses 4.2 and 4.4 name specific authorisers for Milestones 1 and 3 respectively. The inconsistency is directly verifiable from the contract text and the practical risk of payment delay is a reasonable inference."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_92e33caec4d1",
+    "type": "gap",
+    "title": "CRM Integration additional fee payment has no named approval authority",
+    "description": "CO-01 clause 4.1 provides for an additional fee of INR 8,00,000 payable on acceptance of the CRM Integration Deliverable but names no approval authority for this payment. No clause in the MSA or SOW-01 covers this additional milestone.",
+    "severity": "medium",
+    "mitigation": "Amend CO-01 clause 4.1 to name a specific approval authority for the CRM Integration payment milestone, consistent with the approach in MSA clauses 4.2 and 4.4.",
+    "citations": [
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          564.28,
+          541.79,
+          655.06
+        ],
+        "text_span": "4. CHANGES TO FEES 4.1 The additional fee for the CRM Integration Deliverable is INR 8,00,000, payable on acceptance of that Deliverable. 4.2 This additional fee is added to the total contract value, bringing it to INR 56,00,000.",
+        "chunk_id": "chunk_3d7b101c3e56"
+      }
+    ],
+    "judge": {
+      "score": 0.93,
+      "passed": true,
+      "note": "Confirmed gap. CO-01 clause 4.1 specifies the CRM Integration fee and trigger but names no approval authority. No other clause in the MSA, SOW-01, or CO-01 fills this gap for this additional milestone. The finding is accurate and well-grounded."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_d4507a6ff0c9",
+    "type": "gap",
+    "title": "Intellectual property ownership of Foreground/Project IP not addressed",
+    "description": "MSA clause 6 addresses Background IP retention and a licence to use the Vendor's Background IP, but contains no provision assigning ownership of newly created intellectual property (foreground IP, work product, or deliverables) developed specifically for the Client under this Agreement. It is entirely silent on who owns the Platform Build, Data Migration outputs, CRM Integration, and other deliverables once created. This is a significant gap that could leave the Client without clear ownership of bespoke software it has commissioned and paid for.",
+    "severity": "high",
+    "mitigation": "Add a clause to MSA clause 6 (or a new clause) expressly assigning ownership of all newly created IP in the Deliverables to the Client upon full payment, or alternatively granting the Client an exclusive, perpetual, irrevocable licence, and addressing moral rights waiver where applicable under Indian law.",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          540.65,
+          762.31
+        ],
+        "text_span": "6. INTELLECTUAL PROPERTY 6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement transfers ownership of a Party's Background IP to the other. 6.2 The Vendor grants the Client a non-exclusive ...",
+        "chunk_id": "chunk_a73754bea3a7"
+      }
+    ],
+    "judge": {
+      "score": 0.97,
+      "passed": true,
+      "note": "Confirmed gap. MSA clause 6 addresses only Background IP retention and a licence to use Vendor Background IP. There is no assignment, work-for-hire, or ownership provision for newly created foreground IP/deliverables anywhere in the MSA, SOW-01, or CO-01. This is a genuine and significant omission for a bespoke software development contract."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_b84eec823ede",
+    "type": "gap",
+    "title": "Data protection obligations are wholly inadequate",
+    "description": "MSA clause 10.1 states only that 'Each Party shall comply with applicable laws in performing this Agreement.' There are no substantive data protection provisions: no data processing obligations, no data subject rights procedures, no security measures, no breach notification obligations, no data retention or deletion requirements, no restrictions on sub-processing, and no reference to the Digital Personal Data Protection Act 2023 (India) or any other applicable regime. Given that the platform will capture customer records and migrate legacy customer data, this is a critical gap.",
+    "severity": "high",
+    "mitigation": "Replace or substantially expand MSA clause 10 to include: identification of data controller/processor roles, permitted purposes for processing, security standards (e.g. ISO 27001 or equivalent), personal data breach notification timelines, data retention and deletion obligations, sub-processor restrictions, and compliance with the Digital Personal Data Protection Act 2023.",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          429.28,
+          449.44,
+          475.06
+        ],
+        "text_span": "10. DATA PROTECTION 10.1 Each Party shall comply with applicable laws in performing this Agreement.",
+        "chunk_id": "chunk_42e26322434f"
+      }
+    ],
+    "judge": {
+      "score": 0.96,
+      "passed": true,
+      "note": "Confirmed gap. MSA clause 10.1 contains only a bare compliance obligation with no substantive data protection provisions. Given the platform captures and migrates customer personal data, the absence of processing obligations, security measures, breach notification, sub-processing restrictions, and DPDPA 2023 references is a critical gap. The finding is accurate and the characterisation as high severity is appropriate."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_366b5c7389e5",
+    "type": "gap",
+    "title": "Appendix A (Test Plan) is not attached",
+    "description": "SOW-01 clause 2.1 states that the Platform Build acceptance criterion is that it 'passes the agreed test plan set out in Appendix A.' Appendix A in the SOW is marked '[To be attached.]' and contains no content. Without an agreed test plan, the acceptance criterion for the primary deliverable is unenforceable and disputes about whether the Platform Build has passed are likely.",
+    "severity": "high",
+    "mitigation": "Finalise and attach Appendix A before or concurrently with project commencement (project start is 1 August 2025). Both Parties should sign or initial the completed Appendix A. Include a deadline by which Appendix A must be agreed (e.g. within 10 business days of the Effective Date).",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          572.53,
+          264.22,
+          619.06
+        ],
+        "text_span": "APPENDIX A — TEST PLAN [To be attached.]",
+        "chunk_id": "chunk_8700304a6119"
+      }
+    ],
+    "judge": {
+      "score": 0.99,
+      "passed": true,
+      "note": "Confirmed gap. SOW-01 clause 2.1 references Appendix A for the Platform Build acceptance test plan. Appendix A is explicitly marked '[To be attached.]' with no content. This is unambiguously confirmed by the contract text and represents a genuine enforceability risk for the primary deliverable."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_4a8f84e4660a",
+    "type": "gap",
+    "title": "Data Migration deliverable: no named owner in its own clause",
+    "description": "SOW-01 clause 2.2 defines the Data Migration deliverable and states acceptance criteria (reconciliation report approved by the Client's Data Lead). However, clause 2.2 names no responsible party for performing the migration. SOW-01 clause 4.1 assigns the Vendor responsibility only for the Platform Build (clause 2.1) and Performance Tuning (clause 2.3); it does not expressly assign Data Migration to the Vendor. Clause 4.2 assigns the Client responsibility for providing legacy system access and test data, but does not assign ownership of the Data Migration deliverable itself.",
+    "severity": "high",
+    "mitigation": "Amend SOW-01 clause 2.2 or clause 4 to expressly assign responsibility for Data Migration to the Vendor (or the Client, or a shared arrangement) and name the specific role or individual accountable for delivery.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      }
+    ],
+    "judge": {
+      "score": 0.88,
+      "passed": true,
+      "note": "Confirmed gap with minor qualification. SOW-01 clause 4.1 assigns Vendor responsibility only for Platform Build and Performance Tuning, not Data Migration. Clause 4.2 assigns Client responsibility for legacy system access and test data but not for performing the migration. The gap in explicit assignment of Data Migration responsibility is real. However, the recitals and overall context (Vendor engaged to build the platform) provide some implicit inference that Vendor performs migration, so the gap is real but context slightly mitigates the severity."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_2ff537efe4e6",
+    "type": "dependency",
+    "title": "Client schema confirmation dependency has no named responsible party or consequence for late delivery",
+    "description": "SOW-01 clause 5.2 states that the Platform Build depends on the Client confirming the final data schema by 25 August 2025. No named individual or role on the Client side is responsible for providing this confirmation, and there is no stated consequence (e.g. timeline relief for the Vendor, deemed approval) if the Client fails to confirm by that date.",
+    "severity": "medium",
+    "mitigation": "Amend SOW-01 clause 5.2 to name the Client role responsible for schema confirmation, and add a consequence clause providing that if the Client fails to confirm by 25 August 2025, the Vendor is entitled to a corresponding extension of the Platform Build deadline.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      }
+    ],
+    "judge": {
+      "score": 0.9,
+      "passed": true,
+      "note": "Confirmed. SOW-01 clause 5.2 states the dependency on Client schema confirmation by 25 August 2025 but names no responsible individual and provides no consequence for late delivery. The finding is accurate. The absence of a relief mechanism for the Vendor is a genuine contractual gap."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_80b57e9eef5f",
+    "type": "dependency",
+    "title": "Client obligation to provide test data and legacy system access has no consequence for delay",
+    "description": "SOW-01 clause 4.2 requires the Client to provide timely access to the legacy system, nominate UAT participants, and provide test data by 20 August 2025. No consequence is stated if the Client fails to meet this obligation, and no relief mechanism (e.g. Vendor timeline extension or fee adjustment) is provided. Given that Data Migration and UAT both depend on these inputs, a Client delay could cascade across the entire project timeline.",
+    "severity": "medium",
+    "mitigation": "Amend SOW-01 clause 4.2 to include an express relief provision: if the Client fails to deliver access or test data by 20 August 2025, the Vendor's downstream deadlines are extended by a corresponding number of days, and any additional costs caused by the delay are reimbursable.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      }
+    ],
+    "judge": {
+      "score": 0.9,
+      "passed": true,
+      "note": "Confirmed. SOW-01 clause 4.2 imposes Client obligations (legacy access, UAT participants, test data by 20 August 2025) with no stated consequence for non-compliance and no Vendor relief mechanism. The cascading risk to Data Migration and UAT timelines is a reasonable and well-grounded inference."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_65dfdf0eaa86",
+    "type": "dependency",
+    "title": "Data Migration completion dependency for UAT has no named responsible party",
+    "description": "SOW-01 clause 5.1 states that Data Migration is a prerequisite for UAT and must be completed before UAT can begin, but names no responsible party for ensuring this dependency is met or for managing the handoff between Data Migration completion and UAT commencement. Combined with the timeline conflict (Data Migration due 15 October 2025, UAT Sign-Off due 30 September 2025), the absence of a named owner compounds the risk.",
+    "severity": "high",
+    "mitigation": "Assign a named responsible party (Vendor or Client role) for Data Migration completion and the UAT readiness gate. Resolve the timeline conflict by amending the Data Migration completion date to precede UAT commencement.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      }
+    ],
+    "judge": {
+      "score": 0.85,
+      "passed": true,
+      "note": "Confirmed with minor qualification. SOW-01 clause 5.1 states the Data Migration prerequisite but names no responsible party for managing the handoff. The finding is accurate. However, it substantially overlaps with findings 1, 2, and 13, and the 'no named owner' point is partially addressed by the implicit Vendor engagement scope. The core observation is valid but adds incremental rather than fully independent value."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_962314eec172",
+    "type": "risk",
+    "title": "Deemed acceptance clause may result in unintended acceptance of non-conforming deliverables",
+    "description": "SOW-01 clause 6.2 provides that if the Client does not respond within the 10-business-day review period, the Deliverable is deemed accepted. Given the compressed and conflicting timeline (particularly around UAT and go-live), the Client may be unable to complete review within 10 business days, resulting in automatic acceptance of deliverables that do not meet requirements. There is no provision for extending the review period or for the Client to flag that review is in progress.",
+    "severity": "medium",
+    "mitigation": "Amend SOW-01 clause 6.2 to require the Vendor to send a formal reminder before deemed acceptance takes effect, and/or allow the Client to request a single extension of the review period. Consider limiting deemed acceptance to cases where the Client has been given adequate notice.",
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          215.53,
+          537.59,
+          351.31
+        ],
+        "text_span": "6. ACCEPTANCE PROCEDURE 6.1 On submission of a Deliverable, the Client has 10 business days to review and either accept it or provide written notice of non-conformities. 6.2 If the Client does not respond within the review period, the De...",
+        "chunk_id": "chunk_6b0c9bc02538"
+      }
+    ],
+    "judge": {
+      "score": 0.88,
+      "passed": true,
+      "note": "Confirmed. SOW-01 clause 6.2 provides for deemed acceptance on non-response within 10 business days. Given the compressed and conflicting timeline, the risk of inadvertent deemed acceptance is real and well-grounded. The absence of any extension mechanism or in-progress notification provision is confirmed by reviewing the whole contract. The finding is accurate and the risk characterisation is reasonable."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_659f1af9075f",
+    "type": "risk",
+    "title": "No indemnification clause",
+    "description": "The contract contains no indemnification provisions. There is no protection for the Client against third-party claims arising from the Vendor's deliverables (e.g. IP infringement claims relating to software components used in the Platform Build or CRM Integration), and no reciprocal indemnity for the Vendor. The limitation of liability clause (MSA clause 8) addresses aggregate liability between the Parties but does not substitute for third-party indemnification.",
+    "severity": "medium",
+    "mitigation": "Add an indemnification clause covering at minimum: (a) Vendor indemnity to the Client for third-party IP infringement claims arising from the Deliverables; (b) mutual indemnity for gross negligence or wilful misconduct causing third-party loss; and (c) a procedure for tendering and controlling indemnified claims.",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          204.28,
+          533.22,
+          295.06
+        ],
+        "text_span": "8. LIMITATION OF LIABILITY 8.1 Subject to clause 8.2, each Party's aggregate liability under this Agreement is limited to the total fees paid under the relevant SOW in the 12 months preceding the claim. 8.2 Nothing limits liability for f...",
+        "chunk_id": "chunk_5602cdfb0ff2"
+      }
+    ],
+    "judge": {
+      "score": 0.9,
+      "passed": true,
+      "note": "Confirmed gap. No indemnification clause exists anywhere in the MSA, SOW-01, or CO-01. The distinction between the limitation of liability clause (inter-party aggregate cap) and third-party indemnification is legally accurate. The IP infringement example is a reasonable and relevant illustration given the software development context."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_115d8f8c0952",
+    "type": "risk",
+    "title": "No source code escrow or business continuity provision",
+    "description": "The contract contains no source code escrow arrangement and no business continuity or disaster recovery obligations. If the Vendor becomes insolvent or ceases operations, the Client has no guaranteed access to the source code of the bespoke platform it has commissioned. This risk is heightened by the absence of a foreground IP assignment clause.",
+    "severity": "medium",
+    "mitigation": "Add a clause requiring the Vendor to deposit source code and build documentation into an escrow arrangement with a named escrow agent, with release triggers including Vendor insolvency, material breach, or termination. Alternatively, require the Vendor to deliver source code to the Client upon final payment.",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          540.65,
+          762.31
+        ],
+        "text_span": "6. INTELLECTUAL PROPERTY 6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement transfers ownership of a Party's Background IP to the other. 6.2 The Vendor grants the Client a non-exclusive ...",
+        "chunk_id": "chunk_a73754bea3a7"
+      }
+    ],
+    "judge": {
+      "score": 0.87,
+      "passed": true,
+      "note": "Confirmed gap. No source code escrow or business continuity provision exists anywhere in the contract documents. The finding is accurate. The connection to the foreground IP gap (finding 10) is a reasonable inference that strengthens the risk. Slightly advisory in tone but grounded in genuine contractual absence."
+    },
+    "loop_count": 0
+  },
+  {
+    "finding_id": "find_f64ba9020ffb",
+    "type": "issue",
+    "title": "Total contract value in CO-01 inconsistent with MSA fee structure",
+    "description": "CO-01 clause 4.2 states the total contract value is brought to INR 56,00,000 by adding INR 8,00,000 for CRM Integration. However, MSA clause 4 and SOW-01 clause 7.1 describe only three milestones totalling INR 48,00,000 with no mechanism for a fourth milestone. CO-01 clause 4.1 states the CRM Integration fee is 'payable on acceptance of that Deliverable' but does not amend MSA clause 4 to add a fourth milestone, name an approval authority, or specify invoice and payment terms for this additional amount.",
+    "severity": "medium",
+    "mitigation": "Amend CO-01 clause 4 to expressly add a fourth payment milestone to MSA clause 4, name an approval authority, and confirm that MSA clause 4.5 (30-day payment terms and late interest) applies to this milestone.",
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          364.78,
+          513.82,
+          455.56
+        ],
+        "text_span": "7. FEES 7.1 Fees for this SOW are as set out in clause 4 of the Master Services Agreement (total INR 48,00,000 across three milestones). 7.2 Expenses pre-approved in writing by the Client are reimbursed at cost.",
+        "chunk_id": "chunk_2539f39fa0c5"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          564.28,
+          541.79,
+          655.06
+        ],
+        "text_span": "4. CHANGES TO FEES 4.1 The additional fee for the CRM Integration Deliverable is INR 8,00,000, payable on acceptance of that Deliverable. 4.2 This additional fee is added to the total contract value, bringing it to INR 56,00,000.",
+        "chunk_id": "chunk_3d7b101c3e56"
+      }
+    ],
+    "judge": {
+      "score": 0.93,
+      "passed": true,
+      "note": "Confirmed. CO-01 clause 4.1 adds a fourth payment milestone (CRM Integration fee) without amending MSA clause 4's three-milestone structure, naming an approval authority, or specifying invoice/payment terms. SOW-01 clause 7.1 references only the three MSA milestones. The inconsistency between the updated total (INR 56,00,000) and the unchanged milestone framework is directly verifiable. The finding accurately identifies the structural gap in the fee amendment."
+    },
+    "loop_count": 0
+  }
+]

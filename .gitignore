@@ -11,8 +11,16 @@ __pycache__/
 venv/
 backend/.venv/
 
-# Local job store + uploads (created lazily at runtime).
-data/
+# Local job store + uploads (created lazily at runtime). Ignore everything under
+# data/ EXCEPT the committed demo assets the cold-clone demo depends on:
+#   - data/sample_contracts/  the four sample contracts (md sources + rendered
+#     PDFs + ANSWER_KEY) — uploadable through the UI on a fresh checkout.
+#   - data/seed/              the pre-baked hero analysis, seeded into the runtime
+#     job store by `make demo` (scripts/seed_demo.py) for instant live-demo insurance.
+# (data/jobs/, data/uploads/, and data/clauselens.db remain runtime-only.)
+data/*
+!data/sample_contracts/
+!data/seed/
 
 # Node / frontend build
 frontend/node_modules/

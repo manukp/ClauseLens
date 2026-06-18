@@ -1,0 +1,2748 @@
+[
+  {
+    "chunk_id": "chunk_5f6c4393eb82",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        45.23,
+        535.87,
+        143.56
+      ]
+    ],
+    "heading": "01_master_services_agreement",
+    "text": "01_master_services_agreement\nMASTER SERVICES AGREEMENT\nThis Master Services Agreement (\"Agreement\") is entered into on 1 August 2025 (the \"Effective\nDate\")",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          45.23,
+          319.64,
+          63.44
+        ],
+        "text": "01_master_services_agreement"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          78.23,
+          339.52,
+          96.44
+        ],
+        "text": "MASTER SERVICES AGREEMENT"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          535.87,
+          126.31
+        ],
+        "text": "This Master Services Agreement (\"Agreement\") is entered into on 1 August 2025 (the \"Effective"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          132.31,
+          83.25,
+          143.56
+        ],
+        "text": "Date\")"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_897d98c1b084",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        160.06,
+        536.19,
+        216.31
+      ]
+    ],
+    "heading": "BETWEEN:",
+    "text": "BETWEEN:\nAcme Corp, a company incorporated under the Companies Act, 2013, having its registered office\nat 14 Residency Road, Bengaluru 560025 (the \"Client\");",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          160.06,
+          111.75,
+          171.31
+        ],
+        "text": "BETWEEN:"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          188.56,
+          536.19,
+          199.81
+        ],
+        "text": "Acme Corp, a company incorporated under the Companies Act, 2013, having its registered office"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          205.06,
+          329.87,
+          216.31
+        ],
+        "text": "at 14 Residency Road, Bengaluru 560025 (the \"Client\");"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_a52ee36f28c4",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        233.56,
+        539.2,
+        317.56
+      ]
+    ],
+    "heading": "AND",
+    "text": "AND\nBuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered\noffice at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\").\nThe Client and the Vendor are referred to individually as a \"Party\" and collectively as the \"Parties\".",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          233.56,
+          76.12,
+          244.81
+        ],
+        "text": "AND"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          261.31,
+          535.09,
+          272.56
+        ],
+        "text": "BuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          278.56,
+          362.22,
+          289.81
+        ],
+        "text": "office at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\")."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          306.31,
+          539.2,
+          317.56
+        ],
+        "text": "The Client and the Vendor are referred to individually as a \"Party\" and collectively as the \"Parties\"."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_ec99b554700f",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        331.03,
+        533.84,
+        427.81
+      ]
+    ],
+    "heading": "RECITALS",
+    "text": "RECITALS\nWHEREAS the Client wishes to procure the design, development, and deployment of a customer\nonboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel,\nand capacity to provide such services; NOW THEREFORE, in consideration of the mutual\ncovenants set out below, the Parties agree as follows.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          331.03,
+          131.5,
+          347.47
+        ],
+        "text": "RECITALS"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          365.56,
+          533.84,
+          376.81
+        ],
+        "text": "WHEREAS the Client wishes to procure the design, development, and deployment of a customer"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          382.81,
+          528.88,
+          394.06
+        ],
+        "text": "onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel,"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          399.31,
+          497.97,
+          410.56
+        ],
+        "text": "and capacity to provide such services; NOW THEREFORE, in consideration of the mutual"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          416.56,
+          319.4,
+          427.81
+        ],
+        "text": "covenants set out below, the Parties agree as follows."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_75d893031c8d",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        440.53,
+        539.76,
+        773.56
+      ]
+    ],
+    "heading": "1. DEFINITIONS AND INTERPRETATION",
+    "text": "1. DEFINITIONS AND INTERPRETATION\n1.1 In this Agreement, unless the context otherwise requires:\n\"Statement of Work\" or \"SOW\" means a document executed by the Parties under this Agreement\ndescribing specific Services, Deliverables, timelines, and fees.\n\"Deliverables\" means the items, materials, software, and outputs to be provided by the Vendor as\nspecified in a SOW.\n\"Change Order\" means a written instrument executed by both Parties amending an SOW or this\nAgreement pursuant to clause 5.\n\"Background IP\" means intellectual property owned by or licensed to a Party prior to the Effective\nDate or developed independently of this Agreement.\n\"Confidential Information\" means non-public information disclosed by one Party to the other that\nis marked confidential or would reasonably be understood to be confidential.\n1.2 Headings are for convenience only and do not affect interpretation. References to clauses are\nto clauses of this Agreement unless stated otherwise. In the event of conflict between this\nAgreement and an SOW, this Agreement prevails unless the SOW expressly states otherwise.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          440.53,
+          354.51,
+          456.97
+        ],
+        "text": "1. DEFINITIONS AND INTERPRETATION"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          475.06,
+          353.14,
+          486.31
+        ],
+        "text": "1.1 In this Agreement, unless the context otherwise requires:"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          503.56,
+          539.62,
+          514.81
+        ],
+        "text": "\"Statement of Work\" or \"SOW\" means a document executed by the Parties under this Agreement"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          520.06,
+          361.23,
+          531.31
+        ],
+        "text": "describing specific Services, Deliverables, timelines, and fees."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          548.56,
+          539.38,
+          559.81
+        ],
+        "text": "\"Deliverables\" means the items, materials, software, and outputs to be provided by the Vendor as"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          565.06,
+          149.92,
+          576.31
+        ],
+        "text": "specified in a SOW."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          593.56,
+          531.81,
+          604.81
+        ],
+        "text": "\"Change Order\" means a written instrument executed by both Parties amending an SOW or this"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          610.06,
+          214.33,
+          621.31
+        ],
+        "text": "Agreement pursuant to clause 5."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          638.56,
+          539.76,
+          649.81
+        ],
+        "text": "\"Background IP\" means intellectual property owned by or licensed to a Party prior to the Effective"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          655.06,
+          310.67,
+          666.31
+        ],
+        "text": "Date or developed independently of this Agreement."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          683.56,
+          538.65,
+          694.81
+        ],
+        "text": "\"Confidential Information\" means non-public information disclosed by one Party to the other that"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          700.06,
+          430.68,
+          711.31
+        ],
+        "text": "is marked confidential or would reasonably be understood to be confidential."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          728.56,
+          536.2,
+          739.81
+        ],
+        "text": "1.2 Headings are for convenience only and do not affect interpretation. References to clauses are"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          745.06,
+          495.73,
+          756.31
+        ],
+        "text": "to clauses of this Agreement unless stated otherwise. In the event of conflict between this"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          762.31,
+          519.44,
+          773.56
+        ],
+        "text": "Agreement and an SOW, this Agreement prevails unless the SOW expressly states otherwise."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_1a3e38228ffd",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 1,
+    "page_end": 2,
+    "pages": [
+      1,
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        786.28,
+        285.68,
+        802.72
+      ],
+      [
+        51.75,
+        25.06,
+        542.16,
+        160.06
+      ]
+    ],
+    "heading": "2. ENGAGEMENT AND SCOPE",
+    "text": "2. ENGAGEMENT AND SCOPE\n2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the\n\"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for\ndelivery.\n2.2 Each SOW forms part of this Agreement upon execution by both Parties. The first SOW (SOW-\n01) is executed concurrently with this Agreement.\n2.3 The Vendor shall perform the Services with reasonable skill and care and in accordance with\ngood industry practice.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text": "2. ENGAGEMENT AND SCOPE"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          25.06,
+          526.78,
+          36.31
+        ],
+        "text": "2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          42.31,
+          515.64,
+          53.56
+        ],
+        "text": "\"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          58.81,
+          92.81,
+          70.06
+        ],
+        "text": "delivery."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          87.31,
+          542.16,
+          98.56
+        ],
+        "text": "2.2 Each SOW forms part of this Agreement upon execution by both Parties. The first SOW (SOW-"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          103.81,
+          296.87,
+          115.06
+        ],
+        "text": "01) is executed concurrently with this Agreement."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          132.31,
+          530.5,
+          143.56
+        ],
+        "text": "2.3 The Vendor shall perform the Services with reasonable skill and care and in accordance with"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          148.81,
+          164.93,
+          160.06
+        ],
+        "text": "good industry practice."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_906e03a37561",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        173.53,
+        520.33,
+        235.81
+      ]
+    ],
+    "heading": "3. TERM",
+    "text": "3. TERM\n3.1 This Agreement commences on the Effective Date and continues until the completion of all\nSOWs, unless terminated earlier in accordance with clause 11.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          173.53,
+          115.55,
+          189.97
+        ],
+        "text": "3. TERM"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          208.06,
+          520.33,
+          219.31
+        ],
+        "text": "3.1 This Agreement commences on the Effective Date and continues until the completion of all"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          224.56,
+          363.56,
+          235.81
+        ],
+        "text": "SOWs, unless terminated earlier in accordance with clause 11."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_abc8763f5c87",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        249.28,
+        540.72,
+        503.56
+      ]
+    ],
+    "heading": "4. FEES AND PAYMENT",
+    "text": "4. FEES AND PAYMENT\n4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three\nmilestones as set out below.\n4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the\nClient's Head of Procurement.\n4.3 Milestone 2 — INR 16,00,000, payable on completion of the Platform Build Deliverable.\n4.4 Milestone 3 — INR 16,00,000, payable on UAT Sign-Off. Payment authorisation: the Client's\nChief Financial Officer.\n4.5 Invoices are payable within 30 (thirty) days of receipt. Late payments accrue interest at 1% per\nmonth.\n4.6 All fees are exclusive of applicable taxes, which shall be borne by the Client.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          231.59,
+          265.72
+        ],
+        "text": "4. FEES AND PAYMENT"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          283.81,
+          537.19,
+          295.06
+        ],
+        "text": "4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          301.06,
+          192.45,
+          312.31
+        ],
+        "text": "milestones as set out below."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          328.81,
+          520.55,
+          340.06
+        ],
+        "text": "4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          346.06,
+          201.45,
+          357.31
+        ],
+        "text": "Client's Head of Procurement."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          373.81,
+          507.58,
+          385.06
+        ],
+        "text": "4.3 Milestone 2 — INR 16,00,000, payable on completion of the Platform Build Deliverable."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          402.31,
+          531.64,
+          413.56
+        ],
+        "text": "4.4 Milestone 3 — INR 16,00,000, payable on UAT Sign-Off. Payment authorisation: the Client's"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          418.81,
+          164.72,
+          430.06
+        ],
+        "text": "Chief Financial Officer."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          447.31,
+          540.72,
+          458.56
+        ],
+        "text": "4.5 Invoices are payable within 30 (thirty) days of receipt. Late payments accrue interest at 1% per"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          463.81,
+          86.14,
+          475.06
+        ],
+        "text": "month."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          492.31,
+          449.44,
+          503.56
+        ],
+        "text": "4.6 All fees are exclusive of applicable taxes, which shall be borne by the Client."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_a013d6da28d7",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        516.28,
+        535.12,
+        640.81
+      ]
+    ],
+    "heading": "5. CHANGE CONTROL",
+    "text": "5. CHANGE CONTROL\n5.1 Either Party may request a change to the scope, Deliverables, or timeline of an SOW. No\nchange is binding unless documented in a Change Order signed by authorised representatives of\nboth Parties.\n5.2 The Vendor shall, on request, provide a written impact assessment (cost, schedule, and risk)\nfor any proposed change before a Change Order is executed.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          516.28,
+          224.3,
+          532.72
+        ],
+        "text": "5. CHANGE CONTROL"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          550.81,
+          512.6,
+          562.06
+        ],
+        "text": "5.1 Either Party may request a change to the scope, Deliverables, or timeline of an SOW. No"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          568.06,
+          535.12,
+          579.31
+        ],
+        "text": "change is binding unless documented in a Change Order signed by authorised representatives of"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          584.56,
+          114.91,
+          595.81
+        ],
+        "text": "both Parties."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          613.06,
+          530.5,
+          624.31
+        ],
+        "text": "5.2 The Vendor shall, on request, provide a written impact assessment (cost, schedule, and risk)"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          629.56,
+          358.17,
+          640.81
+        ],
+        "text": "for any proposed change before a Change Order is executed."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_a73754bea3a7",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 2,
+    "page_end": 3,
+    "pages": [
+      2,
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        654.28,
+        540.65,
+        762.31
+      ],
+      [
+        51.75,
+        25.06,
+        516.89,
+        53.56
+      ]
+    ],
+    "heading": "6. INTELLECTUAL PROPERTY",
+    "text": "6. INTELLECTUAL PROPERTY\n6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement\ntransfers ownership of a Party's Background IP to the other.\n6.2 The Vendor grants the Client a non-exclusive licence to use the Vendor's Background IP solely\nto the extent necessary for the Client to use the Deliverables.\n6.3 The Client shall not reverse engineer or sublicense the Vendor's Background IP except as\npermitted by law.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          284.88,
+          670.72
+        ],
+        "text": "6. INTELLECTUAL PROPERTY"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          688.81,
+          527.42,
+          700.06
+        ],
+        "text": "6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          706.06,
+          348.23,
+          717.31
+        ],
+        "text": "transfers ownership of a Party's Background IP to the other."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          733.81,
+          540.65,
+          745.06
+        ],
+        "text": "6.2 The Vendor grants the Client a non-exclusive licence to use the Vendor's Background IP solely"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          751.06,
+          355.65,
+          762.31
+        ],
+        "text": "to the extent necessary for the Client to use the Deliverables."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          25.06,
+          516.89,
+          36.31
+        ],
+        "text": "6.3 The Client shall not reverse engineer or sublicense the Vendor's Background IP except as"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          42.31,
+          136.17,
+          53.56
+        ],
+        "text": "permitted by law."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_2fa34286b6d0",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 3,
+    "pages": [
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        66.28,
+        542.6,
+        190.81
+      ]
+    ],
+    "heading": "7. WARRANTIES",
+    "text": "7. WARRANTIES\n7.1 The Vendor warrants that the Services will be performed in a professional and workmanlike\nmanner and that the Deliverables will materially conform to the specifications in the relevant SOW\nfor a period of 90 days following acceptance.\n7.2 Except as expressly stated, the Vendor disclaims all other warranties to the extent permitted by\nlaw.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          66.28,
+          178.43,
+          82.72
+        ],
+        "text": "7. WARRANTIES"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          100.81,
+          522.99,
+          112.06
+        ],
+        "text": "7.1 The Vendor warrants that the Services will be performed in a professional and workmanlike"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          118.06,
+          536.93,
+          129.31
+        ],
+        "text": "manner and that the Deliverables will materially conform to the specifications in the relevant SOW"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          134.56,
+          274.36,
+          145.81
+        ],
+        "text": "for a period of 90 days following acceptance."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          163.06,
+          542.6,
+          174.31
+        ],
+        "text": "7.2 Except as expressly stated, the Vendor disclaims all other warranties to the extent permitted by"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          179.56,
+          71.14,
+          190.81
+        ],
+        "text": "law."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_5602cdfb0ff2",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 3,
+    "pages": [
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        204.28,
+        533.22,
+        295.06
+      ]
+    ],
+    "heading": "8. LIMITATION OF LIABILITY",
+    "text": "8. LIMITATION OF LIABILITY\n8.1 Subject to clause 8.2, each Party's aggregate liability under this Agreement is limited to the\ntotal fees paid under the relevant SOW in the 12 months preceding the claim.\n8.2 Nothing limits liability for fraud, wilful misconduct, or any liability that cannot be limited by law.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          204.28,
+          267.73,
+          220.72
+        ],
+        "text": "8. LIMITATION OF LIABILITY"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          238.81,
+          521.65,
+          250.06
+        ],
+        "text": "8.1 Subject to clause 8.2, each Party's aggregate liability under this Agreement is limited to the"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          256.06,
+          435.69,
+          267.31
+        ],
+        "text": "total fees paid under the relevant SOW in the 12 months preceding the claim."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          283.81,
+          533.22,
+          295.06
+        ],
+        "text": "8.2 Nothing limits liability for fraud, wilful misconduct, or any liability that cannot be limited by law."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_317eac3fa761",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 3,
+    "pages": [
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        308.53,
+        542.04,
+        415.81
+      ]
+    ],
+    "heading": "9. CONFIDENTIALITY",
+    "text": "9. CONFIDENTIALITY\n9.1 Each Party shall keep the other's Confidential Information secret during the term and for two\nyears after termination, and shall use it only for the purposes of this Agreement.\n9.2 Confidentiality obligations do not apply to information that is public through no fault of the\nreceiving Party, or independently developed without reference to the disclosing Party's information.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          308.53,
+          214.98,
+          324.97
+        ],
+        "text": "9. CONFIDENTIALITY"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          343.06,
+          527.87,
+          354.31
+        ],
+        "text": "9.1 Each Party shall keep the other's Confidential Information secret during the term and for two"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          359.56,
+          446.96,
+          370.81
+        ],
+        "text": "years after termination, and shall use it only for the purposes of this Agreement."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          388.06,
+          512.0,
+          399.31
+        ],
+        "text": "9.2 Confidentiality obligations do not apply to information that is public through no fault of the"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          404.56,
+          542.04,
+          415.81
+        ],
+        "text": "receiving Party, or independently developed without reference to the disclosing Party's information."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_42e26322434f",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 3,
+    "pages": [
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        429.28,
+        449.44,
+        475.06
+      ]
+    ],
+    "heading": "10. DATA PROTECTION",
+    "text": "10. DATA PROTECTION\n10.1 Each Party shall comply with applicable laws in performing this Agreement.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          429.28,
+          230.95,
+          445.72
+        ],
+        "text": "10. DATA PROTECTION"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          463.81,
+          449.44,
+          475.06
+        ],
+        "text": "10.1 Each Party shall comply with applicable laws in performing this Agreement."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_49bc98f863a8",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 3,
+    "pages": [
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        488.53,
+        538.69,
+        596.56
+      ]
+    ],
+    "heading": "11. TERMINATION",
+    "text": "11. TERMINATION\n11.1 Either Party may terminate this Agreement or any SOW for material breach not cured within\n30 days of written notice.\n11.2 The Client may terminate any SOW for convenience on 60 days' written notice, in which case\nthe Vendor is paid for Services performed up to the termination date.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          488.53,
+          188.73,
+          504.97
+        ],
+        "text": "11. TERMINATION"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          523.06,
+          530.48,
+          534.31
+        ],
+        "text": "11.1 Either Party may terminate this Agreement or any SOW for material breach not cured within"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          540.31,
+          176.19,
+          551.56
+        ],
+        "text": "30 days of written notice."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          568.06,
+          538.69,
+          579.31
+        ],
+        "text": "11.2 The Client may terminate any SOW for convenience on 60 days' written notice, in which case"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          585.31,
+          392.54,
+          596.56
+        ],
+        "text": "the Vendor is paid for Services performed up to the termination date."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_e47bf72b5ceb",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 3,
+    "pages": [
+      3
+    ],
+    "bboxes": [
+      [
+        51.75,
+        609.28,
+        538.91,
+        700.06
+      ]
+    ],
+    "heading": "12. GOVERNING LAW AND DISPUTE RESOLUTION",
+    "text": "12. GOVERNING LAW AND DISPUTE RESOLUTION\n12.1 This Agreement is governed by the laws of India.\n12.2 Any dispute shall be referred to arbitration in Bengaluru under the Arbitration and Conciliation\nAct, 1996, before a sole arbitrator appointed by mutual agreement.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          609.28,
+          441.6,
+          625.72
+        ],
+        "text": "12. GOVERNING LAW AND DISPUTE RESOLUTION"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          643.81,
+          319.18,
+          655.06
+        ],
+        "text": "12.1 This Agreement is governed by the laws of India."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          672.31,
+          538.91,
+          683.56
+        ],
+        "text": "12.2 Any dispute shall be referred to arbitration in Bengaluru under the Arbitration and Conciliation"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          688.81,
+          383.17,
+          700.06
+        ],
+        "text": "Act, 1996, before a sole arbitrator appointed by mutual agreement."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_4a50d3115844",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 3,
+    "page_end": 4,
+    "pages": [
+      3,
+      4
+    ],
+    "bboxes": [
+      [
+        51.75,
+        713.53,
+        488.0,
+        804.31
+      ],
+      [
+        51.75,
+        25.06,
+        482.22,
+        36.31
+      ]
+    ],
+    "heading": "13. GENERAL",
+    "text": "13. GENERAL\n13.1 This Agreement, together with its SOWs and Change Orders, constitutes the entire\nagreement between the Parties and supersedes all prior discussions.\n13.2 No variation is effective unless in writing and signed by both Parties.\n13.3 Neither Party may assign this Agreement without the other's prior written consent.",
+    "lines": [
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          713.53,
+          157.79,
+          729.97
+        ],
+        "text": "13. GENERAL"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          748.06,
+          488.0,
+          759.31
+        ],
+        "text": "13.1 This Agreement, together with its SOWs and Change Orders, constitutes the entire"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          765.31,
+          395.65,
+          776.56
+        ],
+        "text": "agreement between the Parties and supersedes all prior discussions."
+      },
+      {
+        "page": 3,
+        "bbox": [
+          51.75,
+          793.06,
+          415.47,
+          804.31
+        ],
+        "text": "13.2 No variation is effective unless in writing and signed by both Parties."
+      },
+      {
+        "page": 4,
+        "bbox": [
+          51.75,
+          25.06,
+          482.22,
+          36.31
+        ],
+        "text": "13.3 Neither Party may assign this Agreement without the other's prior written consent."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_bb8253196821",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 4,
+    "page_end": 4,
+    "pages": [
+      4
+    ],
+    "bboxes": [
+      [
+        51.75,
+        53.56,
+        254.99,
+        92.56
+      ]
+    ],
+    "heading": "SIGNED for and on behalf of the Parties:",
+    "text": "SIGNED for and on behalf of the Parties:\nFor Acme Corp: ___ Name: __ Title: __",
+    "lines": [
+      {
+        "page": 4,
+        "bbox": [
+          51.75,
+          53.56,
+          254.99,
+          64.81
+        ],
+        "text": "SIGNED for and on behalf of the Parties:"
+      },
+      {
+        "page": 4,
+        "bbox": [
+          51.75,
+          81.31,
+          246.85,
+          92.56
+        ],
+        "text": "For Acme Corp: ___ Name: __ Title: __"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_6cdea9922187",
+    "doc_id": "doc_0",
+    "doc_name": "Master Services Agreement",
+    "page_start": 4,
+    "page_end": 4,
+    "pages": [
+      4
+    ],
+    "bboxes": [
+      [
+        51.75,
+        109.81,
+        272.49,
+        121.06
+      ]
+    ],
+    "heading": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __",
+    "text": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __",
+    "lines": [
+      {
+        "page": 4,
+        "bbox": [
+          51.75,
+          109.81,
+          272.49,
+          121.06
+        ],
+        "text": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_0ab9ab991141",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        45.23,
+        344.21,
+        96.44
+      ]
+    ],
+    "heading": "02_statement_of_work",
+    "text": "02_statement_of_work\nSTATEMENT OF WORK — SOW-01",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          45.23,
+          242.82,
+          63.44
+        ],
+        "text": "02_statement_of_work"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          78.23,
+          344.21,
+          96.44
+        ],
+        "text": "STATEMENT OF WORK — SOW-01"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_00df5aa878db",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        115.06,
+        538.89,
+        222.31
+      ]
+    ],
+    "heading": "Customer Onboarding Platform",
+    "text": "Customer Onboarding Platform\nThis Statement of Work (\"SOW-01\") is issued under and governed by the Master Services\nAgreement dated 1 August 2025 between Acme Corp (\"Client\") and BuildrCo Pvt Ltd (\"Vendor\").\nCapitalised terms not defined here have the meanings given in the Master Services Agreement. In\nthe event of conflict, the Master Services Agreement prevails unless this SOW expressly states\notherwise.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          219.89,
+          126.31
+        ],
+        "text": "Customer Onboarding Platform"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          143.56,
+          498.86,
+          154.81
+        ],
+        "text": "This Statement of Work (\"SOW-01\") is issued under and governed by the Master Services"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          160.06,
+          528.61,
+          171.31
+        ],
+        "text": "Agreement dated 1 August 2025 between Acme Corp (\"Client\") and BuildrCo Pvt Ltd (\"Vendor\")."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          177.31,
+          538.89,
+          188.56
+        ],
+        "text": "Capitalised terms not defined here have the meanings given in the Master Services Agreement. In"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          193.81,
+          523.81,
+          205.06
+        ],
+        "text": "the event of conflict, the Master Services Agreement prevails unless this SOW expressly states"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          211.06,
+          103.02,
+          222.31
+        ],
+        "text": "otherwise."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_16a6442f46dc",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        235.03,
+        534.88,
+        360.31
+      ]
+    ],
+    "heading": "1. BACKGROUND AND OBJECTIVES",
+    "text": "1. BACKGROUND AND OBJECTIVES\n1.1 The Client requires a customer onboarding platform to replace its existing manual onboarding\nprocess. The platform will capture customer records, validate documentation, and integrate with\nthe Client's downstream systems.\n1.2 This SOW sets out the Deliverables, acceptance criteria, timeline, and dependencies for the\nengagement.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          235.03,
+          334.12,
+          251.47
+        ],
+        "text": "1. BACKGROUND AND OBJECTIVES"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          270.31,
+          534.88,
+          281.56
+        ],
+        "text": "1.1 The Client requires a customer onboarding platform to replace its existing manual onboarding"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          286.81,
+          526.74,
+          298.06
+        ],
+        "text": "process. The platform will capture customer records, validate documentation, and integrate with"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          304.06,
+          218.95,
+          315.31
+        ],
+        "text": "the Client's downstream systems."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          331.81,
+          526.76,
+          343.06
+        ],
+        "text": "1.2 This SOW sets out the Deliverables, acceptance criteria, timeline, and dependencies for the"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          349.06,
+          117.42,
+          360.31
+        ],
+        "text": "engagement."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_cd7b6ee0f4d5",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        373.03,
+        535.93,
+        616.06
+      ]
+    ],
+    "heading": "2. DELIVERABLES",
+    "text": "2. DELIVERABLES\n2.1 Platform Build — the onboarding web application, comprising the customer registration\nworkflow, document upload, and an administrative console. Acceptance: passes the agreed test\nplan set out in Appendix A and obtains Client UAT Sign-Off.\n2.2 Data Migration — migration of existing customer records from the Client's legacy system into\nthe new platform, including data cleansing and validation. Acceptance: a reconciliation report\ndemonstrating 100% record parity, approved by the Client's Data Lead.\n2.3 Performance Tuning — optimisation of platform response times prior to go-live.\n2.4 UAT Sign-Off — formal Client acceptance of the platform following user acceptance testing.\n2.5 Hypercare Support — 30 days of post go-live support, including defect triage and resolution,\ncommencing on the go-live date.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          194.53,
+          389.47
+        ],
+        "text": "2. DELIVERABLES"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          407.56,
+          508.19,
+          418.81
+        ],
+        "text": "2.1 Platform Build — the onboarding web application, comprising the customer registration"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          424.81,
+          527.02,
+          436.06
+        ],
+        "text": "workflow, document upload, and an administrative console. Acceptance: passes the agreed test"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          441.31,
+          345.69,
+          452.56
+        ],
+        "text": "plan set out in Appendix A and obtains Client UAT Sign-Off."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          469.81,
+          535.93,
+          481.06
+        ],
+        "text": "2.2 Data Migration — migration of existing customer records from the Client's legacy system into"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          486.31,
+          512.01,
+          497.56
+        ],
+        "text": "the new platform, including data cleansing and validation. Acceptance: a reconciliation report"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          503.56,
+          404.5,
+          514.81
+        ],
+        "text": "demonstrating 100% record parity, approved by the Client's Data Lead."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          531.31,
+          469.81,
+          542.56
+        ],
+        "text": "2.3 Performance Tuning — optimisation of platform response times prior to go-live."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          559.81,
+          528.6,
+          571.06
+        ],
+        "text": "2.4 UAT Sign-Off — formal Client acceptance of the platform following user acceptance testing."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          587.56,
+          535.12,
+          598.81
+        ],
+        "text": "2.5 Hypercare Support — 30 days of post go-live support, including defect triage and resolution,"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          604.81,
+          214.32,
+          616.06
+        ],
+        "text": "commencing on the go-live date."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_f4041d5e316d",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        628.78,
+        330.67,
+        759.31
+      ]
+    ],
+    "heading": "3. TIMELINE",
+    "text": "3. TIMELINE\n3.1 Project start: 1 August 2025.\n3.2 Platform Build complete by 15 September 2025.\n3.3 UAT Sign-Off to be obtained by 30 September 2025.\n3.4 Target go-live: 5 October 2025.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          144.98,
+          645.22
+        ],
+        "text": "3. TIMELINE"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          664.06,
+          211.84,
+          675.31
+        ],
+        "text": "3.1 Project start: 1 August 2025."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          691.81,
+          309.38,
+          703.06
+        ],
+        "text": "3.2 Platform Build complete by 15 September 2025."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          720.31,
+          330.67,
+          731.56
+        ],
+        "text": "3.3 UAT Sign-Off to be obtained by 30 September 2025."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          748.06,
+          224.76,
+          759.31
+        ],
+        "text": "3.4 Target go-live: 5 October 2025."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_081b06eb8b33",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 1,
+    "page_end": 2,
+    "pages": [
+      1,
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        772.78,
+        219.4,
+        789.22
+      ],
+      [
+        51.75,
+        25.06,
+        526.78,
+        98.56
+      ]
+    ],
+    "heading": "4. RESPONSIBILITIES",
+    "text": "4. RESPONSIBILITIES\n4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable\n(clause 2.1) and for Performance Tuning (clause 2.3).\n4.2 The Client is responsible for providing timely access to the legacy system, nominating UAT\nparticipants, and providing test data by 20 August 2025.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text": "4. RESPONSIBILITIES"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          25.06,
+          526.78,
+          36.31
+        ],
+        "text": "4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          42.31,
+          318.12,
+          53.56
+        ],
+        "text": "(clause 2.1) and for Performance Tuning (clause 2.3)."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          70.06,
+          520.92,
+          81.31
+        ],
+        "text": "4.2 The Client is responsible for providing timely access to the legacy system, nominating UAT"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          87.31,
+          328.81,
+          98.56
+        ],
+        "text": "participants, and providing test data by 20 August 2025."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_7b5f535212f7",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        111.28,
+        539.97,
+        202.06
+      ]
+    ],
+    "heading": "5. DEPENDENCIES",
+    "text": "5. DEPENDENCIES\n5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can\nbegin. Data Migration is scheduled to complete by 15 October 2025.\n5.2 The Platform Build depends on the Client confirming the final data schema by 25 August 2025.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          197.28,
+          127.72
+        ],
+        "text": "5. DEPENDENCIES"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          145.81,
+          529.9,
+          157.06
+        ],
+        "text": "5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          163.06,
+          390.67,
+          174.31
+        ],
+        "text": "begin. Data Migration is scheduled to complete by 15 October 2025."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          190.81,
+          539.97,
+          202.06
+        ],
+        "text": "5.2 The Platform Build depends on the Client confirming the final data schema by 25 August 2025."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_6b0c9bc02538",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        215.53,
+        537.59,
+        351.31
+      ]
+    ],
+    "heading": "6. ACCEPTANCE PROCEDURE",
+    "text": "6. ACCEPTANCE PROCEDURE\n6.1 On submission of a Deliverable, the Client has 10 business days to review and either accept it\nor provide written notice of non-conformities.\n6.2 If the Client does not respond within the review period, the Deliverable is deemed accepted.\n6.3 The Vendor shall remedy notified non-conformities within 10 business days and resubmit for\nreview.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          215.53,
+          288.11,
+          231.97
+        ],
+        "text": "6. ACCEPTANCE PROCEDURE"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          250.06,
+          537.59,
+          261.31
+        ],
+        "text": "6.1 On submission of a Deliverable, the Client has 10 business days to review and either accept it"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          267.31,
+          273.08,
+          278.56
+        ],
+        "text": "or provide written notice of non-conformities."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          295.06,
+          526.35,
+          306.31
+        ],
+        "text": "6.2 If the Client does not respond within the review period, the Deliverable is deemed accepted."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          323.56,
+          527.37,
+          334.81
+        ],
+        "text": "6.3 The Vendor shall remedy notified non-conformities within 10 business days and resubmit for"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          340.06,
+          86.77,
+          351.31
+        ],
+        "text": "review."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_2539f39fa0c5",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        364.78,
+        513.82,
+        455.56
+      ]
+    ],
+    "heading": "7. FEES",
+    "text": "7. FEES\n7.1 Fees for this SOW are as set out in clause 4 of the Master Services Agreement (total INR\n48,00,000 across three milestones).\n7.2 Expenses pre-approved in writing by the Client are reimbursed at cost.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          364.78,
+          111.91,
+          381.22
+        ],
+        "text": "7. FEES"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          399.31,
+          513.82,
+          410.56
+        ],
+        "text": "7.1 Fees for this SOW are as set out in clause 4 of the Master Services Agreement (total INR"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          415.81,
+          230.58,
+          427.06
+        ],
+        "text": "48,00,000 across three milestones)."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          444.31,
+          421.28,
+          455.56
+        ],
+        "text": "7.2 Expenses pre-approved in writing by the Client are reimbursed at cost."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_d05b9ef118bb",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        468.28,
+        523.91,
+        559.81
+      ]
+    ],
+    "heading": "8. KEY PERSONNEL",
+    "text": "8. KEY PERSONNEL\n8.1 The Vendor's Project Manager for this SOW is Ms. R. Iyer.\n8.2 The Vendor shall not reassign key personnel without the Client's prior written consent, such\nconsent not to be unreasonably withheld.",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          468.28,
+          207.77,
+          484.72
+        ],
+        "text": "8. KEY PERSONNEL"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          503.56,
+          360.06,
+          514.81
+        ],
+        "text": "8.1 The Vendor's Project Manager for this SOW is Ms. R. Iyer."
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          531.31,
+          523.91,
+          542.56
+        ],
+        "text": "8.2 The Vendor shall not reassign key personnel without the Client's prior written consent, such"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          548.56,
+          256.24,
+          559.81
+        ],
+        "text": "consent not to be unreasonably withheld."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_8700304a6119",
+    "doc_id": "doc_1",
+    "doc_name": "Statement of Work",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        572.53,
+        264.22,
+        619.06
+      ]
+    ],
+    "heading": "APPENDIX A — TEST PLAN",
+    "text": "APPENDIX A — TEST PLAN\n[To be attached.]",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          572.53,
+          264.22,
+          588.97
+        ],
+        "text": "APPENDIX A — TEST PLAN"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          607.81,
+          135.14,
+          619.06
+        ],
+        "text": "[To be attached.]"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_b137a5c24bb2",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        45.23,
+        278.16,
+        96.44
+      ]
+    ],
+    "heading": "03_change_order",
+    "text": "03_change_order\nCHANGE ORDER — CO-01",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          45.23,
+          198.67,
+          63.44
+        ],
+        "text": "03_change_order"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          78.23,
+          278.16,
+          96.44
+        ],
+        "text": "CHANGE ORDER — CO-01"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_3f33e6241967",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        115.06,
+        542.05,
+        205.06
+      ]
+    ],
+    "heading": "Amendment to SOW-01 (Customer Onboarding Platform)",
+    "text": "Amendment to SOW-01 (Customer Onboarding Platform)\nThis Change Order (\"CO-01\") is issued under clause 5 of the Master Services Agreement dated 1\nAugust 2025 and amends Statement of Work SOW-01 between Acme Corp (\"Client\") and BuildrCo\nPvt Ltd (\"Vendor\"). Capitalised terms have the meanings given in the Master Services Agreement\nand SOW-01. Except as amended here, SOW-01 remains in full force.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          355.29,
+          126.31
+        ],
+        "text": "Amendment to SOW-01 (Customer Onboarding Platform)"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          143.56,
+          536.21,
+          154.81
+        ],
+        "text": "This Change Order (\"CO-01\") is issued under clause 5 of the Master Services Agreement dated 1"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          160.06,
+          542.05,
+          171.31
+        ],
+        "text": "August 2025 and amends Statement of Work SOW-01 between Acme Corp (\"Client\") and BuildrCo"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          177.31,
+          534.35,
+          188.56
+        ],
+        "text": "Pvt Ltd (\"Vendor\"). Capitalised terms have the meanings given in the Master Services Agreement"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          193.81,
+          400.86,
+          205.06
+        ],
+        "text": "and SOW-01. Except as amended here, SOW-01 remains in full force."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_11211347b2e0",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        222.31,
+        540.71,
+        309.31
+      ]
+    ],
+    "heading": "Date of this Change Order: 5 September 2025",
+    "text": "Date of this Change Order: 5 September 2025\n1. REASON FOR CHANGE\n1.1 Following a strategic review, the Client wishes to (a) accelerate go-live to capture an upcoming\ncampaign window, and (b) add a third-party CRM integration to the scope.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          222.31,
+          290.58,
+          233.56
+        ],
+        "text": "Date of this Change Order: 5 September 2025"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          246.28,
+          252.1,
+          262.72
+        ],
+        "text": "1. REASON FOR CHANGE"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          281.56,
+          540.71,
+          292.81
+        ],
+        "text": "1.1 Following a strategic review, the Client wishes to (a) accelerate go-live to capture an upcoming"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          298.06,
+          419.43,
+          309.31
+        ],
+        "text": "campaign window, and (b) add a third-party CRM integration to the scope."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_a54d1688f8f3",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        322.78,
+        540.97,
+        430.06
+      ]
+    ],
+    "heading": "2. CHANGES TO SCOPE",
+    "text": "2. CHANGES TO SCOPE\n2.1 A new Deliverable is added to SOW-01:\n2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's\nSalesforce CRM, including field mapping and error handling. Acceptance: passes an integration\ntest demonstrating successful record sync across all mapped fields.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          322.78,
+          238.29,
+          339.22
+        ],
+        "text": "2. CHANGES TO SCOPE"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          357.31,
+          267.29,
+          368.56
+        ],
+        "text": "2.1 A new Deliverable is added to SOW-01:"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          385.06,
+          540.97,
+          396.31
+        ],
+        "text": "2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          402.31,
+          526.39,
+          413.56
+        ],
+        "text": "Salesforce CRM, including field mapping and error handling. Acceptance: passes an integration"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          418.81,
+          388.12,
+          430.06
+        ],
+        "text": "test demonstrating successful record sync across all mapped fields."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_0b2d01b6f765",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        443.53,
+        535.35,
+        551.56
+      ]
+    ],
+    "heading": "3. CHANGES TO TIMELINE",
+    "text": "3. CHANGES TO TIMELINE\n3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25\nSeptember 2025.\n3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged\nunless expressly amended here.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          256.92,
+          459.97
+        ],
+        "text": "3. CHANGES TO TIMELINE"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          478.06,
+          535.35,
+          489.31
+        ],
+        "text": "3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          495.31,
+          141.19,
+          506.56
+        ],
+        "text": "September 2025."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          523.06,
+          527.4,
+          534.31
+        ],
+        "text": "3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          540.31,
+          213.69,
+          551.56
+        ],
+        "text": "unless expressly amended here."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_3d7b101c3e56",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        564.28,
+        541.79,
+        655.06
+      ]
+    ],
+    "heading": "4. CHANGES TO FEES",
+    "text": "4. CHANGES TO FEES\n4.1 The additional fee for the CRM Integration Deliverable is INR 8,00,000, payable on acceptance\nof that Deliverable.\n4.2 This additional fee is added to the total contract value, bringing it to INR 56,00,000.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          564.28,
+          223.85,
+          580.72
+        ],
+        "text": "4. CHANGES TO FEES"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          598.81,
+          541.79,
+          610.06
+        ],
+        "text": "4.1 The additional fee for the CRM Integration Deliverable is INR 8,00,000, payable on acceptance"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          616.06,
+          145.54,
+          627.31
+        ],
+        "text": "of that Deliverable."
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          643.81,
+          482.41,
+          655.06
+        ],
+        "text": "4.2 This additional fee is added to the total contract value, bringing it to INR 56,00,000."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_11fdfaf1efbd",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        668.53,
+        504.06,
+        731.56
+      ]
+    ],
+    "heading": "5. EFFECT",
+    "text": "5. EFFECT\n5.1 This Change Order, once signed by both Parties, forms part of SOW-01 and the Master\nServices Agreement.",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          668.53,
+          132.55,
+          684.97
+        ],
+        "text": "5. EFFECT"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          703.06,
+          504.06,
+          714.31
+        ],
+        "text": "5.1 This Change Order, once signed by both Parties, forms part of SOW-01 and the Master"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          720.31,
+          155.54,
+          731.56
+        ],
+        "text": "Services Agreement."
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_404b765f21e8",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 1,
+    "page_end": 1,
+    "pages": [
+      1
+    ],
+    "bboxes": [
+      [
+        51.75,
+        748.06,
+        254.99,
+        787.81
+      ]
+    ],
+    "heading": "SIGNED for and on behalf of the Parties:",
+    "text": "SIGNED for and on behalf of the Parties:\nFor Acme Corp: ___ Name: __ Title: __",
+    "lines": [
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          748.06,
+          254.99,
+          759.31
+        ],
+        "text": "SIGNED for and on behalf of the Parties:"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          51.75,
+          776.56,
+          246.85,
+          787.81
+        ],
+        "text": "For Acme Corp: ___ Name: __ Title: __"
+      }
+    ]
+  },
+  {
+    "chunk_id": "chunk_3a7546be073f",
+    "doc_id": "doc_2",
+    "doc_name": "Change Order",
+    "page_start": 2,
+    "page_end": 2,
+    "pages": [
+      2
+    ],
+    "bboxes": [
+      [
+        51.75,
+        25.06,
+        272.49,
+        36.31
+      ]
+    ],
+    "heading": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __",
+    "text": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __",
+    "lines": [
+      {
+        "page": 2,
+        "bbox": [
+          51.75,
+          25.06,
+          272.49,
+          36.31
+        ],
+        "text": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __"
+      }
+    ]
+  }
+]

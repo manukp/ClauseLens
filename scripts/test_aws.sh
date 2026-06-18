@@ -17,12 +17,17 @@
 set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_FILE="${SCRIPT_DIR}/config.env"
-if [ -f "$CONFIG_FILE" ]; then
-  source "$CONFIG_FILE"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+# config.env lives at the repo root (where the app reads it); fall back to the
+# script dir for older layouts.
+if [ -f "${REPO_ROOT}/config.env" ]; then
+  CONFIG_FILE="${REPO_ROOT}/config.env"
+elif [ -f "${SCRIPT_DIR}/config.env" ]; then
+  CONFIG_FILE="${SCRIPT_DIR}/config.env"
 else
-  echo "config.env not found. Run ./setup_aws.sh first (or create config.env)."; exit 1
+  echo "config.env not found at repo root. Copy config.env.example to config.env first."; exit 1
 fi
+source "$CONFIG_FILE"
 
 AWS_REGION="${AWS_REGION:-us-east-1}"
 EMBED_MODEL_ID="${EMBED_MODEL_ID:-amazon.titan-embed-text-v2:0}"

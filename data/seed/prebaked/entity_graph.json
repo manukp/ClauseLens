@@ -1,0 +1,900 @@
+{
+  "nodes": [
+    {
+      "id": "ent_88e5c846714b",
+      "label": "Acme Corp",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "Client",
+          "Party to the contract"
+        ],
+        "responsibilities": [],
+        "powers": []
+      }
+    },
+    {
+      "id": "ent_3e79b0e08bbf",
+      "label": "BuildrCo Pvt Ltd",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "Vendor"
+        ],
+        "responsibilities": [],
+        "powers": []
+      }
+    },
+    {
+      "id": "ent_32235263422d",
+      "label": "The Client",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "Party"
+        ],
+        "responsibilities": [],
+        "powers": []
+      }
+    },
+    {
+      "id": "ent_7129f563c88d",
+      "label": "Client",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "procurer of services",
+          "Client",
+          "Payer",
+          "Party responsible for payment authorisation",
+          "Requester of customer onboarding platform",
+          "Platform recipient",
+          "UAT participant",
+          "Data source provider",
+          "reviewer of deliverables",
+          "party to the Master Services Agreement",
+          "party to the Change Order",
+          "party to the contract",
+          "owner of Salesforce CRM"
+        ],
+        "responsibilities": [
+          "Pay total fee of INR 48,00,000 in three milestones",
+          "Pay Milestone 1 (INR 16,00,000) on signing of SOW-01",
+          "Pay Milestone 2 (INR 16,00,000) on completion of Platform Build Deliverable",
+          "Pay Milestone 3 (INR 16,00,000) on UAT Sign-Off",
+          "Pay invoices within 30 days of receipt",
+          "Bear all applicable taxes",
+          "Shall not reverse engineer or sublicense the Vendor's Background IP except as permitted by law",
+          "Provide agreed test plan (Appendix A)",
+          "Conduct user acceptance testing",
+          "Approve reconciliation report demonstrating 100% record parity",
+          "Grant UAT Sign-Off for platform acceptance",
+          "providing timely access to the legacy system",
+          "nominating UAT participants",
+          "providing test data",
+          "Confirm the final data schema by 25 August 2025",
+          "review submitted deliverables within 10 business days",
+          "provide written notice of non-conformities if applicable"
+        ],
+        "powers": [
+          "wishes to procure the design, development, and deployment of a customer onboarding platform",
+          "engages the Vendor to provide services",
+          "executes SOWs",
+          "Authorize payments through Head of Procurement and Chief Financial Officer",
+          "Receives non-exclusive licence to use Vendor's Background IP for use of the Deliverables",
+          "terminate any SOW for convenience on 60 days' written notice",
+          "Requires a customer onboarding platform to replace existing manual onboarding process",
+          "Accept or reject Platform Build based on test plan compliance and UAT results",
+          "Approve data migration reconciliation report through Data Lead",
+          "Determine platform acceptance",
+          "accept deliverables",
+          "reject deliverables by providing written notice of non-conformities",
+          "deem deliverables accepted by not responding within review period",
+          "pre-approve expenses in writing",
+          "prior written consent required for reassignment of key personnel (consent not to be unreasonably withheld)",
+          "wishes to accelerate go-live",
+          "wishes to add a third-party CRM integration to the scope",
+          "acceptance of CRM Integration deliverable based on integration test passing"
+        ]
+      }
+    },
+    {
+      "id": "ent_2db7e6484aa4",
+      "label": "Vendor",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "service provider",
+          "Vendor"
+        ],
+        "responsibilities": [
+          "provide design, development, and deployment services for a customer onboarding platform",
+          "provide items, materials, software, and outputs (Deliverables) as specified in a SOW",
+          "perform the Services with reasonable skill and care",
+          "perform Services in accordance with good industry practice",
+          "Provide a written impact assessment (cost, schedule, and risk) for any proposed change on request before a Change Order is executed",
+          "Grants Client a non-exclusive licence to use Vendor's Background IP",
+          "perform Services in a professional and workmanlike manner",
+          "ensure Deliverables materially conform to specifications in the relevant SOW",
+          "maintain warranty for 90 days following acceptance",
+          "provide Services",
+          "design, build, and testing of the Platform Build Deliverable",
+          "Performance Tuning",
+          "submit deliverables",
+          "remedy notified non-conformities within 10 business days",
+          "resubmit remedied deliverables for review",
+          "shall not reassign key personnel without the Client's prior written consent"
+        ],
+        "powers": [
+          "represents expertise, personnel, and capacity to provide such services",
+          "provide services described in SOWs",
+          "Grants non-exclusive licence to Client to use Vendor's Background IP solely to the extent necessary for Client to use the Deliverables",
+          "disclaim all warranties except as expressly stated, to the extent permitted by law"
+        ]
+      }
+    },
+    {
+      "id": "ent_77d1169eb5f9",
+      "label": "Parties",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "contracting parties",
+          "signatories to the Change Order"
+        ],
+        "responsibilities": [
+          "execute SOWs describing specific Services, Deliverables, timelines, and fees",
+          "execute Change Orders in writing to amend an SOW or the Agreement",
+          "must provide written consent for assignment",
+          "must sign variations in writing"
+        ],
+        "powers": [
+          "amend SOW or Agreement through Change Order",
+          "may assign Agreement with other party's prior written consent",
+          "may vary Agreement terms in writing",
+          "sign the Change Order to make it effective and binding"
+        ]
+      }
+    },
+    {
+      "id": "ent_20bbb776054b",
+      "label": "Ms. R. Iyer",
+      "type": "person",
+      "data": {
+        "roles": [
+          "Project Manager",
+          "single point of contact for delivery"
+        ],
+        "responsibilities": [],
+        "powers": []
+      }
+    },
+    {
+      "id": "ent_6d70be55da73",
+      "label": "Client's Head of Procurement",
+      "type": "person",
+      "data": {
+        "roles": [
+          "Payment authoriser"
+        ],
+        "responsibilities": [],
+        "powers": [
+          "Authorize payment for Milestone 1"
+        ]
+      }
+    },
+    {
+      "id": "ent_13d4a7afc3ad",
+      "label": "Client's Chief Financial Officer",
+      "type": "person",
+      "data": {
+        "roles": [
+          "Payment authoriser"
+        ],
+        "responsibilities": [],
+        "powers": [
+          "Authorize payment for Milestone 3"
+        ]
+      }
+    },
+    {
+      "id": "ent_dcd4b378df7a",
+      "label": "Either Party",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "Party to the SOW"
+        ],
+        "responsibilities": [],
+        "powers": [
+          "Request a change to the scope, Deliverables, or timeline of an SOW"
+        ]
+      }
+    },
+    {
+      "id": "ent_0a19bdfffa66",
+      "label": "authorised representatives",
+      "type": "person",
+      "data": {
+        "roles": [
+          "Authorised representatives of both Parties"
+        ],
+        "responsibilities": [],
+        "powers": [
+          "Sign a Change Order to make a change binding"
+        ]
+      }
+    },
+    {
+      "id": "ent_bfcf1ae367c8",
+      "label": "Party",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "Party to the Agreement"
+        ],
+        "responsibilities": [],
+        "powers": [
+          "Retains all right, title, and interest in its Background IP",
+          "terminate this Agreement or any SOW for material breach not cured within 30 days of written notice"
+        ]
+      }
+    },
+    {
+      "id": "ent_4c7de810e32b",
+      "label": "Each Party",
+      "type": "organisation",
+      "data": {
+        "roles": [
+          "Receiving Party",
+          "Disclosing Party",
+          "Party to the Agreement"
+        ],
+        "responsibilities": [
+          "Keep the other's Confidential Information secret during the term and for two years after termination",
+          "Use Confidential Information only for the purposes of this Agreement",
+          "comply with applicable laws in performing this Agreement"
+        ],
+        "powers": []
+      }
+    },
+    {
+      "id": "ent_4adf934aa82d",
+      "label": "Client's Data Lead",
+      "type": "person",
+      "data": {
+        "roles": [
+          "Data migration approver"
+        ],
+        "responsibilities": [
+          "Approve reconciliation report demonstrating 100% record parity"
+        ],
+        "powers": [
+          "Approve or reject data migration based on reconciliation report"
+        ]
+      }
+    },
+    {
+      "id": "item_ea4b68a2fb77",
+      "label": "Platform Build",
+      "type": "deliverable",
+      "data": {
+        "detail": "The onboarding web application, comprising the customer registration workflow, document upload, and an administrative console."
+      }
+    },
+    {
+      "id": "item_9f5f15fa8180",
+      "label": "Data Migration",
+      "type": "deliverable",
+      "data": {
+        "detail": "Migration of existing customer records from the Client's legacy system into the new platform, including data cleansing and validation."
+      }
+    },
+    {
+      "id": "item_880010ea6723",
+      "label": "Performance Tuning",
+      "type": "deliverable",
+      "data": {
+        "detail": "Optimisation of platform response times prior to go-live."
+      }
+    },
+    {
+      "id": "item_3da1adf39502",
+      "label": "UAT Sign-Off",
+      "type": "deliverable",
+      "data": {
+        "detail": "Formal Client acceptance of the platform following user acceptance testing."
+      }
+    },
+    {
+      "id": "item_c89bbd407d63",
+      "label": "Hypercare Support",
+      "type": "deliverable",
+      "data": {
+        "detail": "30 days of post go-live support, including defect triage and resolution, commencing on the go-live date."
+      }
+    },
+    {
+      "id": "item_24728e568858",
+      "label": "CRM Integration",
+      "type": "deliverable",
+      "data": {
+        "detail": "A real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Added via Change Order to SOW-01."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_026421c4114e",
+      "source": "ent_88e5c846714b",
+      "target": "ent_3e79b0e08bbf",
+      "relation": "engages",
+      "label": "engages",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            160.06,
+            536.19,
+            216.31
+          ],
+          "text_span": "BETWEEN: Acme Corp, a company incorporated under the Companies Act, 2013, having its registered office at 14 Residency Road, Bengaluru 560025 (the \"Client\");",
+          "chunk_id": "chunk_897d98c1b084"
+        }
+      ]
+    },
+    {
+      "id": "edge_79329a4b3c4c",
+      "source": "ent_7129f563c88d",
+      "target": "ent_2db7e6484aa4",
+      "relation": "engages",
+      "label": "engages",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_d2d11193d483",
+      "source": "ent_2db7e6484aa4",
+      "target": "item_ea4b68a2fb77",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_9c334a2738fd",
+      "source": "ent_2db7e6484aa4",
+      "target": "item_9f5f15fa8180",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_59f29decbb91",
+      "source": "ent_2db7e6484aa4",
+      "target": "item_880010ea6723",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_7ca4094fbca1",
+      "source": "ent_2db7e6484aa4",
+      "target": "item_c89bbd407d63",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_0fb1eabc0215",
+      "source": "ent_2db7e6484aa4",
+      "target": "item_24728e568858",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_21e50907352e",
+      "source": "ent_7129f563c88d",
+      "target": "item_3da1adf39502",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_110ab2c1a326",
+      "source": "ent_7129f563c88d",
+      "target": "item_ea4b68a2fb77",
+      "relation": "owns",
+      "label": "owns",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_6ea4c1755bb5",
+      "source": "ent_7129f563c88d",
+      "target": "item_9f5f15fa8180",
+      "relation": "owns",
+      "label": "owns",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_a85474570f73",
+      "source": "ent_7129f563c88d",
+      "target": "item_3da1adf39502",
+      "relation": "owns",
+      "label": "owns",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_ada8bd0f43d4",
+      "source": "ent_7129f563c88d",
+      "target": "item_24728e568858",
+      "relation": "owns",
+      "label": "owns",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            331.03,
+            533.84,
+            427.81
+          ],
+          "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+          "chunk_id": "chunk_ec99b554700f"
+        }
+      ]
+    },
+    {
+      "id": "edge_1c85018f709b",
+      "source": "ent_20bbb776054b",
+      "target": "item_ea4b68a2fb77",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            786.28,
+            285.68,
+            802.72
+          ],
+          "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+          "chunk_id": "chunk_1a3e38228ffd"
+        }
+      ]
+    },
+    {
+      "id": "edge_9a8735935328",
+      "source": "ent_20bbb776054b",
+      "target": "item_9f5f15fa8180",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            786.28,
+            285.68,
+            802.72
+          ],
+          "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+          "chunk_id": "chunk_1a3e38228ffd"
+        }
+      ]
+    },
+    {
+      "id": "edge_dfbffd00a713",
+      "source": "ent_20bbb776054b",
+      "target": "item_880010ea6723",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            786.28,
+            285.68,
+            802.72
+          ],
+          "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+          "chunk_id": "chunk_1a3e38228ffd"
+        }
+      ]
+    },
+    {
+      "id": "edge_6f76cf1d83dd",
+      "source": "ent_20bbb776054b",
+      "target": "item_24728e568858",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 1,
+          "bbox": [
+            51.75,
+            786.28,
+            285.68,
+            802.72
+          ],
+          "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+          "chunk_id": "chunk_1a3e38228ffd"
+        }
+      ]
+    },
+    {
+      "id": "edge_17a45ff586b7",
+      "source": "ent_4adf934aa82d",
+      "target": "item_9f5f15fa8180",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_da5f9ab3f121",
+      "source": "item_880010ea6723",
+      "target": "item_ea4b68a2fb77",
+      "relation": "depends_on",
+      "label": "depends on",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_cd4a45ce2d88",
+      "source": "item_3da1adf39502",
+      "target": "item_ea4b68a2fb77",
+      "relation": "depends_on",
+      "label": "depends on",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_24f2059f207d",
+      "source": "item_3da1adf39502",
+      "target": "item_880010ea6723",
+      "relation": "depends_on",
+      "label": "depends on",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_844bb4522edb",
+      "source": "item_c89bbd407d63",
+      "target": "item_3da1adf39502",
+      "relation": "depends_on",
+      "label": "depends on",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_18a1ffcca74b",
+      "source": "item_9f5f15fa8180",
+      "target": "item_ea4b68a2fb77",
+      "relation": "depends_on",
+      "label": "depends on",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_dc923da3a344",
+      "source": "item_24728e568858",
+      "target": "item_ea4b68a2fb77",
+      "relation": "depends_on",
+      "label": "depends on",
+      "citations": [
+        {
+          "doc_id": "doc_2",
+          "doc_name": "Change Order",
+          "page": 1,
+          "bbox": [
+            51.75,
+            322.78,
+            540.97,
+            430.06
+          ],
+          "text_span": "2. CHANGES TO SCOPE 2.1 A new Deliverable is added to SOW-01: 2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Acceptance: passes...",
+          "chunk_id": "chunk_a54d1688f8f3"
+        }
+      ]
+    },
+    {
+      "id": "edge_52be0e9deabb",
+      "source": "item_3da1adf39502",
+      "target": "item_c89bbd407d63",
+      "relation": "conflicts_with",
+      "label": "conflicts with",
+      "citations": [
+        {
+          "doc_id": "doc_1",
+          "doc_name": "Statement of Work",
+          "page": 1,
+          "bbox": [
+            51.75,
+            373.03,
+            535.93,
+            616.06
+          ],
+          "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+          "chunk_id": "chunk_cd7b6ee0f4d5"
+        }
+      ]
+    },
+    {
+      "id": "edge_39035db7f6e4",
+      "source": "ent_6d70be55da73",
+      "target": "ent_7129f563c88d",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 2,
+          "bbox": [
+            51.75,
+            249.28,
+            540.72,
+            503.56
+          ],
+          "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+          "chunk_id": "chunk_abc8763f5c87"
+        }
+      ]
+    },
+    {
+      "id": "edge_162a130a74c7",
+      "source": "ent_13d4a7afc3ad",
+      "target": "ent_7129f563c88d",
+      "relation": "responsible_for",
+      "label": "responsible for",
+      "citations": [
+        {
+          "doc_id": "doc_0",
+          "doc_name": "Master Services Agreement",
+          "page": 2,
+          "bbox": [
+            51.75,
+            249.28,
+            540.72,
+            503.56
+          ],
+          "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+          "chunk_id": "chunk_abc8763f5c87"
+        }
+      ]
+    }
+  ]
+}
