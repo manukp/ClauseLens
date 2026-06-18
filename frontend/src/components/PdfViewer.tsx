@@ -1,13 +1,24 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Document, Page } from "../lib/pdf";
 import { api } from "../lib/api";
 import type { CiteTarget } from "./CitationContext";
 
 // Right pane of the split view. Renders the source PDF and, when a citation is
-// clicked, scrolls to the page and paints a marigold highlight over the cited
-// clause's bbox. Coordinates are PDF points (PyMuPDF, top-left origin) mapped to
+// clicked, scrolls to the cited clause and paints a marigold highlight over its
+// bbox. Coordinates are PDF points (PyMuPDF, top-left origin) mapped to
 // percentages of each page's point dimensions, so the overlay tracks the render
 // at any width.
+//
+// Scroll correctness (see IMPLEMENTATION_LOG "render-then-scroll timing"): the
+// scroll must run against the POST-render layout, otherwise the target offset is
+// computed before react-pdf has painted the page (and before the pages above it
+// have their real height) and lands in the wrong place. Two guards make it
+// reliable: (1) every page reserves its height from its aspect ratio up-front, so
+// pages above the target occupy correct space even before they paint; (2) the
+// scroll is gated on the target page's onRenderSuccess and measures the live
+// highlight element via getBoundingClientRect, then centres it in the pane.
+const DEFAULT_ASPECT = 11 / 8.5; // US-Letter fallback before any page is measured
+
 export default function PdfViewer({
   jobId,
   target,
@@ -21,13 +32,19 @@ export default function PdfViewer({
   const docName = target?.docName ?? fallbackDoc?.docName ?? "";
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const highlightRef = useRef<HTMLDivElement>(null);
   const pageEls = useRef<Record<number, HTMLDivElement | null>>({});
+  // The target object we have already scrolled to. cite() makes a fresh object
+  // on every click, so identity comparison re-scrolls even for the same clause.
+  const scrolledTargetRef = useRef<CiteTarget | null>(null);
+
   const [numPages, setNumPages] = useState(0);
   const [renderWidth, setRenderWidth] = useState(0);
   // Per-page point dimensions (from the PDF page itself), for the overlay maths.
   const [pageDims, setPageDims] = useState<Record<number, { w: number; h: number }>>({});
+  // Pages whose canvas has finished painting (layout settled) — the scroll gate.
+  const [renderedPages, setRenderedPages] = useState<Set<number>>(new Set());
   const [error, setError] = useState<string | null>(null);
-  const [loaded, setLoaded] = useState(false);
 
   // Track the render width so pages fill the pane and the overlay stays aligned.
   useLayoutEffect(() => {
@@ -44,25 +61,40 @@ export default function PdfViewer({
   useEffect(() => {
     setNumPages(0);
     setPageDims({});
+    setRenderedPages(new Set());
     setError(null);
-    setLoaded(false);
+    scrolledTargetRef.current = null;
     pageEls.current = {};
   }, [docId]);
 
-  const onDocLoad = useCallback(({ numPages: n }: { numPages: number }) => {
-    setNumPages(n);
-    setLoaded(true);
-  }, []);
+  // Aspect ratio used to reserve height for pages not yet measured. Contract PDFs
+  // have uniform page sizes, so the first measured page generalises accurately.
+  const defaultAspect = useMemo(() => {
+    const first = Object.values(pageDims)[0];
+    return first ? first.h / first.w : DEFAULT_ASPECT;
+  }, [pageDims]);
 
-  // Scroll the targeted page into view once it (and its dimensions) exist.
+  // Scroll the cited clause into view — only once the target page has rendered, so
+  // the measured offset reflects the final layout.
   useEffect(() => {
-    if (!target || !loaded) return;
-    const el = pageEls.current[target.page];
+    if (!target) return;
+    if (scrolledTargetRef.current === target) return;
+    if (!renderedPages.has(target.page)) return; // wait for the page to paint
     const container = scrollRef.current;
-    if (!el || !container) return;
-    const top = el.offsetTop - 12;
-    container.scrollTo({ top, behavior: "smooth" });
-  }, [target, loaded, pageDims]);
+    const el = highlightRef.current ?? pageEls.current[target.page];
+    if (!container || !el) return;
+
+    const raf = requestAnimationFrame(() => {
+      const cRect = container.getBoundingClientRect();
+      const eRect = el.getBoundingClientRect();
+      const elTopWithin = eRect.top - cRect.top + container.scrollTop;
+      // Centre the clause in the pane (clamped to the scrollable range).
+      const top = elTopWithin - container.clientHeight / 2 + eRect.height / 2;
+      container.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      scrolledTargetRef.current = target;
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [target, renderedPages, renderWidth]);
 
   const docUrl = docId ? api.documentUrl(jobId, docId) : null;
 
@@ -73,16 +105,12 @@ export default function PdfViewer({
           {docName ? `${docName}.pdf` : "Source document"}
         </p>
         {target && (
-          <span className="shrink-0 text-[11px] text-marigold">
-            Cited · page {target.page}
-          </span>
+          <span className="shrink-0 text-[11px] text-marigold">Cited · page {target.page}</span>
         )}
       </div>
 
       <div ref={scrollRef} className="relative flex-1 overflow-auto bg-ink/[0.03] p-4">
-        {!docUrl && (
-          <EmptyHint />
-        )}
+        {!docUrl && <EmptyHint />}
         {error && (
           <div className="m-4 rounded-md border border-severity-high/30 bg-severity-high/5 p-4 text-sm text-severity-high">
             Could not load the source PDF: {error}
@@ -92,7 +120,7 @@ export default function PdfViewer({
           <Document
             key={docUrl}
             file={docUrl}
-            onLoadSuccess={onDocLoad}
+            onLoadSuccess={({ numPages: n }) => setNumPages(n)}
             onLoadError={(e) => setError(e.message)}
             loading={<ViewerSpinner label="Loading document…" />}
             error={null}
@@ -100,11 +128,15 @@ export default function PdfViewer({
             {Array.from({ length: numPages }, (_, i) => i + 1).map((pageNo) => {
               const isTarget = target?.page === pageNo;
               const dims = pageDims[pageNo];
+              const aspect = dims ? dims.h / dims.w : defaultAspect;
               return (
                 <div
                   key={pageNo}
                   ref={(el) => (pageEls.current[pageNo] = el)}
                   className="relative mx-auto mb-4 w-fit shadow-card"
+                  // Reserve vertical space from the aspect ratio so the scroll
+                  // offset is correct even before this page's canvas paints.
+                  style={{ minHeight: renderWidth > 0 ? renderWidth * aspect : undefined }}
                 >
                   <Page
                     pageNumber={pageNo}
@@ -113,10 +145,11 @@ export default function PdfViewer({
                     renderAnnotationLayer={false}
                     onLoadSuccess={(p) =>
                       setPageDims((d) =>
-                        d[pageNo]
-                          ? d
-                          : { ...d, [pageNo]: { w: p.originalWidth, h: p.originalHeight } },
+                        d[pageNo] ? d : { ...d, [pageNo]: { w: p.originalWidth, h: p.originalHeight } },
                       )
+                    }
+                    onRenderSuccess={() =>
+                      setRenderedPages((s) => (s.has(pageNo) ? s : new Set(s).add(pageNo)))
                     }
                   />
                   {/* page number tab */}
@@ -124,7 +157,16 @@ export default function PdfViewer({
                     {pageNo}
                   </span>
                   {isTarget && target?.bbox && dims && (
-                    <Highlight bbox={target.bbox} dims={dims} />
+                    <div
+                      ref={highlightRef}
+                      className="pointer-events-none absolute rounded-[3px] bg-marigold/25 ring-2 ring-marigold animate-[pulse_1.6s_ease-in-out_2]"
+                      style={{
+                        left: `${(target.bbox[0] / dims.w) * 100}%`,
+                        top: `${(target.bbox[1] / dims.h) * 100}%`,
+                        width: `${((target.bbox[2] - target.bbox[0]) / dims.w) * 100}%`,
+                        height: `${((target.bbox[3] - target.bbox[1]) / dims.h) * 100}%`,
+                      }}
+                    />
                   )}
                 </div>
               );
@@ -136,38 +178,14 @@ export default function PdfViewer({
   );
 }
 
-function Highlight({
-  bbox,
-  dims,
-}: {
-  bbox: [number, number, number, number];
-  dims: { w: number; h: number };
-}) {
-  const [x0, y0, x1, y1] = bbox;
-  const style = {
-    left: `${(x0 / dims.w) * 100}%`,
-    top: `${(y0 / dims.h) * 100}%`,
-    width: `${((x1 - x0) / dims.w) * 100}%`,
-    height: `${((y1 - y0) / dims.h) * 100}%`,
-  };
-  return (
-    <div
-      className="pointer-events-none absolute rounded-[3px] bg-marigold/25 ring-2 ring-marigold animate-[pulse_1.6s_ease-in-out_2]"
-      style={style}
-    />
-  );
-}
-
 function EmptyHint() {
   return (
     <div className="flex h-full flex-col items-center justify-center px-8 text-center">
-      <div className="grid h-10 w-10 place-items-center rounded-lg bg-marigold/10 text-marigold">
-        §
-      </div>
+      <div className="grid h-10 w-10 place-items-center rounded-lg bg-marigold/10 text-marigold">§</div>
       <p className="mt-3 text-sm font-medium text-ink">No source loaded</p>
       <p className="mt-1 max-w-xs text-xs text-slate">
-        Click a citation chip on any finding, entity, or graph node to jump to its
-        clause in the contract.
+        Click a citation chip on any finding, entity, or graph node to jump to its clause in the
+        contract.
       </p>
     </div>
   );

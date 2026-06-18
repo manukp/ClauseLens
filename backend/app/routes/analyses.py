@@ -131,6 +131,9 @@ def _full_result(job_id: str) -> dict:
         "entity_graph": (artifacts.job_dir(job_id) / artifacts.ENTITY_GRAPH).exists(),
         "findings": (artifacts.job_dir(job_id) / artifacts.FINDINGS).exists(),
     }
+    # Per-step failures isolated during the run (partial completion). The UI uses
+    # these to show "graph unavailable" instead of blanking a missing section.
+    step_errors = artifacts.read_json(job_id, artifacts.STEP_ERRORS, default=[]) or []
     return {
         "job_id": job_id,
         "job": _require_job(job_id).model_dump(),
@@ -143,6 +146,7 @@ def _full_result(job_id: str) -> dict:
         "structured_items": artifacts.read_json(job_id, artifacts.STRUCTURED, default=[]),
         "findings": artifacts.read_json(job_id, artifacts.FINDINGS, default=[]),
         "chunk_count": len(artifacts.read_json(job_id, artifacts.CHUNKS, default=[]) or []),
+        "step_errors": step_errors,
     }
 
 

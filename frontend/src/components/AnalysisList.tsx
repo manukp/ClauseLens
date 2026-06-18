@@ -96,6 +96,7 @@ export default function AnalysisList() {
 function StatusBadge({ job }: { job: Job }) {
   const map: Record<Job["status"], { label: string; cls: string; dot: string }> = {
     complete: { label: "Complete", cls: "bg-severity-low/10 text-severity-low", dot: "bg-severity-low" },
+    partial: { label: "Partial", cls: "bg-severity-medium/10 text-severity-medium", dot: "bg-severity-medium" },
     running: { label: "Running", cls: "bg-marigold/10 text-marigold", dot: "bg-marigold animate-pulse" },
     queued: { label: "Queued", cls: "bg-ink/[0.06] text-slate", dot: "bg-slate" },
     error: { label: "Error", cls: "bg-severity-high/10 text-severity-high", dot: "bg-severity-high" },

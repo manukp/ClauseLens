@@ -101,7 +101,9 @@ function layout(
       source: e.source,
       target: e.target,
       label: e.label || e.relation.replace(/_/g, " "),
-      type: "smoothstep",
+      // Bezier (react-flow's "default") rather than orthogonal smoothstep, so
+      // overlapping relationship paths are easier to follow.
+      type: "default",
       animated: conflict,
       markerEnd: { type: MarkerType.ArrowClosed, color, width: 16, height: 16 },
       style: { stroke: color, strokeWidth: conflict ? 1.8 : 1.4, strokeDasharray: conflict ? "6 5" : undefined },

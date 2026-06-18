@@ -9,8 +9,11 @@ Bedrock — that two-pass split is enforced by callers in later phases, not here
 from __future__ import annotations
 
 import json
+import threading
 import time
 from dataclasses import dataclass, field
+
+from botocore.config import Config
 
 from ..config import settings
 from ..models.schemas import ModelCallLog
@@ -19,6 +22,20 @@ from . import get_session
 
 # Titan Text Embeddings v2 — configured output dimensionality (matches D5/FAISS).
 EMBED_DIM = 1024
+
+# Bedrock-runtime client config (Phase 4 follow-up). A generous read_timeout
+# covers slow Sonnet reasoning calls (build_graph on a multi-document contract
+# previously hit the 60s botocore default and raised ReadTimeoutError); adaptive
+# retries auto-recover transient Overloaded/throttling errors. Every converse()
+# and embed() call goes through this one configured client.
+_BEDROCK_CONFIG = Config(
+    read_timeout=180,
+    connect_timeout=10,
+    retries={"max_attempts": 4, "mode": "adaptive"},
+)
+
+_runtime_client = None
+_runtime_lock = threading.Lock()
 
 
 def infer_tier(model_id: str) -> str:
@@ -42,7 +59,18 @@ class ConverseResult:
 
 
 def _runtime():
-    return get_session().client("bedrock-runtime")
+    """The single configured bedrock-runtime client (timeouts + adaptive retries).
+
+    Cached process-wide: boto3 clients are thread-safe, so all Converse/embed
+    calls share this one configured client (the timeout/retry policy applies
+    uniformly).
+    """
+    global _runtime_client
+    if _runtime_client is None:
+        with _runtime_lock:
+            if _runtime_client is None:
+                _runtime_client = get_session().client("bedrock-runtime", config=_BEDROCK_CONFIG)
+    return _runtime_client
 
 
 def converse(

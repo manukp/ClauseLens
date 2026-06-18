@@ -12,7 +12,13 @@ export interface Citation {
   chunk_id: string;
 }
 
-export type JobStatusValue = "queued" | "running" | "complete" | "error";
+export type JobStatusValue = "queued" | "running" | "complete" | "partial" | "error";
+
+export interface StepError {
+  step: string;
+  error: string;
+  ts: number;
+}
 
 export interface Job {
   job_id: string;
@@ -134,6 +140,7 @@ export interface AnalysisResult {
   structured_items: StructuredItem[];
   findings: Finding[];
   chunk_count: number;
+  step_errors?: StepError[];
 }
 
 export interface SourceResponse {

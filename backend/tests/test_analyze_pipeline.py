@@ -199,3 +199,50 @@ def test_stage2_pipeline_end_to_end(isolated):
     status = analyses.get_status(job_id)
     assert status["status"] == JobStatus.complete
     assert status["current_stage"] == "stage-2 analysis"
+
+
+def test_partial_failure_isolates_step_and_continues(isolated, monkeypatch):
+    """A step failing after retries must not abort the run or discard prior work
+    (Phase 4 follow-up). Force build_graph to raise; the run should finish
+    'partial', keep the already-computed structured items, STILL produce findings
+    (a downstream step), omit the graph, and surface the error in the result."""
+    from app.analyze import graph_build
+    from app.graph import run_pipeline
+    from app.models.schemas import Job, JobStatus
+    from app.routes import analyses
+    from app.store import artifacts, get_job_store
+
+    def _boom(*args, **kwargs):
+        raise RuntimeError("simulated Bedrock ReadTimeoutError")
+
+    monkeypatch.setattr(graph_build, "build", _boom)
+
+    store = get_job_store()
+    job = store.create(Job(name="Partial run", status=JobStatus.queued))
+    job_id = job.job_id
+    (artifacts.uploads_dir(job_id) / "contract.pdf").write_bytes(_make_pdf())
+    artifacts.add_document(
+        job_id,
+        {"doc_id": "doc_test", "doc_name": "contract", "filename": "contract.pdf", "s3_key": "x"},
+    )
+
+    run_pipeline(job_id)
+
+    # Overall status reflects partial completion, not a hard error.
+    assert store.get(job_id).status == JobStatus.partial
+
+    # The failed step is recorded; everything else was preserved / still ran.
+    step_errors = artifacts.read_json(job_id, artifacts.STEP_ERRORS, default=[])
+    assert any(e["step"] == "build_graph" for e in step_errors)
+
+    items = artifacts.read_json(job_id, artifacts.STRUCTURED, default=[])
+    assert items, "structured items computed before the failure must be preserved"
+
+    findings = artifacts.read_json(job_id, artifacts.FINDINGS, default=[])
+    assert findings, "detect_findings (downstream of build_graph) must still run"
+
+    # The graph artifact is absent/empty, and the result surfaces the failure.
+    eg = artifacts.read_json(job_id, artifacts.ENTITY_GRAPH, default={"nodes": [], "edges": []})
+    assert not eg.get("nodes")
+    result = analyses.get_analysis(job_id)
+    assert result["step_errors"] and result["step_errors"][0]["step"] == "build_graph"

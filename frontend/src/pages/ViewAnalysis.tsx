@@ -176,20 +176,40 @@ function ResultView({ jobId, result }: { jobId: string; result: AnalysisResult }
     ? result.entity_graph.nodes.find((n) => n.id === selectedNodeId) ?? null
     : null;
 
+  const stepErrors = result.step_errors ?? [];
+  const partial = result.job.status === "partial" || stepErrors.length > 0;
+  const graphFailed = stepErrors.some((e) => e.step === "build_graph");
+
   return (
     <CitationProvider value={citationApi}>
       <div className="flex h-[calc(100vh-8.5rem)] flex-col">
         {/* result header */}
         <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
           <h2 className="text-xl font-semibold text-ink">{result.job.name}</h2>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-severity-low/10 px-2.5 py-1 text-xs font-semibold text-severity-low">
-            <span className="h-1.5 w-1.5 rounded-full bg-severity-low" />
-            Analysis complete
-          </span>
+          {partial ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-severity-medium/10 px-2.5 py-1 text-xs font-semibold text-severity-medium">
+              <span className="h-1.5 w-1.5 rounded-full bg-severity-medium" />
+              Partial analysis
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-severity-low/10 px-2.5 py-1 text-xs font-semibold text-severity-low">
+              <span className="h-1.5 w-1.5 rounded-full bg-severity-low" />
+              Analysis complete
+            </span>
+          )}
           <span className="text-xs text-slate">
             {result.documents.map((d) => `${d.doc_name}.pdf`).join(" · ")} · {result.chunk_count} clauses
           </span>
         </div>
+
+        {partial && (
+          <div className="mb-3 rounded-md border border-severity-medium/30 bg-severity-medium/[0.06] px-4 py-2.5 text-xs text-severity-medium">
+            <span className="font-semibold">Partial results.</span> Some steps did not complete, so
+            the analysis below may be incomplete. Failed:{" "}
+            {stepErrors.map((e) => e.step).join(", ") || "unknown"}. Everything else was computed and
+            remains fully cited.
+          </div>
+        )}
 
         {/* split pane */}
         <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 lg:grid-cols-2">
@@ -222,6 +242,7 @@ function ResultView({ jobId, result }: { jobId: string; result: AnalysisResult }
                   nodeCitations={nodeCitations}
                   nodeFinding={nodeFinding}
                   onSelect={setSelectedNodeId}
+                  graphFailed={graphFailed}
                 />
               )}
               {tab === "summary" && (
@@ -292,6 +313,7 @@ function GraphTab({
   nodeCitations,
   nodeFinding,
   onSelect,
+  graphFailed,
 }: {
   result: AnalysisResult;
   flaggedIds: Set<string>;
@@ -299,8 +321,20 @@ function GraphTab({
   nodeCitations: Record<string, Citation[]>;
   nodeFinding: Record<string, Finding>;
   onSelect: (id: string | null) => void;
+  graphFailed: boolean;
 }) {
   const node = selectedNode;
+  if (graphFailed && result.entity_graph.nodes.length === 0) {
+    return (
+      <div className="card border-l-4 border-l-severity-medium p-8 text-center">
+        <p className="text-sm font-medium text-ink">Graph unavailable</p>
+        <p className="mt-1 text-sm text-slate">
+          The entity-graph step did not complete for this run. The rest of the analysis —
+          summary, entities, structured items, and findings — is unaffected and remains cited.
+        </p>
+      </div>
+    );
+  }
   if (result.entity_graph.nodes.length === 0) {
     return (
       <div className="card p-8 text-center">
