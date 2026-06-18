@@ -6,12 +6,20 @@ Phase 2 adds the analyses API + Stage-1 ingest pipeline (LangGraph spine).
 """
 from __future__ import annotations
 
+import mimetypes
 from contextlib import asynccontextmanager
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+
+# The bundled PDF.js worker ships as an ES module (.mjs). Some platforms map .mjs
+# to a non-JS mime, which makes strict browsers refuse to load the module worker
+# (breaking the citation viewer). Pin it to a JavaScript type before any static
+# file is served. (Phase 4 — citation viewer robustness.)
+mimetypes.add_type("text/javascript", ".mjs")
+mimetypes.add_type("text/javascript", ".js")
 
 from .config import settings
 from .routes import analyses, health
