@@ -1,0 +1,926 @@
+[
+  {
+    "entity_id": "ent_88e5c846714b",
+    "name": "Acme Corp",
+    "type": "organisation",
+    "roles": [
+      "Client",
+      "Party to the contract"
+    ],
+    "responsibilities": [],
+    "powers": [],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          160.06,
+          536.19,
+          216.31
+        ],
+        "text_span": "BETWEEN: Acme Corp, a company incorporated under the Companies Act, 2013, having its registered office at 14 Residency Road, Bengaluru 560025 (the \"Client\");",
+        "chunk_id": "chunk_897d98c1b084"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 4,
+        "bbox": [
+          51.75,
+          53.56,
+          254.99,
+          92.56
+        ],
+        "text_span": "SIGNED for and on behalf of the Parties: For Acme Corp: ___ Name: __ Title: __",
+        "chunk_id": "chunk_bb8253196821"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          538.89,
+          222.31
+        ],
+        "text_span": "Customer Onboarding Platform This Statement of Work (\"SOW-01\") is issued under and governed by the Master Services Agreement dated 1 August 2025 between Acme Corp (\"Client\") and BuildrCo Pvt Ltd (\"Vendor\"). Capitalised terms not defined ...",
+        "chunk_id": "chunk_00df5aa878db"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          542.05,
+          205.06
+        ],
+        "text_span": "Amendment to SOW-01 (Customer Onboarding Platform) This Change Order (\"CO-01\") is issued under clause 5 of the Master Services Agreement dated 1 August 2025 and amends Statement of Work SOW-01 between Acme Corp (\"Client\") and BuildrCo Pv...",
+        "chunk_id": "chunk_3f33e6241967"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          748.06,
+          254.99,
+          787.81
+        ],
+        "text_span": "SIGNED for and on behalf of the Parties: For Acme Corp: ___ Name: __ Title: __",
+        "chunk_id": "chunk_404b765f21e8"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_3e79b0e08bbf",
+    "name": "BuildrCo Pvt Ltd",
+    "type": "organisation",
+    "roles": [
+      "Vendor"
+    ],
+    "responsibilities": [],
+    "powers": [],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          233.56,
+          539.2,
+          317.56
+        ],
+        "text_span": "AND BuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered office at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\"). The Client and the Vendor are referred to individually as a \"Party\" and colle...",
+        "chunk_id": "chunk_a52ee36f28c4"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 4,
+        "bbox": [
+          51.75,
+          109.81,
+          272.49,
+          121.06
+        ],
+        "text_span": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __",
+        "chunk_id": "chunk_6cdea9922187"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          538.89,
+          222.31
+        ],
+        "text_span": "Customer Onboarding Platform This Statement of Work (\"SOW-01\") is issued under and governed by the Master Services Agreement dated 1 August 2025 between Acme Corp (\"Client\") and BuildrCo Pvt Ltd (\"Vendor\"). Capitalised terms not defined ...",
+        "chunk_id": "chunk_00df5aa878db"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          115.06,
+          542.05,
+          205.06
+        ],
+        "text_span": "Amendment to SOW-01 (Customer Onboarding Platform) This Change Order (\"CO-01\") is issued under clause 5 of the Master Services Agreement dated 1 August 2025 and amends Statement of Work SOW-01 between Acme Corp (\"Client\") and BuildrCo Pv...",
+        "chunk_id": "chunk_3f33e6241967"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 2,
+        "bbox": [
+          51.75,
+          25.06,
+          272.49,
+          36.31
+        ],
+        "text_span": "For BuildrCo Pvt Ltd: ___ Name: __ Title: __",
+        "chunk_id": "chunk_3a7546be073f"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_32235263422d",
+    "name": "The Client",
+    "type": "organisation",
+    "roles": [
+      "Party"
+    ],
+    "responsibilities": [],
+    "powers": [],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          233.56,
+          539.2,
+          317.56
+        ],
+        "text_span": "AND BuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered office at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\"). The Client and the Vendor are referred to individually as a \"Party\" and colle...",
+        "chunk_id": "chunk_a52ee36f28c4"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_7129f563c88d",
+    "name": "Client",
+    "type": "organisation",
+    "roles": [
+      "procurer of services",
+      "Client",
+      "Payer",
+      "Party responsible for payment authorisation",
+      "Requester of customer onboarding platform",
+      "Platform recipient",
+      "UAT participant",
+      "Data source provider",
+      "reviewer of deliverables",
+      "party to the Master Services Agreement",
+      "party to the Change Order",
+      "party to the contract",
+      "owner of Salesforce CRM"
+    ],
+    "responsibilities": [
+      "Pay total fee of INR 48,00,000 in three milestones",
+      "Pay Milestone 1 (INR 16,00,000) on signing of SOW-01",
+      "Pay Milestone 2 (INR 16,00,000) on completion of Platform Build Deliverable",
+      "Pay Milestone 3 (INR 16,00,000) on UAT Sign-Off",
+      "Pay invoices within 30 days of receipt",
+      "Bear all applicable taxes",
+      "Shall not reverse engineer or sublicense the Vendor's Background IP except as permitted by law",
+      "Provide agreed test plan (Appendix A)",
+      "Conduct user acceptance testing",
+      "Approve reconciliation report demonstrating 100% record parity",
+      "Grant UAT Sign-Off for platform acceptance",
+      "providing timely access to the legacy system",
+      "nominating UAT participants",
+      "providing test data",
+      "Confirm the final data schema by 25 August 2025",
+      "review submitted deliverables within 10 business days",
+      "provide written notice of non-conformities if applicable"
+    ],
+    "powers": [
+      "wishes to procure the design, development, and deployment of a customer onboarding platform",
+      "engages the Vendor to provide services",
+      "executes SOWs",
+      "Authorize payments through Head of Procurement and Chief Financial Officer",
+      "Receives non-exclusive licence to use Vendor's Background IP for use of the Deliverables",
+      "terminate any SOW for convenience on 60 days' written notice",
+      "Requires a customer onboarding platform to replace existing manual onboarding process",
+      "Accept or reject Platform Build based on test plan compliance and UAT results",
+      "Approve data migration reconciliation report through Data Lead",
+      "Determine platform acceptance",
+      "accept deliverables",
+      "reject deliverables by providing written notice of non-conformities",
+      "deem deliverables accepted by not responding within review period",
+      "pre-approve expenses in writing",
+      "prior written consent required for reassignment of key personnel (consent not to be unreasonably withheld)",
+      "wishes to accelerate go-live",
+      "wishes to add a third-party CRM integration to the scope",
+      "acceptance of CRM Integration deliverable based on integration test passing"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          331.03,
+          533.84,
+          427.81
+        ],
+        "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+        "chunk_id": "chunk_ec99b554700f"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+        "chunk_id": "chunk_1a3e38228ffd"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          540.65,
+          762.31
+        ],
+        "text_span": "6. INTELLECTUAL PROPERTY 6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement transfers ownership of a Party's Background IP to the other. 6.2 The Vendor grants the Client a non-exclusive ...",
+        "chunk_id": "chunk_a73754bea3a7"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          488.53,
+          538.69,
+          596.56
+        ],
+        "text_span": "11. TERMINATION 11.1 Either Party may terminate this Agreement or any SOW for material breach not cured within 30 days of written notice. 11.2 The Client may terminate any SOW for convenience on 60 days' written notice, in which case the...",
+        "chunk_id": "chunk_49bc98f863a8"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          235.03,
+          534.88,
+          360.31
+        ],
+        "text_span": "1. BACKGROUND AND OBJECTIVES 1.1 The Client requires a customer onboarding platform to replace its existing manual onboarding process. The platform will capture customer records, validate documentation, and integrate with the Client's do...",
+        "chunk_id": "chunk_16a6442f46dc"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          215.53,
+          537.59,
+          351.31
+        ],
+        "text_span": "6. ACCEPTANCE PROCEDURE 6.1 On submission of a Deliverable, the Client has 10 business days to review and either accept it or provide written notice of non-conformities. 6.2 If the Client does not respond within the review period, the De...",
+        "chunk_id": "chunk_6b0c9bc02538"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          364.78,
+          513.82,
+          455.56
+        ],
+        "text_span": "7. FEES 7.1 Fees for this SOW are as set out in clause 4 of the Master Services Agreement (total INR 48,00,000 across three milestones). 7.2 Expenses pre-approved in writing by the Client are reimbursed at cost.",
+        "chunk_id": "chunk_2539f39fa0c5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          468.28,
+          523.91,
+          559.81
+        ],
+        "text_span": "8. KEY PERSONNEL 8.1 The Vendor's Project Manager for this SOW is Ms. R. Iyer. 8.2 The Vendor shall not reassign key personnel without the Client's prior written consent, such consent not to be unreasonably withheld.",
+        "chunk_id": "chunk_d05b9ef118bb"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          222.31,
+          540.71,
+          309.31
+        ],
+        "text_span": "Date of this Change Order: 5 September 2025 1. REASON FOR CHANGE 1.1 Following a strategic review, the Client wishes to (a) accelerate go-live to capture an upcoming campaign window, and (b) add a third-party CRM integration to the scope.",
+        "chunk_id": "chunk_11211347b2e0"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          322.78,
+          540.97,
+          430.06
+        ],
+        "text_span": "2. CHANGES TO SCOPE 2.1 A new Deliverable is added to SOW-01: 2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Acceptance: passes...",
+        "chunk_id": "chunk_a54d1688f8f3"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_2db7e6484aa4",
+    "name": "Vendor",
+    "type": "organisation",
+    "roles": [
+      "service provider",
+      "Vendor"
+    ],
+    "responsibilities": [
+      "provide design, development, and deployment services for a customer onboarding platform",
+      "provide items, materials, software, and outputs (Deliverables) as specified in a SOW",
+      "perform the Services with reasonable skill and care",
+      "perform Services in accordance with good industry practice",
+      "Provide a written impact assessment (cost, schedule, and risk) for any proposed change on request before a Change Order is executed",
+      "Grants Client a non-exclusive licence to use Vendor's Background IP",
+      "perform Services in a professional and workmanlike manner",
+      "ensure Deliverables materially conform to specifications in the relevant SOW",
+      "maintain warranty for 90 days following acceptance",
+      "provide Services",
+      "design, build, and testing of the Platform Build Deliverable",
+      "Performance Tuning",
+      "submit deliverables",
+      "remedy notified non-conformities within 10 business days",
+      "resubmit remedied deliverables for review",
+      "shall not reassign key personnel without the Client's prior written consent"
+    ],
+    "powers": [
+      "represents expertise, personnel, and capacity to provide such services",
+      "provide services described in SOWs",
+      "Grants non-exclusive licence to Client to use Vendor's Background IP solely to the extent necessary for Client to use the Deliverables",
+      "disclaim all warranties except as expressly stated, to the extent permitted by law"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          331.03,
+          533.84,
+          427.81
+        ],
+        "text_span": "RECITALS WHEREAS the Client wishes to procure the design, development, and deployment of a customer onboarding platform; and WHEREAS the Vendor represents that it has the expertise, personnel, and capacity to provide such services; NOW T...",
+        "chunk_id": "chunk_ec99b554700f"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          440.53,
+          539.76,
+          773.56
+        ],
+        "text_span": "1. DEFINITIONS AND INTERPRETATION 1.1 In this Agreement, unless the context otherwise requires: \"Statement of Work\" or \"SOW\" means a document executed by the Parties under this Agreement describing specific Services, Deliverables, timeli...",
+        "chunk_id": "chunk_75d893031c8d"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+        "chunk_id": "chunk_1a3e38228ffd"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          516.28,
+          535.12,
+          640.81
+        ],
+        "text_span": "5. CHANGE CONTROL 5.1 Either Party may request a change to the scope, Deliverables, or timeline of an SOW. No change is binding unless documented in a Change Order signed by authorised representatives of both Parties. 5.2 The Vendor shal...",
+        "chunk_id": "chunk_a013d6da28d7"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          540.65,
+          762.31
+        ],
+        "text_span": "6. INTELLECTUAL PROPERTY 6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement transfers ownership of a Party's Background IP to the other. 6.2 The Vendor grants the Client a non-exclusive ...",
+        "chunk_id": "chunk_a73754bea3a7"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          66.28,
+          542.6,
+          190.81
+        ],
+        "text_span": "7. WARRANTIES 7.1 The Vendor warrants that the Services will be performed in a professional and workmanlike manner and that the Deliverables will materially conform to the specifications in the relevant SOW for a period of 90 days follow...",
+        "chunk_id": "chunk_2fa34286b6d0"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          488.53,
+          538.69,
+          596.56
+        ],
+        "text_span": "11. TERMINATION 11.1 Either Party may terminate this Agreement or any SOW for material breach not cured within 30 days of written notice. 11.2 The Client may terminate any SOW for convenience on 60 days' written notice, in which case the...",
+        "chunk_id": "chunk_49bc98f863a8"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          215.53,
+          537.59,
+          351.31
+        ],
+        "text_span": "6. ACCEPTANCE PROCEDURE 6.1 On submission of a Deliverable, the Client has 10 business days to review and either accept it or provide written notice of non-conformities. 6.2 If the Client does not respond within the review period, the De...",
+        "chunk_id": "chunk_6b0c9bc02538"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          468.28,
+          523.91,
+          559.81
+        ],
+        "text_span": "8. KEY PERSONNEL 8.1 The Vendor's Project Manager for this SOW is Ms. R. Iyer. 8.2 The Vendor shall not reassign key personnel without the Client's prior written consent, such consent not to be unreasonably withheld.",
+        "chunk_id": "chunk_d05b9ef118bb"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_77d1169eb5f9",
+    "name": "Parties",
+    "type": "organisation",
+    "roles": [
+      "contracting parties",
+      "signatories to the Change Order"
+    ],
+    "responsibilities": [
+      "execute SOWs describing specific Services, Deliverables, timelines, and fees",
+      "execute Change Orders in writing to amend an SOW or the Agreement",
+      "must provide written consent for assignment",
+      "must sign variations in writing"
+    ],
+    "powers": [
+      "amend SOW or Agreement through Change Order",
+      "may assign Agreement with other party's prior written consent",
+      "may vary Agreement terms in writing",
+      "sign the Change Order to make it effective and binding"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          440.53,
+          539.76,
+          773.56
+        ],
+        "text_span": "1. DEFINITIONS AND INTERPRETATION 1.1 In this Agreement, unless the context otherwise requires: \"Statement of Work\" or \"SOW\" means a document executed by the Parties under this Agreement describing specific Services, Deliverables, timeli...",
+        "chunk_id": "chunk_75d893031c8d"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          713.53,
+          488.0,
+          804.31
+        ],
+        "text_span": "13. GENERAL 13.1 This Agreement, together with its SOWs and Change Orders, constitutes the entire agreement between the Parties and supersedes all prior discussions. 13.2 No variation is effective unless in writing and signed by both Par...",
+        "chunk_id": "chunk_4a50d3115844"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          668.53,
+          504.06,
+          731.56
+        ],
+        "text_span": "5. EFFECT 5.1 This Change Order, once signed by both Parties, forms part of SOW-01 and the Master Services Agreement.",
+        "chunk_id": "chunk_11fdfaf1efbd"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_20bbb776054b",
+    "name": "Ms. R. Iyer",
+    "type": "person",
+    "roles": [
+      "Project Manager",
+      "single point of contact for delivery"
+    ],
+    "responsibilities": [],
+    "powers": [],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+        "chunk_id": "chunk_1a3e38228ffd"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          468.28,
+          523.91,
+          559.81
+        ],
+        "text_span": "8. KEY PERSONNEL 8.1 The Vendor's Project Manager for this SOW is Ms. R. Iyer. 8.2 The Vendor shall not reassign key personnel without the Client's prior written consent, such consent not to be unreasonably withheld.",
+        "chunk_id": "chunk_d05b9ef118bb"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_6d70be55da73",
+    "name": "Client's Head of Procurement",
+    "type": "person",
+    "roles": [
+      "Payment authoriser"
+    ],
+    "responsibilities": [],
+    "powers": [
+      "Authorize payment for Milestone 1"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_13d4a7afc3ad",
+    "name": "Client's Chief Financial Officer",
+    "type": "person",
+    "roles": [
+      "Payment authoriser"
+    ],
+    "responsibilities": [],
+    "powers": [
+      "Authorize payment for Milestone 3"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_dcd4b378df7a",
+    "name": "Either Party",
+    "type": "organisation",
+    "roles": [
+      "Party to the SOW"
+    ],
+    "responsibilities": [],
+    "powers": [
+      "Request a change to the scope, Deliverables, or timeline of an SOW"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          516.28,
+          535.12,
+          640.81
+        ],
+        "text_span": "5. CHANGE CONTROL 5.1 Either Party may request a change to the scope, Deliverables, or timeline of an SOW. No change is binding unless documented in a Change Order signed by authorised representatives of both Parties. 5.2 The Vendor shal...",
+        "chunk_id": "chunk_a013d6da28d7"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_0a19bdfffa66",
+    "name": "authorised representatives",
+    "type": "person",
+    "roles": [
+      "Authorised representatives of both Parties"
+    ],
+    "responsibilities": [],
+    "powers": [
+      "Sign a Change Order to make a change binding"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          516.28,
+          535.12,
+          640.81
+        ],
+        "text_span": "5. CHANGE CONTROL 5.1 Either Party may request a change to the scope, Deliverables, or timeline of an SOW. No change is binding unless documented in a Change Order signed by authorised representatives of both Parties. 5.2 The Vendor shal...",
+        "chunk_id": "chunk_a013d6da28d7"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_bfcf1ae367c8",
+    "name": "Party",
+    "type": "organisation",
+    "roles": [
+      "Party to the Agreement"
+    ],
+    "responsibilities": [],
+    "powers": [
+      "Retains all right, title, and interest in its Background IP",
+      "terminate this Agreement or any SOW for material breach not cured within 30 days of written notice"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          540.65,
+          762.31
+        ],
+        "text_span": "6. INTELLECTUAL PROPERTY 6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement transfers ownership of a Party's Background IP to the other. 6.2 The Vendor grants the Client a non-exclusive ...",
+        "chunk_id": "chunk_a73754bea3a7"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          204.28,
+          533.22,
+          295.06
+        ],
+        "text_span": "8. LIMITATION OF LIABILITY 8.1 Subject to clause 8.2, each Party's aggregate liability under this Agreement is limited to the total fees paid under the relevant SOW in the 12 months preceding the claim. 8.2 Nothing limits liability for f...",
+        "chunk_id": "chunk_5602cdfb0ff2"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          488.53,
+          538.69,
+          596.56
+        ],
+        "text_span": "11. TERMINATION 11.1 Either Party may terminate this Agreement or any SOW for material breach not cured within 30 days of written notice. 11.2 The Client may terminate any SOW for convenience on 60 days' written notice, in which case the...",
+        "chunk_id": "chunk_49bc98f863a8"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_4c7de810e32b",
+    "name": "Each Party",
+    "type": "organisation",
+    "roles": [
+      "Receiving Party",
+      "Disclosing Party",
+      "Party to the Agreement"
+    ],
+    "responsibilities": [
+      "Keep the other's Confidential Information secret during the term and for two years after termination",
+      "Use Confidential Information only for the purposes of this Agreement",
+      "comply with applicable laws in performing this Agreement"
+    ],
+    "powers": [],
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          308.53,
+          542.04,
+          415.81
+        ],
+        "text_span": "9. CONFIDENTIALITY 9.1 Each Party shall keep the other's Confidential Information secret during the term and for two years after termination, and shall use it only for the purposes of this Agreement. 9.2 Confidentiality obligations do no...",
+        "chunk_id": "chunk_317eac3fa761"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          429.28,
+          449.44,
+          475.06
+        ],
+        "text_span": "10. DATA PROTECTION 10.1 Each Party shall comply with applicable laws in performing this Agreement.",
+        "chunk_id": "chunk_42e26322434f"
+      }
+    ]
+  },
+  {
+    "entity_id": "ent_4adf934aa82d",
+    "name": "Client's Data Lead",
+    "type": "person",
+    "roles": [
+      "Data migration approver"
+    ],
+    "responsibilities": [
+      "Approve reconciliation report demonstrating 100% record parity"
+    ],
+    "powers": [
+      "Approve or reject data migration based on reconciliation report"
+    ],
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  }
+]

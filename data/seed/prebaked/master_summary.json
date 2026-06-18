@@ -1,0 +1,44 @@
+{
+  "summary": "# Master Summary: Acme Corp / BuildrCo Pvt Ltd — Customer Onboarding Platform Engagement\n\n---\n\n## 1. Overall Arrangement\n\nAcme Corp has engaged BuildrCo Pvt Ltd to design, build, and deploy a customer onboarding platform to replace Acme's existing manual process. The engagement is structured across three interlocking documents: a **Master Services Agreement (MSA)** establishing the overarching commercial and legal framework, a **Statement of Work (SOW-01)** defining the specific scope, deliverables, and timeline, and a **Change Order (CO-01)** amending SOW-01 to add CRM integration and accelerate go-live. Together, these documents constitute a single integrated contractual arrangement with a total stated value of **INR 56,00,000**, subject to CO-01 being executed (see critical caveat below).\n\n---\n\n## 2. Parties and Their Relationship\n\n| Party | Role | Location |\n|---|---|---|\n| Acme Corp | Client | Bengaluru |\n| BuildrCo Pvt Ltd | Vendor | Bengaluru |\n\nThe relationship is a **client-vendor services engagement**, not a partnership or joint venture. BuildrCo performs and delivers; Acme pays, provides inputs, and accepts deliverables. The MSA governs all SOWs that may be issued under it, meaning the framework is designed to accommodate future work beyond SOW-01. The designated Vendor contact is **Ms. R. Iyer (Project Manager)**.\n\n---\n\n## 3. Scope of Work\n\nThe core deliverables under SOW-01, as amended by CO-01, are:\n\n- **Onboarding web application** — registration workflow, document upload module, and administrative console\n- **Data migration** — migration of existing customer records with cleansing and validation\n- **Performance optimization** prior to go-live\n- **Salesforce CRM integration** (added by CO-01) — real-time sync, field mapping, and error handling; accepted upon successful integration test demonstrating record sync across all mapped fields\n- **30-day post-launch hypercare support** — defect triage and resolution\n\n---\n\n## 4. Timeline and Key Milestones\n\n| Event | Original Date (SOW-01) | Amended Date (CO-01) |\n|---|---|---|\n| Project Start | 1 August 2025 | Unchanged |\n| Client provides legacy system access & test data | 20 August 2025 | Unchanged |\n| Client confirms final data schema | 25 August 2025 | Unchanged |\n| Platform Build Complete | 15 September 2025 | Unchanged |\n| **Target Go-Live** | **5 October 2025** | **25 September 2025** |\n| UAT Sign-Off | 30 September 2025 | Unchanged |\n| Data Migration Complete | 15 October 2025 | Unchanged |\n| Hypercare Support Ends | 30 days post-launch | 30 days post-launch |\n\n**Critical interdependency and tension:** CO-01 accelerates go-live to **25 September 2025**, which is **five days before** the UAT Sign-Off date of **30 September 2025** that remains unchanged from SOW-01. This creates a direct logical conflict — the platform cannot go live before UAT is formally signed off without either waiving the UAT gate or treating go-live and UAT sign-off as concurrent events. This inconsistency is unresolved on the face of the documents and represents a significant execution risk.\n\n---\n\n## 5. Commercial Terms\n\n### Fee Structure\n\n| Milestone | Trigger | Amount (INR) |\n|---|---|---|\n| Milestone 1 | Signing of MSA/SOW | 16,00,000 |\n| Milestone 2 | Platform Build Complete | 16,00",
+  "citations": [
+    {
+      "doc_id": "doc_0",
+      "doc_name": "Master Services Agreement",
+      "page": 1,
+      "bbox": [
+        51.75,
+        45.23,
+        535.87,
+        143.56
+      ],
+      "text_span": "01_master_services_agreement MASTER SERVICES AGREEMENT This Master Services Agreement (\"Agreement\") is entered into on 1 August 2025 (the \"Effective Date\")",
+      "chunk_id": "chunk_5f6c4393eb82"
+    },
+    {
+      "doc_id": "doc_1",
+      "doc_name": "Statement of Work",
+      "page": 1,
+      "bbox": [
+        51.75,
+        45.23,
+        344.21,
+        96.44
+      ],
+      "text_span": "02_statement_of_work STATEMENT OF WORK — SOW-01",
+      "chunk_id": "chunk_0ab9ab991141"
+    },
+    {
+      "doc_id": "doc_2",
+      "doc_name": "Change Order",
+      "page": 1,
+      "bbox": [
+        51.75,
+        45.23,
+        278.16,
+        96.44
+      ],
+      "text_span": "03_change_order CHANGE ORDER — CO-01",
+      "chunk_id": "chunk_b137a5c24bb2"
+    }
+  ]
+}

@@ -118,7 +118,10 @@ def render(md_path: Path, pdf_path: Path | None = None) -> Path:
 def main(argv: list[str]) -> int:
     root = Path(__file__).resolve().parents[1] / "data" / "sample_contracts"
     if "--all" in argv:
-        targets = sorted(p for p in root.glob("*.md") if p.name != "ANSWER_KEY.md")
+        # Recurse so the hero set under software_dev/ renders alongside the
+        # single-document domains at the top level. Skip docs (ANSWER_KEY, README).
+        _skip = {"ANSWER_KEY.md", "README.md"}
+        targets = sorted(p for p in root.rglob("*.md") if p.name not in _skip)
     elif argv:
         targets = [Path(argv[0])]
     else:

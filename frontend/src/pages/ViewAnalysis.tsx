@@ -299,9 +299,38 @@ function FindingsTab({
           </span>
         )}
       </div>
+      <GuardrailLegend />
       {findings.map((f) => (
         <SeverityCard key={f.finding_id} finding={f} />
       ))}
+    </div>
+  );
+}
+
+// The three-stage assurance story, made legible for a non-technical panel: every
+// finding is grounded (cited), self-checked (reflective loop), then independently
+// verified (a separate AI judge). Maps each stage to what the panel sees on a card.
+function GuardrailLegend() {
+  const steps = [
+    { n: "1", label: "Grounded", cls: "text-marigold", desc: "every claim links to its source clause — click a citation" },
+    { n: "2", label: "Self-checked", cls: "text-ink", desc: "a reflective loop re-retrieves and regenerates weak answers" },
+    { n: "3", label: "Independently verified", cls: "text-severity-low", desc: "a separate AI judge scores correctness and bias" },
+  ];
+  return (
+    <div className="card border border-ink/10 bg-white/50 p-3">
+      <p className="text-[11px] font-semibold uppercase tracking-wide text-slate/80">
+        How every finding is safeguarded
+      </p>
+      <ol className="mt-1.5 flex flex-col gap-1.5 text-[12px] leading-snug text-slate sm:flex-row sm:flex-wrap sm:gap-x-5">
+        {steps.map((s) => (
+          <li key={s.n} className="flex items-baseline gap-1.5">
+            <span className={`font-semibold ${s.cls}`}>
+              {s.n} · {s.label}
+            </span>
+            <span className="text-slate/80">— {s.desc}</span>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 }

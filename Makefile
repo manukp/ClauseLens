@@ -25,7 +25,7 @@ endif
 PY := $(VENV_BIN)/python
 
 .DEFAULT_GOAL := help
-.PHONY: help backend build-frontend demo test clean
+.PHONY: help backend build-frontend seed demo test clean
 
 help: ## Show available targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -39,7 +39,10 @@ backend: ## Create venv and install backend deps
 build-frontend: ## Install deps (deterministic, from lockfile) and build into frontend/dist
 	cd frontend && npm ci && npm run build
 
-demo: build-frontend ## Build frontend, then launch the single FastAPI process
+seed: ## Seed the pre-baked demo analysis into the local job store (idempotent)
+	@$(PY) scripts/seed_demo.py || echo "(seed skipped)"
+
+demo: build-frontend seed ## Build frontend, seed the demo data, then launch the single FastAPI process
 	@$(PY) -c "import uvicorn" 2>/dev/null || { \
 		echo "Backend venv not ready (no uvicorn). Run 'make backend' first."; exit 1; }
 	@echo "Serving ClauseLens at http://$(HOST):$(PORT)"

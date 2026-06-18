@@ -1,0 +1,817 @@
+[
+  {
+    "item_id": "item_ea4b68a2fb77",
+    "category": "deliverable",
+    "title": "Platform Build",
+    "detail": "The onboarding web application, comprising the customer registration workflow, document upload, and an administrative console.",
+    "attributes": {
+      "acceptance_criteria": "Passes the agreed test plan set out in Appendix A and obtains Client UAT Sign-Off."
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_9f5f15fa8180",
+    "category": "deliverable",
+    "title": "Data Migration",
+    "detail": "Migration of existing customer records from the Client's legacy system into the new platform, including data cleansing and validation.",
+    "attributes": {
+      "acceptance_criteria": "A reconciliation report demonstrating 100% record parity, approved by the Client's Data Lead."
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_880010ea6723",
+    "category": "deliverable",
+    "title": "Performance Tuning",
+    "detail": "Optimisation of platform response times prior to go-live.",
+    "attributes": {},
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_3da1adf39502",
+    "category": "deliverable",
+    "title": "UAT Sign-Off",
+    "detail": "Formal Client acceptance of the platform following user acceptance testing.",
+    "attributes": {},
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_c89bbd407d63",
+    "category": "deliverable",
+    "title": "Hypercare Support",
+    "detail": "30 days of post go-live support, including defect triage and resolution, commencing on the go-live date.",
+    "attributes": {},
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_24728e568858",
+    "category": "deliverable",
+    "title": "CRM Integration",
+    "detail": "A real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Added via Change Order to SOW-01.",
+    "attributes": {
+      "acceptance_criteria": "Passes an integration test demonstrating successful record sync across all mapped fields."
+    },
+    "citations": [
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          322.78,
+          540.97,
+          430.06
+        ],
+        "text_span": "2. CHANGES TO SCOPE 2.1 A new Deliverable is added to SOW-01: 2.1.1 CRM Integration — a real-time integration between the onboarding platform and the Client's Salesforce CRM, including field mapping and error handling. Acceptance: passes...",
+        "chunk_id": "chunk_a54d1688f8f3"
+      }
+    ]
+  },
+  {
+    "item_id": "item_3ff2fa3be911",
+    "category": "owner",
+    "title": "Vendor (BuildrCo Pvt Ltd)",
+    "detail": "Responsible for the design, build, and testing of the Platform Build Deliverable and for Performance Tuning.",
+    "attributes": {
+      "responsible_for": "Design, build, and testing of Platform Build Deliverable (clause 2.1); Performance Tuning (clause 2.3)",
+      "role": "Vendor / Service Provider"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          233.56,
+          539.2,
+          317.56
+        ],
+        "text_span": "AND BuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered office at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\"). The Client and the Vendor are referred to individually as a \"Party\" and colle...",
+        "chunk_id": "chunk_a52ee36f28c4"
+      }
+    ]
+  },
+  {
+    "item_id": "item_9c75a66de18b",
+    "category": "owner",
+    "title": "Client",
+    "detail": "Responsible for providing timely access to the legacy system, nominating UAT participants, and providing test data by 20 August 2025.",
+    "attributes": {
+      "responsible_for": "Legacy system access, UAT participant nomination, test data provision by 20 August 2025",
+      "role": "Client / Engaging Party"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          233.56,
+          539.2,
+          317.56
+        ],
+        "text_span": "AND BuildrCo Pvt Ltd, a company incorporated under the Companies Act, 2013, having its registered office at 7 Outer Ring Road, Bengaluru 560103 (the \"Vendor\"). The Client and the Vendor are referred to individually as a \"Party\" and colle...",
+        "chunk_id": "chunk_a52ee36f28c4"
+      }
+    ]
+  },
+  {
+    "item_id": "item_80afdff9e76a",
+    "category": "owner",
+    "title": "Ms. R. Iyer (Vendor's Project Manager)",
+    "detail": "Single point of contact for delivery under the Master Services Agreement and named Key Personnel for SOW-01.",
+    "attributes": {
+      "responsible_for": "Delivery coordination and single point of contact for Services",
+      "role": "Vendor Project Manager / Key Personnel"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+        "chunk_id": "chunk_1a3e38228ffd"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          468.28,
+          523.91,
+          559.81
+        ],
+        "text_span": "8. KEY PERSONNEL 8.1 The Vendor's Project Manager for this SOW is Ms. R. Iyer. 8.2 The Vendor shall not reassign key personnel without the Client's prior written consent, such consent not to be unreasonably withheld.",
+        "chunk_id": "chunk_d05b9ef118bb"
+      }
+    ]
+  },
+  {
+    "item_id": "item_a236e6a5f87e",
+    "category": "budget",
+    "title": "Total Fee for SOW-01",
+    "detail": "Total fee of INR 48,00,000 (Indian Rupees Forty-Eight Lakh) for SOW-01, payable across three equal milestones of INR 16,00,000 each.",
+    "attributes": {
+      "amount": "INR 48,00,000"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          364.78,
+          513.82,
+          455.56
+        ],
+        "text_span": "7. FEES 7.1 Fees for this SOW are as set out in clause 4 of the Master Services Agreement (total INR 48,00,000 across three milestones). 7.2 Expenses pre-approved in writing by the Client are reimbursed at cost.",
+        "chunk_id": "chunk_2539f39fa0c5"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ]
+  },
+  {
+    "item_id": "item_1440c7afc575",
+    "category": "budget",
+    "title": "Milestone 1 Payment",
+    "detail": "INR 16,00,000 payable on signing of SOW-01.",
+    "attributes": {
+      "amount": "INR 16,00,000",
+      "approval_authority": "Client's Head of Procurement"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ]
+  },
+  {
+    "item_id": "item_155af0c29b03",
+    "category": "budget",
+    "title": "Milestone 2 Payment",
+    "detail": "INR 16,00,000 payable on completion of the Platform Build Deliverable.",
+    "attributes": {
+      "amount": "INR 16,00,000"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ]
+  },
+  {
+    "item_id": "item_7250ef92aac7",
+    "category": "budget",
+    "title": "Milestone 3 Payment",
+    "detail": "INR 16,00,000 payable on UAT Sign-Off.",
+    "attributes": {
+      "amount": "INR 16,00,000",
+      "approval_authority": "Client's Chief Financial Officer"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          249.28,
+          540.72,
+          503.56
+        ],
+        "text_span": "4. FEES AND PAYMENT 4.1 The total fee for SOW-01 is INR 48,00,000 (Indian Rupees Forty-Eight Lakh), payable in three milestones as set out below. 4.2 Milestone 1 — INR 16,00,000, payable on signing of SOW-01. Payment authorisation: the C...",
+        "chunk_id": "chunk_abc8763f5c87"
+      }
+    ]
+  },
+  {
+    "item_id": "item_1098f9a48c84",
+    "category": "budget",
+    "title": "Expense Reimbursements",
+    "detail": "Expenses pre-approved in writing by the Client are reimbursed at cost.",
+    "attributes": {
+      "approval_authority": "Client (written pre-approval required)"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          364.78,
+          513.82,
+          455.56
+        ],
+        "text_span": "7. FEES 7.1 Fees for this SOW are as set out in clause 4 of the Master Services Agreement (total INR 48,00,000 across three milestones). 7.2 Expenses pre-approved in writing by the Client are reimbursed at cost.",
+        "chunk_id": "chunk_2539f39fa0c5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_ed439b530d1d",
+    "category": "timeline",
+    "title": "Project Start",
+    "detail": "The project commences on 1 August 2025.",
+    "attributes": {
+      "date": "1 August 2025",
+      "milestone": "Project start"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      }
+    ]
+  },
+  {
+    "item_id": "item_69f4aad67a23",
+    "category": "timeline",
+    "title": "Client Provides Test Data",
+    "detail": "The Client must provide test data by 20 August 2025.",
+    "attributes": {
+      "deadline": "20 August 2025",
+      "milestone": "Client provides test data"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          772.78,
+          219.4,
+          789.22
+        ],
+        "text_span": "4. RESPONSIBILITIES 4.1 The Vendor is responsible for the design, build, and testing of the Platform Build Deliverable (clause 2.1) and for Performance Tuning (clause 2.3). 4.2 The Client is responsible for providing timely access to the...",
+        "chunk_id": "chunk_081b06eb8b33"
+      }
+    ]
+  },
+  {
+    "item_id": "item_26b759ea3ce9",
+    "category": "timeline",
+    "title": "Client Confirms Final Data Schema",
+    "detail": "The Client must confirm the final data schema by 25 August 2025, as a dependency for the Platform Build.",
+    "attributes": {
+      "deadline": "25 August 2025",
+      "milestone": "Client confirms final data schema"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      }
+    ]
+  },
+  {
+    "item_id": "item_959fa50283a9",
+    "category": "timeline",
+    "title": "Platform Build Complete",
+    "detail": "The Platform Build must be completed by 15 September 2025.",
+    "attributes": {
+      "deadline": "15 September 2025",
+      "milestone": "Platform Build complete"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      }
+    ]
+  },
+  {
+    "item_id": "item_a079ac864ae8",
+    "category": "timeline",
+    "title": "Change Order Executed",
+    "detail": "The Change Order was dated and executed on 5 September 2025.",
+    "attributes": {
+      "date": "5 September 2025",
+      "milestone": "Change Order execution"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          222.31,
+          540.71,
+          309.31
+        ],
+        "text_span": "Date of this Change Order: 5 September 2025 1. REASON FOR CHANGE 1.1 Following a strategic review, the Client wishes to (a) accelerate go-live to capture an upcoming campaign window, and (b) add a third-party CRM integration to the scope.",
+        "chunk_id": "chunk_11211347b2e0"
+      }
+    ]
+  },
+  {
+    "item_id": "item_fc38c2a22045",
+    "category": "timeline",
+    "title": "UAT Sign-Off",
+    "detail": "UAT Sign-Off must be obtained by 30 September 2025.",
+    "attributes": {
+      "deadline": "30 September 2025",
+      "milestone": "UAT Sign-Off obtained"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      }
+    ]
+  },
+  {
+    "item_id": "item_05490dd3d463",
+    "category": "timeline",
+    "title": "Go-Live (Amended)",
+    "detail": "The target go-live date was originally 5 October 2025 per SOW-01 clause 3.4, but was brought forward to 25 September 2025 by the Change Order.",
+    "attributes": {
+      "deadline": "25 September 2025",
+      "milestone": "Target go-live (amended)",
+      "original_date": "5 October 2025"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      },
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          535.35,
+          551.56
+        ],
+        "text_span": "3. CHANGES TO TIMELINE 3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25 September 2025. 3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged unless ...",
+        "chunk_id": "chunk_0b2d01b6f765"
+      }
+    ]
+  },
+  {
+    "item_id": "item_cbce2d7a2758",
+    "category": "timeline",
+    "title": "Data Migration Complete",
+    "detail": "Data Migration is scheduled to complete by 15 October 2025 and is a prerequisite for UAT. Per the Change Order, this date remains unchanged.",
+    "attributes": {
+      "deadline": "15 October 2025",
+      "milestone": "Data Migration complete"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_2",
+        "doc_name": "Change Order",
+        "page": 1,
+        "bbox": [
+          51.75,
+          443.53,
+          535.35,
+          551.56
+        ],
+        "text_span": "3. CHANGES TO TIMELINE 3.1 The target go-live date in clause 3.4 of SOW-01 is brought forward from 5 October 2025 to 25 September 2025. 3.2 All other dates in SOW-01, including the Data Migration completion date, remain unchanged unless ...",
+        "chunk_id": "chunk_0b2d01b6f765"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      }
+    ]
+  },
+  {
+    "item_id": "item_8c076e98bf30",
+    "category": "plan",
+    "title": "Test Plan",
+    "detail": "A test plan referenced as Appendix A to the Statement of Work, against which the Platform Build acceptance is measured. The document is noted as '[To be attached]' and has not yet been populated.",
+    "attributes": {
+      "scope": "Acceptance testing of the Platform Build (onboarding web application); referenced as the basis for UAT Sign-Off"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          572.53,
+          264.22,
+          619.06
+        ],
+        "text_span": "APPENDIX A — TEST PLAN [To be attached.]",
+        "chunk_id": "chunk_8700304a6119"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      }
+    ]
+  },
+  {
+    "item_id": "item_30fabc5e4cba",
+    "category": "plan",
+    "title": "Project Delivery Plan",
+    "detail": "The overall delivery plan for the customer onboarding platform engagement, covering project start, platform build completion, UAT sign-off, and go-live, as set out in the Statement of Work timeline.",
+    "attributes": {
+      "phase": "Project start: 1 August 2025; Platform Build complete: 15 September 2025; UAT Sign-Off: 30 September 2025; Go-live: 5 October 2025",
+      "scope": "Platform Build, UAT Sign-Off, and go-live for the customer onboarding platform under SOW-01"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          628.78,
+          330.67,
+          759.31
+        ],
+        "text_span": "3. TIMELINE 3.1 Project start: 1 August 2025. 3.2 Platform Build complete by 15 September 2025. 3.3 UAT Sign-Off to be obtained by 30 September 2025. 3.4 Target go-live: 5 October 2025.",
+        "chunk_id": "chunk_f4041d5e316d"
+      },
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 1,
+        "bbox": [
+          51.75,
+          786.28,
+          285.68,
+          802.72
+        ],
+        "text_span": "2. ENGAGEMENT AND SCOPE 2.1 The Client engages the Vendor to provide the services described in one or more SOWs (the \"Services\"). The Vendor's Project Manager, Ms. R. Iyer, shall be the single point of contact for delivery. 2.2 Each SOW ...",
+        "chunk_id": "chunk_1a3e38228ffd"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          235.03,
+          534.88,
+          360.31
+        ],
+        "text_span": "1. BACKGROUND AND OBJECTIVES 1.1 The Client requires a customer onboarding platform to replace its existing manual onboarding process. The platform will capture customer records, validate documentation, and integrate with the Client's do...",
+        "chunk_id": "chunk_16a6442f46dc"
+      }
+    ]
+  },
+  {
+    "item_id": "item_9176c06779b6",
+    "category": "plan",
+    "title": "Data Migration Plan",
+    "detail": "Migration of existing customer records from the Client's legacy system into the new platform, including data cleansing and validation. Scheduled to complete by 15 October 2025 and is a prerequisite for UAT. Acceptance requires a reconciliation report demonstrating 100% record parity, approved by the Client's Data Lead.",
+    "attributes": {
+      "phase": "Must complete by 15 October 2025, prior to UAT commencement",
+      "scope": "Migration, cleansing, and validation of all existing customer records from legacy system to new platform"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 1,
+        "bbox": [
+          51.75,
+          373.03,
+          535.93,
+          616.06
+        ],
+        "text_span": "2. DELIVERABLES 2.1 Platform Build — the onboarding web application, comprising the customer registration workflow, document upload, and an administrative console. Acceptance: passes the agreed test plan set out in Appendix A and obtains...",
+        "chunk_id": "chunk_cd7b6ee0f4d5"
+      },
+      {
+        "doc_id": "doc_1",
+        "doc_name": "Statement of Work",
+        "page": 2,
+        "bbox": [
+          51.75,
+          111.28,
+          539.97,
+          202.06
+        ],
+        "text_span": "5. DEPENDENCIES 5.1 Data Migration (clause 2.2) is a prerequisite for UAT and must be completed before UAT can begin. Data Migration is scheduled to complete by 15 October 2025. 5.2 The Platform Build depends on the Client confirming the...",
+        "chunk_id": "chunk_7b5f535212f7"
+      }
+    ]
+  },
+  {
+    "item_id": "item_f201fa3362dd",
+    "category": "compliance",
+    "title": "Compliance with Applicable Laws",
+    "detail": "Each Party shall comply with applicable laws in performing this Agreement, in the context of data protection obligations.",
+    "attributes": {
+      "requirement": "Comply with applicable laws when performing the Agreement",
+      "standard": "Applicable data protection laws"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          429.28,
+          449.44,
+          475.06
+        ],
+        "text_span": "10. DATA PROTECTION 10.1 Each Party shall comply with applicable laws in performing this Agreement.",
+        "chunk_id": "chunk_42e26322434f"
+      }
+    ]
+  },
+  {
+    "item_id": "item_0b2483a714a2",
+    "category": "compliance",
+    "title": "Confidentiality Obligation",
+    "detail": "Each Party shall keep the other's Confidential Information secret during the term and for two years after termination, and shall use it only for the purposes of this Agreement.",
+    "attributes": {
+      "requirement": "Maintain secrecy of Confidential Information during term and for two years post-termination; use only for Agreement purposes",
+      "standard": "Contractual confidentiality obligations as defined in clause 9"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 3,
+        "bbox": [
+          51.75,
+          308.53,
+          542.04,
+          415.81
+        ],
+        "text_span": "9. CONFIDENTIALITY 9.1 Each Party shall keep the other's Confidential Information secret during the term and for two years after termination, and shall use it only for the purposes of this Agreement. 9.2 Confidentiality obligations do no...",
+        "chunk_id": "chunk_317eac3fa761"
+      }
+    ]
+  },
+  {
+    "item_id": "item_4d7e2407ed18",
+    "category": "compliance",
+    "title": "Restriction on Reverse Engineering and Sublicensing of Background IP",
+    "detail": "The Client shall not reverse engineer or sublicense the Vendor's Background IP except as permitted by law.",
+    "attributes": {
+      "requirement": "Prohibition on reverse engineering or sublicensing Vendor's Background IP unless permitted by law",
+      "standard": "Intellectual property compliance as defined in clause 6"
+    },
+    "citations": [
+      {
+        "doc_id": "doc_0",
+        "doc_name": "Master Services Agreement",
+        "page": 2,
+        "bbox": [
+          51.75,
+          654.28,
+          540.65,
+          762.31
+        ],
+        "text_span": "6. INTELLECTUAL PROPERTY 6.1 Each Party retains all right, title, and interest in its Background IP. Nothing in this Agreement transfers ownership of a Party's Background IP to the other. 6.2 The Vendor grants the Client a non-exclusive ...",
+        "chunk_id": "chunk_a73754bea3a7"
+      }
+    ]
+  }
+]

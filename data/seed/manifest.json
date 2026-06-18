@@ -1,0 +1,6 @@
+{
+  "job_id": "job_ff55224a3ed0",
+  "name": "Software development agreement (sample)",
+  "status": "complete",
+  "note": "Pre-baked hero analysis (3-document software-development set) so the demo can show a finished, fully-cited analysis instantly without a live Bedrock run. Re-seed with: python scripts/seed_demo.py"
+}
