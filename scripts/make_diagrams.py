@@ -90,6 +90,25 @@ def _card(page, rect, title, subtitle=None, *, fill=PAPER, border=SLATE,
               title, size=title_size, color=title_color, font=BOLD)
 
 
+def _elbow(page, pts, *, color=SLATE, width=1.6, head=7.0):
+    """Orthogonal multi-segment connector with an arrowhead on the final segment."""
+    import math
+    shape = page.new_shape()
+    for a, b in zip(pts, pts[1:]):
+        shape.draw_line(fitz.Point(*a), fitz.Point(*b))
+    # closePath=False: do NOT join the last point back to the first (that stray
+    # segment from the arrowhead back to the start is what was ruining the image).
+    shape.finish(color=color, width=width, closePath=False)
+    p0, p1 = pts[-2], pts[-1]
+    ang = math.atan2(p1[1] - p0[1], p1[0] - p0[0])
+    for da in (math.radians(150), math.radians(-150)):
+        shape.draw_line(fitz.Point(*p1),
+                        fitz.Point(p1[0] + head * math.cos(ang + da),
+                                   p1[1] + head * math.sin(ang + da)))
+    shape.finish(color=color, width=width, closePath=False)
+    shape.commit()
+
+
 def _arrow(page, p0, p1, *, color=SLATE, width=1.6, head=7.0, dash=None):
     shape = page.new_shape()
     shape.draw_line(fitz.Point(*p0), fitz.Point(*p1))
@@ -149,16 +168,19 @@ def architecture():
           "LangGraph pipeline — orchestration only (D1)", size=11, color=WHITE, font=BOLD)
     nodes = ["parse", "chunk", "embed", "entities", "summaries", "master",
              "structured", "graph", "findings", "judge"]
-    nx, ny = lg.x0 + 14, lg.y0 + 44
-    cw, chh, gap = 76, 26, 8
-    per = 5
+    # Size the cells to the box so all 10 nodes (incl. the rightmost "summaries"
+    # and "judge") sit INSIDE the LangGraph boundary.
+    per, gap, chh, pad = 5, 8, 26, 16
+    cw = (lg.width - 2 * pad - (per - 1) * gap) / per
+    nx, ny = lg.x0 + pad, lg.y0 + 44
     for i, n in enumerate(nodes):
         col, row = i % per, i // per
-        r = fitz.Rect(nx + col * (cw + gap), ny + row * (chh + 14),
-                      nx + col * (cw + gap) + cw, ny + row * (chh + 14) + chh)
+        x0 = nx + col * (cw + gap)
+        y0 = ny + row * (chh + 14)
+        r = fitz.Rect(x0, y0, x0 + cw, y0 + chh)
         accent = MARIGOLD if n in ("structured", "findings") else (SAGE if n == "judge" else None)
         _box(page, r, fill=WHITE, border=accent or SLATE, width=1.2 if accent else 0.8)
-        _text(page, r, n, size=8.5, color=INK, font=BOLD)
+        _text(page, r, n, size=8, color=INK, font=BOLD)
     _text(page, fitz.Rect(lg.x0, lg.y1 - 22, lg.x1, lg.y1 - 6),
           "reflective RAG loop on structured/findings · independent judge", size=7.6, color=(0.8, 0.84, 0.88))
 
@@ -241,7 +263,7 @@ def flow():
         ("summaries", "per-doc + master"),
     ]
     y1 = 112
-    w, h, gap = 200, 66, 36
+    w, h, gap = 196, 66, 30   # 5 chips fit within the 40px page margins (40..1140)
     rects1 = []
     x = 40
     for t, s in s1:
@@ -249,12 +271,12 @@ def flow():
         x += w + gap
     for a, b in zip(rects1, rects1[1:]):
         _arrow(page, (a.x1, y1 + h / 2), (b.x0, y1 + h / 2))
+    # (the stage-1 -> stage-2 connector is drawn after the stage-2 row, below,
+    #  once extract_structured's rect exists — see _elbow call.)
 
-    # connector down to stage 2
-    _arrow(page, (rects1[-1].x1 - w / 2, y1 + h), (rects1[-1].x1 - w / 2, y1 + h + 40), width=1.6)
-
-    # Stage 2 row
-    _text(page, fitz.Rect(40, 250, 360, 268), "STAGE 2 — ANALYSIS  (Sonnet)",
+    # Stage 2 row. The label sits just under row 1, leaving a clear channel below
+    # it for the stage-1 -> stage-2 connector (drawn after the row, below).
+    _text(page, fitz.Rect(40, 190, 380, 208), "STAGE 2 — ANALYSIS  (Sonnet)",
           size=10, color=SLATE, font=BOLD, align=fitz.TEXT_ALIGN_LEFT)
     y2 = 276
     s2 = [
@@ -271,6 +293,16 @@ def flow():
         x += w2 + gap
     for a, b in zip(rects2, rects2[1:]):
         _arrow(page, (a.x1, y2 + h / 2), (b.x0, y2 + h / 2))
+
+    # Stage-1 -> Stage-2: route summaries (rightmost, top row) down through a clear
+    # channel below the STAGE-2 label, then into the TOP-CENTRE of extract structured
+    # (clear of its left accent bar). The arrowhead lands on the box edge, not on it.
+    su, es = rects1[-1], rects2[0]
+    su_cx = su.x0 + w / 2
+    es_cx = es.x0 + w2 / 2
+    channel_y = 234
+    _elbow(page, [(su_cx, y1 + h), (su_cx, channel_y), (es_cx, channel_y), (es_cx, y2)],
+           width=1.6)
 
     # reflective RAG loop callout (D10) under extract structured + detect findings
     loop = fitz.Rect(40, 400, 40 + w2, 520)
